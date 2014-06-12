@@ -1,15 +1,21 @@
-# humanstxt.org/
+# humanstxt.org
 # The humans responsible & technology colophon
 
-# TEAM
+/* CREATED BY */
+	Arnau-Leninux / RedRudeBoy
+	From: Barcelona, Catalonia, Iberian Peninsula, Europe, World
 
-    <name> -- <role> -- <twitter>
+/* CODE AT */
+	https://github.com/RedRudeBoy/RedRudeBoy.git
 
-# THANKS
+/* SITE */
+	Last update: 22/01/2013
+	Language: Català / Castellano / English
+	Doctype: HTML5
+	IDE: Brackets, Netbeans
 
-    <name>
+/* THANKS */
+	All the developers that give their source code for free
 
-# TECHNOLOGY COLOPHON
-
-    HTML5, CSS3
-    Ember.js
+/* MORE INFO */
+	@see: readme.md

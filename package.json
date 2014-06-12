@@ -1,11 +1,35 @@
 {
-  "name": "app-kit",
+  "name": "HowMany",
+  "description":"Work In Progress - How Many Days have been since I did...",
+  "keywords": [
+    "HowMany",
+    "HowManyDays",
+    "vcal",
+    "ical"
+  ],
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/RedRudeBoy/HowMany"
+  },
+  "author": {
+    "name": "RedRudeBoy / Leninux",
+    "email": "redrudeboy@gmail.com"
+  },
+  "licenses": [{
+    "type": "GPL-3.0",
+    "url": "http://opensource.org/licenses/GPL-3.0",
+  }],
+  "license": {
+    "type": "GPLv3",
+    "url": "http://opensource.org/licenses/GPL-3.0",
+  },
+  "readmeFilename": "README.md",
   "namespace": "appkit",
   "APIMethod": "stub",
   "proxyURL": "http://localhost:8000",
   "proxyPath": "/api",
   "docURL": "http://localhost:8000/docs/index.html",
-  "version": "0.0.0",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -17,12 +41,6 @@
     "test": "grunt test:ci",
     "postinstall": "bower install"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/stefanpenner/ember-app-kit.git"
-  },
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "express": "~3.4.8",
     "lockfile": "~0.4.2",
