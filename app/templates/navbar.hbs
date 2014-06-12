@@ -1,0 +1,74 @@
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-default" role="navigation">
+	<div class="container"><!-- .container-fluid -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#NavbarMenuSmallContent" {{action "toggleMenu"}}>
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			{{#link-to 'index' classNames="navbar-brand"}}HowMany{{/link-to}}
+
+		</div>
+
+		<!-- Menu collapsible: User Info, Conf, Report, Wizard & Credits -->
+		<ul class="nav navbar-nav navbar-right hidden-xs" id="NavbarUserInfo">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle clearfix" data-toggle="dropdown">
+					<!-- User Info -->
+					<div class="media pull-left">
+						<!-- https://es.gravatar.com/site/implement/images/
+							md5( strtolower( trim( "MyEmailAddress@example.com " ) ) ); -->
+						<!-- Additional radius class: img-rounded img-circle img-polaroid -->
+						<img class="media-object pull-left img-rounded" src="http://www.gravatar.com/avatar/12341234?d=wavatar&r=x&s=35&f=y" />
+						<div class="media-body pull-right">
+							<h5 class="media-heading">Lenin Gols</h5>
+						</div>
+
+					</div>
+					<b class="caret pull-right"></b>
+				</a>
+				<!-- Conf, Report, Wizard & Credits -->
+				<ul role="menu" class="dropdown-menu pull-right">
+                    {{!--
+					<li role="menuitem">
+						{{#link-to 'Report'}}<i class="fa fa-tasks"></i> New Report{{/link-to}}
+					</li>--}}
+					<li class="divider"></li>
+					<li role="menuitem">
+						{{#link-to 'Wizard'}}<i class="fa fa-magic"></i> Wizard: Suggest HowManys{{/link-to}}
+					</li>
+					<li class="divider"></li>
+					<li role="menuitem">
+						<!-- other icons: -pencil -wrench -gear -->
+						{{#link-to 'Configuration'}}<i class="fa fa-gears"></i> Configuration{{/link-to}}
+					</li>
+					<li class="divider"></li>
+					<li role="menuitem">
+						{{#link-to 'Credits'}}<i class="fa fa-linux"></i> Credits{{/link-to}}
+					</li>
+				</ul>
+			</li>
+		</ul>
+
+		<!-- Mini-menu for small windows -->
+		<div id="NavbarMenuSmall" class="visible-xs" {{action "toggleMenu"}}>
+			<a class="btn btn-navbar">
+				<!-- Number of lines -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<!--<i class="icon-reorder"></i>-->
+			</a>
+		</div>
+	</div><!-- /.container-fluid -->
+</nav>
+{{!--
+<ul id="NavbarMenuSmallContent" class="nav nav-tabs nav-stacked">
+	<li>{{#link-to 'Report'}}<i class="fa fa-tasks fa-2x"></i> New Report{{/link-to}}</li>
+	<li>{{#link-to 'Wizard'}}<i class="fa fa-magic fa-2x"></i> HowManys Wizard{{/link-to}}</li>
+	<li>{{#link-to 'Configuration'}}<i class="fa fa-gears fa-2x"></i> Configuration{{/link-to}}</li>
+	<li>{{#link-to 'Credits'}}<i class="fa fa-linux fa-2x"></i> Credits{{/link-to}}</li>
+</ul>
+--}}

@@ -1,5 +1,55 @@
-<ul>
-{{#each}}
-  <li>{{this}}</li>
-{{/each}}
-</ul>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2" style="background-color: whitesmoke;">
+        {{#if hasCalendars}}
+        <h1>
+            Calendars <small>(or Contexts) {{#bs-button clicked="addNewCalendar"}}<span class="glyphicon glyphicon-plus"></span> {{t calendar.addNew}}{{/bs-button}}</small>
+        </h1>
+        {{#if showAddNewCalendar}}<span style="border: 1px solid grey;padding: 5px;">{{render 'uploadcalendar'}}</span>{{/if}}
+        <div class="list-group">
+        {{#each}}
+            {{!--#link-to 'howmany' this classNames='list-group-item'}}{{/link-to--}}
+                {{!--vcalendar-listitem vcalendar=this--}}
+                {{vcalendar-listitem tagName='a' classNames='list-group-item' vcalendar=this action="btnLinkTo" param=this}}
+            
+        {{/each}}
+        </div>
+        
+        {{else}}
+        
+        <h1>You don't have any calendars <small>(or Contexts)</small></h1>
+        <p class="lead">You need and *.ics file, <a href="https://support.google.com/calendar/answer/37111?hl=en" target="_blank">you can export an ics file from google calendar</a></p>
+        
+        
+        {{!--#bs-button large=true block=true clicked="addNewCalendar"}}{{t calendar.addNew}}{{/bs-button--}}
+        {{render 'uploadcalendar'}}
+        
+        
+        {{/if}}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="row">
+            {{!--<h3>Actions:</h3>--}}
+            {{!--#bs-button large=true block=true clicked="btnLinkTo" clickedParam="test1"}}{{t home.test}}{{/bs-button--}}
+            <div class="col-md-6">
+                {{#if hasCalendars}}
+                    {{#bs-button large=true block=true clicked="btnLinkTo" clickedParam="edit_calendars"}}Edit Calendars{{/bs-button}}
+                {{/if}}
+                <br />
+                {{#bs-button large=true block=true clicked="btnLinkTo" clickedParam="wizard"}}Wizard: Suggest HowManys{{/bs-button}}
+            </div>
+            <div class="col-md-6">
+                {{#bs-button large=true block=true clicked="btnLinkTo" clickedParam="Configuration"}}Configuration{{/bs-button}}
+                <br />
+                {{#bs-button large=true block=true clicked="btnLinkTo" clickedParam="credits"}}Credits{{/bs-button}}
+                
+            </div>
+        </div>
+        <br />
+        <br />
+        <span>Transaltion test: {{t home.test}}</span>
+    </div>
+</div>
