@@ -1,0 +1,18 @@
+<div class="row"><div class="span12"><h1>HowMany Planning!</h1></div></div>
+<br />
+<div class="row">
+	<div class="span6 offset3">
+		<h4>In the future roadmap</h4>
+	</div>
+</div>
+<p>Model: {{model}}</p>
+
+<h1>each:</h1>
+{{#each}}
+	<p>Id: {{id}}</p>
+	<p>Calendar: {{calendar}}</p>
+	<p>Calendar summary: {{calendar.summary}}</p>
+	<p>Task: {{task}}</p>
+	<p>Task title: {{task.title}}</p>
+{{/each}}
+<h1>end each</h1>

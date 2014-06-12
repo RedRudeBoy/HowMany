@@ -1,0 +1,62 @@
+<div class="well fuelux">
+	<p>Questions: {{model}}</p>
+	{{#each}}
+		{{#wizard-component model=this}}
+			{{this}}
+			{{body}}
+		{{/wizard-component}}
+		{{wizard-component}}
+		<p>Question: {{question}}</p>
+		<ul>
+		{{#each answers}}
+			<li>Answer: {{answer}}</li>
+			<li>FilterTags: {{filterTags}}</li>
+			<ul>
+				{{#each filterTags}}
+					<li>{{name}}</li>
+				{{/each}}
+			</ul>
+			<li>HowManys: {{howManys}}</li>
+			<ul>
+				{{#each howManys}}
+					<li>{{task.title}}</li>
+				{{/each}}
+			</ul>
+		{{/each}}
+		</ul>
+		<br />
+	{{/each}}
+	<div id="MyWizard" class="wizard">
+		<ul class="steps">
+			<li class="complete">{{#linkTo 'Wizard.Welcome'}}Welcome{{/linkTo}}<span class="chevron"></span></li>
+			<li class="active">{{#linkTo 'Wizard.BasicInfo'}}<small>Basic Info</small>{{/linkTo}}<span class="chevron"></span></li>
+			<li>{{#linkTo 'Wizard.Body'}}Body <span class="badge">0</span>{{/linkTo}}<span class="chevron"></span></li>
+			<li>{{#linkTo 'Wizard.Mind'}}Mind <span class="badge">0</span>{{/linkTo}}<span class="chevron"></span></li>
+			<li>{{#linkTo 'Wizard.Work'}}Work <span class="badge">0</span>{{/linkTo}}<span class="chevron"></span></li>
+			<li>{{#linkTo 'Wizard.Vice'}}Vice <span class="badge">0</span>{{/linkTo}}<span class="chevron"></span></li>
+			<li>{{#linkTo 'Wizard.Finish'}}Finish!{{/linkTo}}</li>
+		</ul>
+	</div>
+	<br />
+	<br />
+	<div class="step-content well">
+		{{outlet}}
+<!--
+		<div class="step-pane active" id="step1">1</div>
+		<div class="step-pane" id="step2">This is step 2</div>
+		<div class="step-pane" id="step3">This is step 3</div>
+		<div class="step-pane" id="step4">This is step 4</div>
+		<div class="step-pane" id="step5">This is step 5</div>
+		<div class="step-pane" id="step6">This is step 6</div>
+		<div class="step-pane" id="step7">This is step 7</div>
+-->
+	</div>
+	<br />
+<!--
+	<button type="button" class="btn btn-mini btn-prev"> <i class="icon-arrow-left"></i>Prev</button>
+	<button type="button" class="btn btn-mini btn-next" data-last="Finish">Next<i class="icon-arrow-right"></i></button>
+-->
+	<input type="button" class="btn btn-mini" id="btnWizardPrev" value="prev">
+	<input type="button" class="btn btn-mini" id="btnWizardNext" value="next">
+	<input type="button" class="btn btn-mini" id="btnWizardStep" value="current step">
+</div>

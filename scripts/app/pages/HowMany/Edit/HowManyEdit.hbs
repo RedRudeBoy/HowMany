@@ -1,0 +1,430 @@
+<div class="row alert HowManyEditActionsToolbar">
+	<div class="span4 offset1">
+		{{#linkTo 'HowManys.index' class="btn btn-block btn-success"}}<i class="icon-save icon-2x"></i><br />Save{{/linkTo}}
+	</div>
+	<div class="span3 offset1">
+		{{#linkTo 'HowManys.index' class="btn btn-block btn-warning"}}<i class="icon-undo"></i><br />Cancel Changes & Return{{/linkTo}}
+	</div>
+	<div class="span1 offset1">
+		<a class="btn btn-block btn-danger" data-toggle="modal" href="#removeHowManyModal" role="button"><i class="icon-trash"></i> Remove</a>
+	</div>
+</div>
+
+<div class="tabbable">
+	<div id="tabbable-legend">
+		<div id="tabbable-legend-shared">
+			<span>Shared Configuration</span>
+		</div>
+		<div id="tabbable-legend-private">
+			<span>Private Configuration</span>
+		</div>
+		<div id="tabbable-legend-action">
+			<span>Actions</span>
+		</div>
+	</div>
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#HowManyEditBasic" data-toggle="tab"><span class="normal">Basic Info</span><span class="min">Basic</span></a></li>
+		<li><a href="#HowManyEditTags" data-toggle="tab"><span class="normal">Categories</span><span class="min">Tag</span></a></li>
+		<li><a href="#HowManyEditUsers" data-toggle="tab"><span class="normal">Users</span><span class="min">User</span></a></li>
+		<li class="private"><a href="#HowManyEditPeriodicity" data-toggle="tab"><span class="normal">Periodicity + Alarms</span><span class="min">Private</span></a></li>
+		<li class="action">{{#linkTo 'HowManys.index' class="btn btn-success"}}<i class="icon-save"></i> Save{{/linkTo}}</li>
+		<li class="action">{{#linkTo 'HowManys.index' class="btn btn-warning"}}<i class="icon-undo"></i> Cancel{{/linkTo}}</li>
+		<li class="action"><a class="btn btn-danger" data-toggle="modal" href="#removeHowManyModal" role="button"><i class="icon-trash"></i> Remove</a></li>
+	</ul>
+</div>
+
+<div class="tab-content">
+
+	<div class="tab-pane active" id="HowManyEditBasic">
+		<div class="media img-rounded">
+			<div class="media-object-container pull-left" {{action "imgChange"}}>
+				<img class="media-object img-rounded" src="img/uploads/Familia.png">
+			</div>
+			<div class="media-body">
+				<small>Title:</small><br />
+				{{input value=task.title classNames="media-heading"}}<br /><br /><!--h3-->
+<!--			<small>Description:</small><br />
+				<input class="media-description" value="Aprendràs molt!"  type="text" /><br /><!--h5-->
+			</div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<p>Events: {{events}}</p>
+			<p>Events Length: {{events.length}}</p>
+			{{#each events}}
+				<p>name: {{summary}}</p>
+			{{else}}
+				<p>Without Events</p>
+			{{/each}}
+			<br />
+			<p>Radio test</p>
+			<p>1: {{view App.HowManyEditSatisfactionView name="selectionTest" selectionBinding="satisfying" value="1"}}</p>
+			<p>2: {{view App.HowManyEditSatisfactionView name="selectionTest" selectionBinding="satisfying" value="2"}}</p>
+			<p>3: {{view App.HowManyEditSatisfactionView name="selectionTest" selectionBinding="satisfying" value="3"}}</p>
+			<p>4: {{view App.HowManyEditSatisfactionView name="selectionTest" selectionBinding="satisfying" value="4"}}</p>
+			<p>5: {{view App.HowManyEditSatisfactionView name="selectionTest" selectionBinding="satisfying" value="5"}}</p>
+			<p>satisfying: {{satisfying}}</p>
+			{{#if view.isVeryDifficult}}
+			<p>Es moolt dificil!</p>
+			{{else}}
+			<p>no es pa tanto</p>
+			{{/if}}
+			<br />
+		</div>
+	</div>
+
+	<div class="tab-pane" id="HowManyEditTags">
+		{{!--<p>Tags: {{tags}}</p>--}}
+		<div class="row-fluid">
+			{{#each tags}}
+				{{#view App.HowManyEditTagView contentBinding="this"}}
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="220px" height="250px">
+						<!--<text x="0" y="15" fill="black">{{!--tag.name}}: {{importance--}}</text>-->
+						<circle id="circle" cx="110" cy="140" {{bind-attr r="importance"}} stroke="black" stroke-width="1" fill="lightgreen" />
+					</svg>
+					<p>{{tag.name}}: {{importance}} {{!--(view.maxImportance)--}}</p>
+				{{/view}}
+			{{else}}
+				<div class="span"><p>Without tags</p></div>
+			{{/each}}
+			{{!--
+			<br />
+			<br />
+			<br />
+			<div class="span HowManyEditTag">
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="220px" height="220px">
+					<circle id="circle" cx="110" cy="110" r="50" stroke="black" stroke-width="1" fill="lightgreen" />
+				</svg>
+				<p>Vice</p>
+			</div>
+			--}}
+		</div>
+		<br /><br />
+		<div class="row-fluid">
+			<div class="span6 offset3">
+				<a class="btn btn-block" data-toggle="collapse" data-target="#HowManyEditTagsAddCategory">Add Category</a>
+			</div>
+		</div>
+		<div id="HowManyEditTagsAddCategory" class="collapse">
+			<br />
+			<div class="row-fluid">
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-wrench icon-2x"></i> <br />Work<br />Finances<br />Money</a></div>
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-beaker icon-2x"></i> <br />Research<br />Exploration</a></div>
+				<div class="span2"><a class="btn btn-block active btn-success" data-toggle="button"><i class="icon-group icon-2x"></i> <br />Family</a></div>
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-user icon-2x"></i> <br />Friends</a></div>
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-comments icon-2x"></i> <br />Social Relations</a></div>
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-heart icon-2x"></i> <br />Close Relationships<br />Couple</a></div>
+			</div>
+			<br />
+			<div class="row-fluid">
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-stethoscope icon-2x"></i> <br />Health</a></div>
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-dashboard icon-2x"></i> <br />Sport</a></div>
+				<div class="span2"><a class="btn btn-block active btn-success" data-toggle="button"><i class="icon-book icon-2x"></i> <br />Culture<br />Intelligence</a></div>
+				<div class="span2"><a class="btn btn-block active btn-success" data-toggle="button"><i class="icon-compass icon-2x"></i> <br />Center<br />Mind</a></div>
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-home icon-2x"></i> <br />Home</a></div>
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-ticket icon-2x"></i> <br />Entertainment<br />Hobbies</a></div>
+			</div>
+			<br />
+			<div class="row-fluid">
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-resize-full icon-2x"></i> <br />Altruism</a></div>
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-bullhorn icon-2x"></i> <br />Community</a></div>
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-link icon-2x"></i> <br />Duty</a></div>
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-glass icon-2x"></i> <br />Pleasure</a></div>
+				<div class="span2"><a class="btn btn-block" data-toggle="button"><i class="icon-beer icon-2x"></i> <br />Vice</a></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="tab-pane" id="HowManyEditUsers">
+		<div class="row-fluid">
+			<div class="span6 offset3">
+				<a class="btn btn-block"><i class="icon-share"></i> Invite</a>
+			</div>
+		</div>
+		<br />
+		<div class="row-fluid">
+			<p class="span12">Shared with:</p>
+			<br />
+			{{#each contacts}}
+				<div class="span4"><a class="btn btn-block" data-toggle="modal" href="#removeUserModal" role="button">
+					<span class="icon-stack icon-3x"><i class="icon-user icon-stack-base"></i><i class="icon-ban-circle text-error"></i></span>
+					<br />{{id}}{{!--computed propertie  domain without @gmail.com--}}
+				</a></div>
+			{{/each}}
+		</div>
+		<div id="removeUserModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="removeUserModalLabel" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="removeUserModalLabel">Unshare</h3>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure you want to unshare Visitar l'àvia with Mihoko?</p>
+			</div>
+			<div class="modal-footer">
+				<a class="btn btn-danger btn-block" role="button">
+					<span class="icon-stack icon-2x"><i class="icon-share"></i><i class="icon-ban-circle icon-stack-base"></i></span> Yep
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="tab-pane" id="HowManyEditPeriodicity">
+		<div class="row-fluid">
+			<p class="span12">Choose your difficulty / satisfying:</p>
+			<div class="row-fluid">
+				<div class="span2 offset1">
+					<a {{bind-attr class=":btn :btn-block :btn-very-easy view.isVeryEasy:active"}} {{action "veryEasy"}}><i class="icon-star-empty icon-2x"></i><br />Very easy</a>
+				</div>
+				<div class="span2">
+					<a {{bind-attr class=":btn :btn-block :btn-easy view.isEasy:active"}} {{action "easy"}}><i class="icon-star-empty"></i><br />Easy</a>
+				</div>
+				<div class="span2">
+					<a {{bind-attr class=":btn :btn-block :btn-medium view.isMedium:active"}} {{action "medium"}}><i class="icon-star-half-empty icon-flip-horizontal"></i><br />Medium</a>
+				</div>
+				<div class="span2">
+					<a {{bind-attr class=":btn :btn-block :btn-difficult view.isDifficult:active"}} {{action "difficult"}}><i class="icon-star"></i><br />Difficult</a>
+				</div>
+				<div class="span2">
+					<a {{bind-attr class=":btn :btn-block :btn-very-difficult view.isVeryDifficult:active"}} {{action "veryDifficult"}}><i class="icon-star icon-2x"></i><br />Very Difficult</a>
+				</div>
+			</div>
+		</div>
+		<br /><br />
+		<div class="row-fluid hidden-phone">
+			<p class="span12">Choose how often you have to do it:</p>
+			<div class="row-fluid" id="HowManyEditRecursion">
+				<div class="span2 offset1" id="HowManyEditRecursionUpUp">
+					<div class="row-fluid HowManyEditRecursionLevel">
+						<i class="icon-thumbs-up-alt"></i> <i class="icon-thumbs-up-alt"></i>
+					</div>
+					<div class="row-fluid HowManyEditRecursionDate">
+						<div class="span2"><i class="icon-chevron-left HowManyEditRecursionChevron"></i> <div style="clear:both"></div></div>
+						<div class="span8 row-fluid">
+							<div class="span12 HowManyEditRecursionDateBig">Annual</div>
+							<button class="btn span12" data-toggle="button">year</button>
+							<button class="btn span12" data-toggle="button">9 months</button>
+							<button class="btn span12" data-toggle="button">6 months</button>
+							<button class="btn span12" data-toggle="button">3 months</button>
+						</div>
+						<div class="span2"><i class="icon-chevron-right HowManyEditRecursionChevron"></i> </div>
+					</div>
+					<div class="row-fluid HowManyEditRecursionAlarms">
+						<button class="btn" data-toggle="button"><i class="icon-envelope-alt"></i></button>
+						<button class="btn" data-toggle="button"><i class="icon-bell"></i></button>
+					</div>
+				</div>
+				<div class="span2" id="HowManyEditRecursionUp"><i class="icon-thumbs-up-alt"></i> </div>
+				<div class="span2" id="HowManyEditRecursionMeh"><i class="icon-meh"></i> </div>
+				<div class="span2" id="HowManyEditRecursionDown"><i class="icon-thumbs-down-alt"></i> </div>
+				<div class="span2" id="HowManyEditRecursionDownDown"><i class="icon-thumbs-down-alt"></i> <i class="icon-thumbs-down-alt"></i> </div>
+			</div>
+		</div>
+		<div class="row-fluid visible-phone">
+		</div>
+		<div class="row-fluid">
+			<p class="span12">Choose how often you have to do it:</p>
+			<center class="span12 btn-group" style="background-color: #eee;">
+				<h5 class="span1 text-center">It's</h5>
+				<h5 class="span3 text-center">Blabla</h5>
+				<h5 class="span5 text-center">Once every</h5>
+				<h5 class="span3 text-center">Alarms</h5>
+			</center>
+			<center class="span12 btn-group" style="background-color: #A9F5BC; padding: 10px;">
+				<div class="btn-group span1">
+					<a class="btn btn-block"><i class="icon-thumbs-up-alt"></i> <i class="icon-thumbs-up-alt"></i> </a>
+				</div>
+				<!--
+				<select style="width: 100px;"><option value=""></option><option value="a" selected>Annual</option><option value="m">Monthly</option><option value="w">Weekly</option><option value="d">Daily</option></select>
+				-->
+				<div class="btn-group span3">
+					<!--
+					<button class="btn" style="color: grey">----------------------</button>
+					-->
+					<button class="btn" style="color: grey">Annual</button>
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<p>Annual</p>
+						<p>Monthly</p>
+						<p>Weekly</p>
+						<p>Daily</p>
+					</ul>
+				</div>
+				<div class="btn-group span5">
+					<button class="btn" data-toggle="button">year</button>
+					<button class="btn" data-toggle="button">9 months</button>
+					<button class="btn" data-toggle="button">6 months</button>
+					<button class="btn" data-toggle="button">3 months</button>
+				</div>
+				<div class="btn-group span3">
+					<button class="btn" data-toggle="button"><i class="icon-envelope-alt"></i></button>
+					<button class="btn" data-toggle="button"><i class="icon-bell"></i></button>
+				</div>
+			</center>
+			<center class="span12 btn-group" style="background-color: #D0F5A9; padding: 10px;">
+				<div class="btn-group span1">
+					<a class="btn btn-block"><i class="icon-thumbs-up-alt"></i> </i> </a>
+				</div>
+				<!--
+				<select style="width: 100px;"><option value=""></option><option value="a" selected>Annual</option><option value="m">Monthly</option><option value="w">Weekly</option><option value="d">Daily</option></select>
+				-->
+				<div class="btn-group span3">
+					<!--
+					<button class="btn" style="color: grey">----------------------</button>
+					-->
+					<button class="btn" style="color: grey">Monthly</button>
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<p>Annual</p>
+						<p>Monthly</p>
+						<p>Weekly</p>
+						<p>Daily</p>
+					</ul>
+				</div>
+				<div class="btn-group span5">
+					<button class="btn" data-toggle="button">month</button>
+					<button class="btn" data-toggle="button">3 weeks</button>
+					<button class="btn" data-toggle="button">2 weeks</button>
+					<button class="btn" data-toggle="button">week</button>
+				</div>
+				<div class="btn-group span3">
+					<button class="btn" data-toggle="button"><i class="icon-envelope-alt"></i></button>
+					<button class="btn" data-toggle="button"><i class="icon-bell"></i></button>
+				</div>
+			</center>
+			<center class="span12 btn-group" style="background-color: #F2F5A9; padding: 10px;">
+				<div class="btn-group span1">
+					<a class="btn btn-block"><i class="icon-meh"></i> </a>
+				</div>
+				<!--
+				<select style="width: 100px;"><option value=""></option><option value="a" selected>Annual</option><option value="m">Monthly</option><option value="w">Weekly</option><option value="d">Daily</option></select>
+				-->
+				<div class="btn-group span3">
+					<!--
+					<button class="btn" style="color: grey">----------------------</button>
+					-->
+					<button class="btn" style="color: grey">Weekly</button>
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<p>Annual</p>
+						<p>Monthly</p>
+						<p>Weekly</p>
+						<p>Daily</p>
+					</ul>
+				</div>
+				<div class="btn-group span5">
+					<button class="btn" data-toggle="button">Dll</button>
+					<button class="btn" data-toggle="button">Dm</button>
+					<button class="btn" data-toggle="button">Dx</button>
+					<button class="btn" data-toggle="button">Dj</button>
+					<button class="btn" data-toggle="button">Dv</button>
+					<button class="btn" data-toggle="button">Ds</button>
+					<button class="btn" data-toggle="button">Dg</button>
+				</div>
+				<div class="btn-group span3">
+					<button class="btn" data-toggle="button"><i class="icon-envelope-alt"></i></button>
+					<button class="btn" data-toggle="button"><i class="icon-bell"></i></button>
+				</div>
+			</center>
+			<center class="span12 btn-group" style="background-color: #F5D0A9; padding: 10px;">
+				<div class="btn-group span1">
+					<a class="btn btn-block"><i class="icon-thumbs-down-alt"></i> </a>
+				</div>
+				<!--
+				<select style="width: 100px;"><option value=""></option><option value="a" selected>Annual</option><option value="m">Monthly</option><option value="w">Weekly</option><option value="d">Daily</option></select>
+				-->
+				<div class="btn-group span3">
+					<!--
+					<button class="btn" style="color: grey">----------------------</button>
+					-->
+					<button class="btn" style="color: grey">Daily</button>
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<p>Annual</p>
+						<p>Monthly</p>
+						<p>Weekly</p>
+						<p>Daily</p>
+					</ul>
+				</div>
+				<div class="btn-group span5">
+					<div class="input-append dropdown combobox btn">
+						<input class="span2" type="text" style="min-width: 40px">
+						<button class="btn" data-toggle="dropdown"><i class="caret"></i></button>
+						<ul class="dropdown-menu">
+							<li data-value="1"><a>One</a></li>
+							<li data-value="2"><a>Two</a></li>
+							<li data-value="3"><a>Three</a></li>
+							<li data-value="4"><a>Four</a></li>
+						</ul>
+						<span> Times a day</span>
+					</div>
+				</div>
+				<div class="btn-group span3">
+					<button class="btn" data-toggle="button"><i class="icon-envelope-alt"></i></button>
+					<button class="btn" data-toggle="button"><i class="icon-bell"></i></button>
+				</div>
+			</center>
+			<center class="span12 btn-group" style="background-color: #F5A9A9; padding: 10px;">
+				<div class="btn-group span1">
+					<a class="btn btn-block"><i class="icon-thumbs-down-alt"></i> <i class="icon-thumbs-down-alt"></i> </a>
+				</div>
+				<!--
+				<select style="width: 100px;"><option value=""></option><option value="a" selected>Annual</option><option value="m">Monthly</option><option value="w">Weekly</option><option value="d">Daily</option></select>
+				-->
+				<div class="btn-group span3">
+					<button class="btn" style="color: grey">----------------------</button>
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<p>Annual</p>
+						<p>Monthly</p>
+						<p>Weekly</p>
+						<p>Daily</p>
+					</ul>
+				</div>
+				<div class="btn-group span5">
+					<button class="btn" data-toggle="button">year</button>
+					<button class="btn" data-toggle="button">9 months</button>
+					<button class="btn" data-toggle="button">6 months</button>
+					<button class="btn" data-toggle="button">3 months</button>
+				</div>
+				<div class="btn-group span3">
+					<button class="btn" data-toggle="button"><i class="icon-envelope-alt"></i></button>
+					<button class="btn" data-toggle="button"><i class="icon-bell"></i></button>
+				</div>
+			</center>
+		</div>
+	</div>
+</div>
+<br />
+<br />
+
+<div id="removeHowManyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="removeHowManyModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="removeHowManyModalLabel">Remove Visitar l'àvia</h3>
+	</div>
+	<div class="modal-body">
+		<p>Are you sure you want to remove Visitar l'àvia?</p>
+		<p>You can't undo this</p>
+	</div>
+	<div class="modal-footer">
+		{{! Error: hide modal previously
+		{#linkTo 'HowManys.index' class="btn btn-block btn-danger"}<i class="icon-trash"></i> Remove it!{/linkTo}
+		}}
+		<a class="btn btn-danger btn-block" role="button">
+			<i class="icon-trash"></i> Remove it!
+		</a>
+	</div>
+</div>
+

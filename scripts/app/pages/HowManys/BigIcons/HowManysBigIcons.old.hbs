@@ -1,0 +1,87 @@
+<div id="HowManysBigIcons">
+
+{{!--#each ParentTag in model}}
+	<!--<h1>HOla: {{childrenLength}} {{ParentTag}}</h1>-->
+	{{view App.HowManysBigIconsItemView}}
+{{/each}}
+{{!--#each tag in App.HowManysController}}
+	{{tag}}
+	{{!--view App.HowManysBigIconsItemView}}
+{{/each--}}
+
+
+{{#each ParentTag in model}}
+<div class="row">
+	<div class="{{unbound tagParentSpan this}} {{unbound sizeSpan}}">
+		<button type="button" class="btn btn-block" data-toggle="collapse" data-target="#HowManysBigIcons{{unbound ParentTag.name}}">{{unbound ParentTag.name}}</button>
+		<div class="row collapse in" id="HowManysBigIcons{{unbound ParentTag.name}}">
+			{{#each Tag in ParentTag.childrens}}
+				<div class="span2 {{unbound tagChildrenOffset this}}">
+					<a class="btn btn-block">
+						{{#if Tag.icon}}
+						<i class="icon-{{unbound Tag.icon}} icon-2x"></i> <br />
+						{{/if}}
+						{{{unbound Tag.name}}}</a>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</div>
+<br />
+{{/each}}
+
+<!--
+	{{!-- Format icones --}}
+	<div class="row">
+		<div class="span12">
+			<button type="button" class="btn btn-block" data-toggle="collapse" data-target="#HowManysBigIconsBody">Body</button>
+			<div class="row collapse in" id="HowManysBigIconsBody">
+				<div class="span2 offset2"><a class="btn btn-block"><i class="icon-stethoscope icon-2x"></i> <br />Health</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-dashboard icon-2x"></i> <br />Sport</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-apple icon-2x"></i> <br />Nutrition</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-moon icon-2x"></i> <br />Rest</a></div>
+			</div>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="span12">
+			<button type="button" class="btn btn-block" data-toggle="collapse" data-target="#HowManysBigIconsMind">Mind</button>
+			<div class="row collapse in" id="HowManysBigIconsMind">
+				<div class="span2 offset2"><a class="btn btn-block"><i class="icon-book icon-2x"></i> <br />Culture<br />Intelligence</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-beaker icon-2x"></i> <br />Research<br />Exploration</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-resize-full icon-2x"></i> <br />Altruism<br />Community</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-compass icon-2x"></i> <br />Center<br />Moral<br />Philosophy</a></div>
+			</div>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="span12">
+			<button type="button" class="btn btn-block" data-toggle="collapse" data-target="#HowManysBigIconsOthers">Others</button>
+			<div class="row collapse in" id="HowManysBigIconsOthers">
+				<div class="span2 offset2"><a class="btn btn-block"><i class="icon-wrench icon-2x"></i> <br />Work<br />Finances<br />Money</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-home icon-2x"></i> <br />Home</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-ticket icon-2x"></i> <br />Entertainment<br />Hobbies<br />Pleasure</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-cut icon-2x"></i> <br />Vice</a></div>
+			</div>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="span12">
+			<button type="button" class="btn btn-block" data-toggle="collapse" data-target="#HowManysBigIconsCircles">Circles</button>
+			<div class="row collapse in" id="HowManysBigIconsCircles">
+				<div class="span2"><a class="btn btn-block"><i class="icon-group icon-2x"></i> <br />Family</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-umbrella icon-2x"></i> <br />De tota la vida</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-picture icon-2x"></i> <br />Ramon Llull i escoltes</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-briefcase icon-2x"></i> <br />Feina i +</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-plane icon-2x"></i> <br />Thailandia</a></div>
+				<div class="span2"><a class="btn btn-block"><i class="icon-flag icon-2x"></i> <br />Game Of Thrones</a></div>
+			</div>
+		</div>
+	</div>
+-->
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<div class="row space"><div class="span12"><h1><a href="http://fortawesome.github.io/Font-Awesome/icons/" target"_blank">Tots els icones i molts més són d'aquí</a></h1></div></div>
+</div>

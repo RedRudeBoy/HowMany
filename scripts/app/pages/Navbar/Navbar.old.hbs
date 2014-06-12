@@ -1,0 +1,116 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container clearfix">
+			<!-- Mini-menu for small windows -->
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<!-- Number of lines -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<!-- Content uncollapsed, HowMany Home -->
+			<!-- <a class="brand" href="#home">How Many's</a> -->
+			<div class="btn-toolbar pull-left">
+				<div class="btn-group">
+					<a href="#UsersList" class="btn btn-large"><i class="icon-list"></i> Users</a>
+					<a href="#HowManyList" class="btn btn-large"><i class="icon-tasks"></i> How Many's</a>
+					<a href="#Configuration" class="btn btn-large"><i class="icon-cog"></i> </a>
+					<!--
+					icon conf: -pencil -wrench -cog
+					icon list: -th -th-list -th-large -align-justify
+					<a href="#Configuration" class="btn btn-large"><i class="icon-gear"></i> </a>
+					<a class="btn" href="#"><i class="icon-pencil"></i></a>
+					-->
+				</div>
+			</div>
+
+			<!-- User: dropdown with users & Login -->
+			<div class="nav-collapse collapse clearfix">
+				<ul class="nav pull-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle clearfix" data-toggle="dropdown">
+							<!-- Actual user -->
+							<div class="media pull-left">
+								<!-- Additional radius class: img-rounded img-circle img-polaroid -->
+								<img data-src="holder.js/50x50" class="media-object pull-left img-polaroid" alt="50x50" style="width: 50px; height: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACGElEQVR4nO2UwYqjUBBF+/8/pUAEeSAiiCASBBmCSJAgISPyEJH6hTsLXyfpXiakL83U4oAxWhxPmXyoKv5nPtgCbCwAW4CNBWALsLEAbAE2FoAtwMYCsAXYWAC2ABsLwBZgYwHYAmwsAFuAjQVgC7CxAGwBNhaALcDGArw8ZJvQ5A5RJIhih/o4YvtyjUeTOySJQzsuPz/vvQEWNKlARBAlDpHsx/X5LjYdc0g4Xw3+h+e9O8Dc7ZJpi00V66XHoa5xPAex9QwXZG/C64jCOTiXoZsU6nvkzsG5AuPfJ+YxAyxDHWQipGmCOHE4dNfb930RQSTH6XT4IjxUyb7ltESVxRARJPXw9DxegHN920YUx7fjop+xjg1EBOVpgV6b8Cqv4d4JRXTfpMQV5pfmkQPERQdVhe/L/XPVoXHhNf3Toa1SiAhc2WCct/3eU3l7wM/f+CvzKAE+t5JUA1QV23gIwj3q+GHDDxQnD1WP2j2cdwcsL80jBdBtDH9KMcqmQZFEEBFkxyvWxcN7D7+suIZNlt0FmyoubbY/QJIhDQ+WtZen5/ECqGIZW8QPG4nzFvP3NyW82vWwQOc+XB+hne5bFnEYlifmsQOoKnT1mKYJ0/y60FvmvT3AL8YCsAXYWAC2ABsLwBZgYwHYAmwsAFuAjQVgC7CxAGwBNhaALcDGArAF2FgAtgAbC8AWYGMB2AJsLABbgM0/27cQO7lkPZoAAAAASUVORK5CYII=">
+								<div class="media-body pull-right">
+									<h4 class="media-heading">User 1</h4>
+									dbalbjalsdkjflasjdflk
+								</div>
+
+							</div>
+							<b class="caret pull-right"></b>
+						</a>
+						<!-- Other users & sign out/in -->
+						<ul role="menu" class="dropdown-menu pull-right">
+							<li role="menuitem">
+								<a href="#profile=2" class="media" style="padding: 3px;">
+									<img data-src="holder.js/50x50" class="media-object pull-left" alt="50x50" style="width: 50px; height: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACGElEQVR4nO2UwYqjUBBF+/8/pUAEeSAiiCASBBmCSJAgISPyEJH6hTsLXyfpXiakL83U4oAxWhxPmXyoKv5nPtgCbCwAW4CNBWALsLEAbAE2FoAtwMYCsAXYWAC2ABsLwBZgYwHYAmwsAFuAjQVgC7CxAGwBNhaALcDGArw8ZJvQ5A5RJIhih/o4YvtyjUeTOySJQzsuPz/vvQEWNKlARBAlDpHsx/X5LjYdc0g4Xw3+h+e9O8Dc7ZJpi00V66XHoa5xPAex9QwXZG/C64jCOTiXoZsU6nvkzsG5AuPfJ+YxAyxDHWQipGmCOHE4dNfb930RQSTH6XT4IjxUyb7ltESVxRARJPXw9DxegHN920YUx7fjop+xjg1EBOVpgV6b8Cqv4d4JRXTfpMQV5pfmkQPERQdVhe/L/XPVoXHhNf3Toa1SiAhc2WCct/3eU3l7wM/f+CvzKAE+t5JUA1QV23gIwj3q+GHDDxQnD1WP2j2cdwcsL80jBdBtDH9KMcqmQZFEEBFkxyvWxcN7D7+suIZNlt0FmyoubbY/QJIhDQ+WtZen5/ECqGIZW8QPG4nzFvP3NyW82vWwQOc+XB+hne5bFnEYlifmsQOoKnT1mKYJ0/y60FvmvT3AL8YCsAXYWAC2ABsLwBZgYwHYAmwsAFuAjQVgC7CxAGwBNhaALcDGArAF2FgAtgAbC8AWYGMB2AJsLABbgM0/27cQO7lkPZoAAAAASUVORK5CYII=">
+									<div class="media-body pull-left">
+										<h4 class="media-heading">User 2</h4>
+										M'agrada viatjar i blabla...
+									</div>
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li role="menuitem">
+								<a href="#profile=3" class="media" style="padding: 3px;">
+									<img data-src="holder.js/50x50" class="media-object pull-left" alt="50x50" style="width: 50px; height: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACGElEQVR4nO2UwYqjUBBF+/8/pUAEeSAiiCASBBmCSJAgISPyEJH6hTsLXyfpXiakL83U4oAxWhxPmXyoKv5nPtgCbCwAW4CNBWALsLEAbAE2FoAtwMYCsAXYWAC2ABsLwBZgYwHYAmwsAFuAjQVgC7CxAGwBNhaALcDGArw8ZJvQ5A5RJIhih/o4YvtyjUeTOySJQzsuPz/vvQEWNKlARBAlDpHsx/X5LjYdc0g4Xw3+h+e9O8Dc7ZJpi00V66XHoa5xPAex9QwXZG/C64jCOTiXoZsU6nvkzsG5AuPfJ+YxAyxDHWQipGmCOHE4dNfb930RQSTH6XT4IjxUyb7ltESVxRARJPXw9DxegHN920YUx7fjop+xjg1EBOVpgV6b8Cqv4d4JRXTfpMQV5pfmkQPERQdVhe/L/XPVoXHhNf3Toa1SiAhc2WCct/3eU3l7wM/f+CvzKAE+t5JUA1QV23gIwj3q+GHDDxQnD1WP2j2cdwcsL80jBdBtDH9KMcqmQZFEEBFkxyvWxcN7D7+suIZNlt0FmyoubbY/QJIhDQ+WtZen5/ECqGIZW8QPG4nzFvP3NyW82vWwQOc+XB+hne5bFnEYlifmsQOoKnT1mKYJ0/y60FvmvT3AL8YCsAXYWAC2ABsLwBZgYwHYAmwsAFuAjQVgC7CxAGwBNhaALcDGArAF2FgAtgAbC8AWYGMB2AJsLABbgM0/27cQO7lkPZoAAAAASUVORK5CYII=">
+									<div class="media-body pull-left">
+										<h4 class="media-heading">User 3</h4>
+										fghhjgfhdghj final
+									</div>
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li role="menuitem">
+								<div class="btn-toolbar">
+									<div class="btn-group">
+										<div class="btn dropdown-submenu">
+											<a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color: #333333;"><i class="icon-check"></i>Log in</a>
+											<div class="dropdown-menu">
+												<form action="" id="form_login" style="margin: 0; padding: 3px 15px" accept-charset="utf-8" method="post">
+													<fieldset class="control-group">
+														<label for="form_email" class="control-label">Email address</label>
+														<div class="controls">
+															<div class="input-prepend" style="white-space: nowrap">
+																<span class="add-on"><i class="icon-envelope"></i></span><input type="email" name="email" id="form_email" autocomplete="on" class="span2">
+															</div>
+														</div>
+													</fieldset>
+													<fieldset class="control-group">
+														<label for="form_password" class="control-label">Password</label>
+														<div class="controls">
+															<div class="input-prepend" style="white-space: nowrap">
+																<span class="add-on"><i class="icon-lock"></i></span><input type="password" name="password" id="form_password" class="span2">
+															</div>
+														</div>
+													</fieldset>
+													<!--
+													<label class="checkbox">
+														<input type="checkbox" name="remember" value="true"> Remember me
+													</label>
+													-->
+													<p class="navbar-text"><button type="submit" class="btn btn-primary">Login</button></p>
+												</form>
+												<!--
+												<form class="navbar-form pull-right">
+													<input class="span2" type="text" placeholder="Email">
+													<input class="span2" type="password" placeholder="Password">
+													<button type="submit" class="btn">Sign in</button>
+												</form>
+												-->
+											</div>
+										</div>
+										<a class="btn" href="#logout=actual"><i class="icon-share"></i>Log out</a>
+										<a class="btn" href="#signin"><i class="icon-edit"></i>Sign in</a>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

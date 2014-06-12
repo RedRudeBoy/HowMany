@@ -1,0 +1,24 @@
+<p>ThisModel: {{this.model}}</p>
+<p>This: {{this.model.question}}</p>
+<p>Question: {{this.model.question}}</p>
+<p>Answers: {{this.model.answers}}</p>
+<ul>
+{{#each this.model.answers}}
+	<li>Answer: {{answer}}</li>
+	<li>FilterTags: {{filterTags}}</li>
+	<ul>
+		{{#each filterTags}}
+			<li>{{name}}</li>
+		{{/each}}
+	</ul>
+	<li>HowManys: {{howManys}}</li>
+	<ul>
+		{{#each howManys}}
+			<li>{{task.title}}</li>
+		{{/each}}
+	</ul>
+{{/each}}
+</ul>
+<p>yield: {{yield}}</p>
+<br />
+<br />

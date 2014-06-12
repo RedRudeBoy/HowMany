@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="span12">
+		<ul class="unstyled">
+			{{#each}}
+				<li>
+					<span>{{{message}}}</span>
+					<span class="pull-right">{{dateFromNow}}</span>
+				</li>
+				<hr />
+				{{!--#if isTaskInvitation}}
+					yeah!
+				{{/if--}}
+			{{/each}}
+			<hr />
+			<li style="background-color: red;min-height: 40px;z-index: 1;"></li>
+			<li style="min-height: 40px;position: relative;top: -40px;z-index: 2;float: left;width: 100%;line-height: 40px;">
+				<span><b>Mihoko</b> do <i>"Visitar l'àvia"</i>, you too?</span>
+				<span class="pull-right">2 days ago</span>
+			</li>
+			<br /><hr />
+			<li>
+				<span><b>Dídac</b> suggest 3 days for do <i>"Quedar amb els col·legues"</i></span>
+				<span class="pull-right">3 days ago</span>
+			</li>
+			<hr />
+		</ul>
+	</div>
+</div>

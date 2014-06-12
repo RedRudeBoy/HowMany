@@ -1,0 +1,18 @@
+<div class="row">
+	<h1>Length: {{childrenLength}} Item: {{ParentTag}}</h1>
+	<div class="{{tagParentSpan ParentTag}} {{unbound sizeSpan}}">
+		<button type="button" class="btn btn-block" data-toggle="collapse" data-target="#HowManysBigIcons{{unbound ParentTag.name}}">{{unbound ParentTag.name}}</button>
+		<div class="row collapse in" id="HowManysBigIcons{{unbound ParentTag.name}}">
+			{{#each Tag in ParentTag.childrens}}
+				<div class="span2 {{tagChildrenOffset ParentTag.childrens}}">
+					<a class="btn btn-block">
+						{{#if Tag.icon}}
+						<i class="icon-{{unbound Tag.icon}} icon-2x"></i> <br />
+						{{/if}}
+						{{{unbound Tag.name}}}</a>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</div>
+<br />

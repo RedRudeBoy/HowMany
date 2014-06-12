@@ -1,0 +1,33 @@
+{
+	"name": "HowMany",
+	"description":"Work In Progress - How Many Days have been since I did...",
+	"author": {
+		"name": "RedRudeBoy / Leninux",
+		"email": "redrudeboy@gmail.com"
+	},
+	"version": "0.0.1",
+	"licenses": [{
+		"type": "GPL-3.0",
+		"url": "http://opensource.org/licenses/GPL-3.0",
+	}],
+	"license": {
+		"type": "GPLv3",
+		"url": "http://opensource.org/licenses/GPL-3.0",
+	},
+	"repository" : {
+		"type":"git", 
+		"url":"https://github.com/RedRudeBoy/HowMany"
+	},
+	"readmeFilename": "readme.md",
+	"private": true,
+	"main": "./app/app.js",
+	"scripts": {
+		"test": "make test"
+	},
+	"keywords": [
+		"HowMany",
+		"HowManyDays",
+		"vcal",
+		"ical",
+	]
+}

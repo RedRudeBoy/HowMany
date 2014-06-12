@@ -1,0 +1,21 @@
+CACHE MANIFEST
+# 2013-08-13:v1
+#
+## Explicitly cached
+#CACHE:
+#index.html
+#favicon.ico
+#app/
+#images/
+#lib/
+#stylesheets/
+#
+# Resources that require the user to be online.
+#NETWORK:
+#https://www.googleapis.com
+#
+#FALLBACK:
+# offline.jpg will be served in place of all images in images/large/
+# images/large/ images/offline.jpg
+# offline.html will be served in place of all other .html files
+#index.html app/views/offline.html

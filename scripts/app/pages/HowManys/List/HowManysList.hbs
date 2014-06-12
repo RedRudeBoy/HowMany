@@ -1,0 +1,98 @@
+<!-- HowManysList::start -->
+{{!--
+<p>Model: {{model}}</p>
+--}}
+<div id="HMList" class="row">
+	<center class="span12">
+		<ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+			<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-a ui-li-has-count ui-first-child">ToDo Now! <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">2</span></li>
+			{{#each}}
+			<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="false" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li ui-li-has-alt ui-li-has-thumb ui-li ui-btn-up-c">
+				<div class="ui-btn-inner ui-li ui-li-has-alt"><div class="ui-btn-text">
+					{{#linkTo 'HowMany.index' this class="ui-link-inherit"}}
+						<h1 class="ui-li-aside ui-li-desc"><strong>{{lastDone}}</strong> Days</h1>
+						{{#if image}}
+						<p>Image: {{image}} - {{image.id}} - {{image.thumbnailLink}}</p>
+						<img {{bind-attr src="image.thumbnailLink"}} class="ui-li-thumb img-rounded">
+						{{else}}
+						<p>Without image...</p>
+						{{/if}}
+						<h2 class="ui-li-heading" style="line-height:20px;">{{task.title}}</h2>
+						<p class="ui-li-desc">Id: {{id}}</p>
+					{{/linkTo}}
+				</div></div>
+				{{#linkTo 'HowMany.edit' this class="ui-li-link-alt ui-btn ui-btn-icon-notext ui-btn-up-c"}}
+					<span class="ui-btn-inner"><span class="ui-btn-text"></span><span data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="gear" data-iconpos="notext" data-theme="d" title="" class="ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-btn-icon-notext"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span></span></span></span>
+				{{/linkTo}}
+				{{!--
+				<a href="#/HowMany/edit" data-rel="popup" data-position-to="window" data-transition="pop" title="Edit" class="ui-li-link-alt ui-btn ui-btn-icon-notext ui-btn-up-c" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="false" data-iconpos="notext" data-theme="c" aria-haspopup="true" aria-owns="purchase" aria-expanded="false">
+				</a>
+				--}}
+			</li>
+			{{/each}}
+		</ul>
+		<br />
+		<br />
+		<p>Examples:</p>
+		<ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+			<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-e ui-li-has-count">ToDo <span class="ui-li-count ui-btn-up-e ui-btn-corner-all">1</span></li>
+			<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="false" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li ui-li-has-alt ui-li-has-thumb ui-li ui-btn-up-c">
+				<div class="ui-btn-inner ui-li ui-li-has-alt"><div class="ui-btn-text"><a href="#/HowMany" class="ui-link-inherit">
+					<p class="ui-li-aside ui-li-desc"><strong>5</strong> Days</p>
+					<img src="img/uploads/Familia.png" class="ui-li-thumb img-rounded">
+					<h2 class="ui-li-heading" style="line-height:20px;">Visitar l'àvia</h2>
+					<p class="ui-li-desc">Aprendràs molt!</p>
+				</a></div></div>
+				<a href="#/HowMany/edit" data-rel="popup" data-position-to="window" data-transition="pop" title="Edit" class="ui-li-link-alt ui-btn ui-btn-icon-notext ui-btn-up-c" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="false" data-iconpos="notext" data-theme="c" aria-haspopup="true" aria-owns="purchase" aria-expanded="false"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="gear" data-iconpos="notext" data-theme="d" title="" class="ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-btn-icon-notext"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span></span></span></span></a>
+			</li>
+			<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="false" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li ui-li-has-alt ui-li-has-thumb ui-li ui-btn-up-c">
+				<div class="ui-btn-inner ui-li ui-li-has-alt"><div class="ui-btn-text"><a href="#/HowMany" class="ui-link-inherit">
+					<p class="ui-li-aside ui-li-desc"><strong>10</strong> Days</p>
+					<img src="img/uploads/Gimnas.png" class="ui-li-thumb img-rounded">
+					<h2 class="ui-li-heading" style="line-height:20px;">Anar al gimnàs</h2>
+					<p class="ui-li-desc">Salud i llarga vida!</p>
+				</a></div></div>
+				<a href="#/HowMany/edit" data-rel="popup" data-position-to="window" data-transition="pop" title="Edit" class="ui-li-link-alt ui-btn ui-btn-icon-notext ui-btn-up-c" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="false" data-iconpos="notext" data-theme="c" aria-haspopup="true" aria-owns="purchase" aria-expanded="false"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="gear" data-iconpos="notext" data-theme="d" title="" class="ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-btn-icon-notext"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span></span></span></span></a>
+			</li>
+		</ul>
+<br /><br />
+		<ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+			<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b ui-li-has-count ui-last-child">HowMany AllRight <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">0</span></li>
+			<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="false" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li ui-li-has-alt ui-li-has-thumb ui-li ui-btn-up-c">
+				<div class="ui-btn-inner ui-li ui-li-has-alt"><div class="ui-btn-text"><a href="#/HowMany" class="ui-link-inherit">
+					<p class="ui-li-aside ui-li-desc"><strong>1</strong> Days</p>
+					<img src="img/uploads/JordiAlienigena.png" class="ui-li-thumb img-rounded">
+					<h2 class="ui-li-heading" style="line-height:20px;">Quedar amb els col·legues</h2>
+					<p class="ui-li-desc">Yeah men!</p>
+				</a></div></div>
+				<a href="#/HowMany/edit" data-rel="popup" data-position-to="window" data-transition="pop" title="Edit" class="ui-li-link-alt ui-btn ui-btn-icon-notext ui-btn-up-c" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="false" data-iconpos="notext" data-theme="c" aria-haspopup="true" aria-owns="purchase" aria-expanded="false"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="gear" data-iconpos="notext" data-theme="d" title="" class="ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-btn-icon-notext"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span></span></span></span></a>
+			</li>
+		</ul>
+<br /><br />
+<br /><br />
+<br /><br />
+		<!--
+		<ul data-role="listview" data-inset="true" data-split-icon="gear">
+			<li><a href="">
+				<img src="img/uploads/Familia.png" class="img-rounded" />
+				<h3>Visitar l'àvia</h3>
+				<p>Aprendràs molt!</p>
+				<a href=""></a>
+			</a></li>
+		</ul>
+		-->
+	</center>
+</div>
+
+<div data-role="footer" data-id="HowManysListTimeToolbar" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup" role="contentinfo">
+	<div data-role="navbar" class="ui-navbar" role="navigation">
+		<ul class="ui-grid-d">
+			<li class="ui-block-a"><a data-icon="grid" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" class="ui-btn ui-btn-inline ui-btn-icon-top ui-btn-up-a"><span class="ui-btn-inner"><span class="ui-btn-text">Today</span><span class="ui-icon ui-icon-grid ui-icon-shadow">&nbsp;</span></span></a></li>
+			<li class="ui-block-b"><a data-icon="star" class="ui-btn-active ui-btn ui-btn-up-a ui-btn-inline ui-btn-icon-top" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true"><span class="ui-btn-inner"><span class="ui-btn-text">Tomorrow</span><span class="ui-icon ui-icon-star ui-icon-shadow">&nbsp;</span></span></a></li>
+			<li class="ui-block-c"><a data-icon="gear" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" class="ui-btn ui-btn-inline ui-btn-icon-top ui-btn-up-a"><span class="ui-btn-inner"><span class="ui-btn-text">Weekend</span><span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span></span></a></li>
+			<li class="ui-block-d"><a data-icon="gear" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" class="ui-btn ui-btn-inline ui-btn-icon-top ui-btn-up-a"><span class="ui-btn-inner"><span class="ui-btn-text">Next Week</span><span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span></span></a></li>
+			<li class="ui-block-e"><a data-icon="gear" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" class="ui-btn ui-btn-inline ui-btn-icon-top ui-btn-up-a"><span class="ui-btn-inner"><span class="ui-btn-text">Paused</span><span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span></span></a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div>
+<!-- HowManysList::end -->

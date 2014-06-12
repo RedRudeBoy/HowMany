@@ -1,0 +1,29 @@
+{
+	"name": "How Many Days",
+	"version": "0.1",
+	"manifest_version": 2,
+	"description": "How Many Days have been since...",
+	"app": {
+		"urls": [
+			"http://localhost/ember"
+		],
+		"launch": {
+			"web_url": "http://localhost/ember"
+		}
+	},
+	"icons": {
+		"16": "images/icon16.png",
+		"48": "images/icon48.png",
+		"128": "images/icon128.png"
+	},
+	"web_accessible_resources": [
+		"images/icon48.png"
+	],
+	"author": "Arnau-Lenin Gols Rovira",
+	"offline_enabled": true,
+	"permissions": [
+		"clipboardRead",
+		"clipboardWrite",
+		"notifications"
+	]
+}
