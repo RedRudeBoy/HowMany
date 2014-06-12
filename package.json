@@ -1,0 +1,52 @@
+{
+	"name": "express-HM",
+	"description":"How Many Days has it been since...",
+	"author": {
+		"name": "RedRudeBoy / Leninux",
+		"email": "redrudeboy@gmail.com"
+	},
+	"version": "0.0.1",
+	"license": "MIT",
+	"repository" : {
+		"type":"git", 
+		"url":"https://github.com/redrudeboy/express"
+	},
+	"readmeFilename": "readme.md",
+	"private": true,
+	"main": "./app.js",
+	"scripts": {
+		"start": "node app",
+		"test": "make test"
+	},
+	"dependencies": {
+		"express": "3.x",
+		"connect": "2.x",
+		"connect-redis" : "1.4.5",
+		"connect-assetmanager":">=0.0.27",
+		"connect-assetmanager-handlers" : ">=0.0.18",
+		"consolidate": "0.8.0",
+		"twigjs": "*",
+		"mongodb": "1.x",
+		"mongoose": "*",
+		"everyauth": "git://github.com/bnoguchi/everyauth.git#express3",
+		"jade": "*",
+		"less-middleware": "*"
+	},
+	"devDependencies": {
+		"vows":">=0.6.2",
+		"mocha":">=1.0.1",
+		"should":">=0.6.1",
+		"request":">=2.9.x",
+		"soda":">=0.2.5"
+	},
+	"engine":"node >= 0.6.12",
+	"keywords": [
+		"HowMany",
+		"HowManyDays",
+		"vcal",
+		"ical",
+		"rest",
+		"mongodb",
+		"redis"
+	]
+}
