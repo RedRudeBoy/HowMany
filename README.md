@@ -12,16 +12,16 @@ Quants mesos fa que no faig una escapada?
 
 ### [Try It Here(Not Yet)](http://github.com) ###
 
-## Installation ##
-```
+### Installation ###
+```bash
 npm install -g grunt-cli
 npm install -g bower
 npm install
 bower install
 ```
 
-## Run ##
-```
+### Run ###
+```bash
 grunt server
 ```
 
@@ -43,45 +43,47 @@ grunt server
 
 
 ## In the roadmap (probably not all) ##
-1. [ember-addons/ember-forms](https://github.com/ember-addons/ember-forms) - Smart, Intuitive forms for Ember.js styled with Bootstrap & Validation ready.
-2. [fuelUX](http://exacttarget.github.io/fuelux) - Additional lightweight JavaScript controls
-3. [d3js](http://d3js.org/) - Library for manipulating documents based on data
-4. [Raphaël](http://raphaeljs.com/) - Library that should simplify your work with vector graphics on the web
-5. [CrowdStrike/ember-timetree](https://github.com/CrowdStrike/ember-timetree) - Visualize hierarchical timeline data. Built with Ember.js and D3.js
-6. [StoicLoofah/chronoline.js](https://github.com/StoicLoofah/chronoline.js) - Library for making a chronology timeline out of events on a horizontal timescale
-7. [emberjs/list-view](https://github.com/emberjs/list-view) - An efficient incremental rendering list view for large lists
-8. [∞.js](http://airbnb.github.io/infinity/) - Speeds up scrolling through long lists and keeps your infinite feeds smooth and stable for your users
-9. [iScroll](http://cubiq.org/) - Smooth scrolling for the web
-10. [Messenger](http://github.hubspot.com/messenger/) - Alerts for the 21st century
-11. [todc/todc-bootstrap](https://github.com/todc/todc-bootstrap) - Google-styled theme for Twitter Bootstrap
-12. [Bootstrap Arrows](http://bootstrap-arrows.iarfhlaith.com/) - Include arrows at any angle
-13. [pfefferle/openwebicons](https://github.com/pfefferle/openwebicons) - Set of icons to show the support for the Open Web
-14. iCal Parsers
-  1. [kurakin/node-vcal](https://github.com/kurakin/node-vcal) - Create and parse ics files
-15. CalDav Parsers
+Data modeling
+
+1. [orbitjs/orbit.js](https://github.com/orbitjs/orbit.js) - Standalone library for coordinating access to data sources and keeping their contents synchronized.
+  1. [dgeb/ember-orbit-example](https://github.com/dgeb/ember-orbit-example) - Example App that uses Orbit.js and Ember.js
+  2. [dgeb/orbit-ember-data-adapter.js](https://gist.github.com/dgeb/8446998) - A very simple example Orbit adapter implementation for Ember Data
+2. iCal Parsers
+  1. [mozilla-comm/ical.js](https://github.com/mozilla-comm/ical.js) - Javascript parser for ics files (rfc5545).
+  2. [kurakin/node-vcal](https://github.com/kurakin/node-vcal) - Create and parse ics files
+3. CalDav Parsers
   1. [mozilla-b2g/caldav](https://github.com/mozilla-b2g/caldav) - Calendar Protocols.
   2. [sandro-pasquali/jquery.dav](https://github.com/sandro-pasquali/jquery.dav) - JQuery plugin providing WebDAV access methods
-16. CalDav Parsers Discarted: [jqCalDAV](https://gitorious.org/jqcaldav), [CalDavZAP](http://www.inf-it.com/open-source/clients/caldavzap/), [agenDAV](http://agendav.org/), [webical](https://code.google.com/p/webical/), [arshaw/fullcalendar](https://github.com/arshaw/fullcalendar)
-17. [Google APIs](https://developers.google.com/google-apps/app-apis) - For realtime sync if no CalDav lib if found
+4. CalDav Parsers Discarted: [jqCalDAV](https://gitorious.org/jqcaldav), [CalDavZAP](http://www.inf-it.com/open-source/clients/caldavzap/), [agenDAV](http://agendav.org/), [webical](https://code.google.com/p/webical/), [arshaw/fullcalendar](https://github.com/arshaw/fullcalendar)
+5. [Google APIs](https://developers.google.com/google-apps/app-apis) - For realtime sync if no CalDav lib if found
   1. [Google APIs Client Library for JavaScript](https://developers.google.com/api-client-library/javascript/) - JavaScript client-application [Example](https://developers.google.com/api-client-library/javascript/start/start-js)
   2. [Google Calendar API](https://developers.google.com/google-apps/calendar/)
   3. [Google Tasks API](https://developers.google.com/google-apps/tasks/)
   4. [Google Drive SDK](https://developers.google.com/drive/quickstart-js)
   5. [Google Picker](https://developers.google.com/picker/docs) - Google Picker is a "File Open" dialog for the information stored in Google servers
 
+Front-end helpers & libs
 
-## Interesting Ember plugins/projects ##
-1. [billysbilling/ember-animated-outlet](https://github.com/billysbilling/ember-animated-outlet) - Animated transitions.
-2. [samselikoff/talks](https://github.com/samselikoff/talks) - Ember and D3: Building a simple dashboard.
-3. [addepar/ember-charts](https://github.com/addepar/ember-charts) - A beautiful and easily extensible chart suite built with D3.js and Ember.js.
-4. [emberjs/list-view](https://github.com/emberjs/list-view) - An efficient incremental rendering list view for large lists.
+1. [d3js](http://d3js.org/) - Library for manipulating documents based on data
+  1. [addepar/ember-charts](https://github.com/addepar/ember-charts) - A beautiful and easily extensible chart suite built with D3.js and Ember.js.
+  2. [samselikoff/talks](https://github.com/samselikoff/talks) - Ember and D3: Building a simple dashboard.
+2. [billysbilling/ember-animated-outlet](https://github.com/billysbilling/ember-animated-outlet) - Animated transitions.
+3. [emberjs/list-view](https://github.com/emberjs/list-view) - An efficient incremental rendering list view for large lists.
+  1. [∞.js](http://airbnb.github.io/infinity/) - Speeds up scrolling through long lists and keeps your infinite feeds smooth and stable for your users
+  2. [iScroll](http://cubiq.org/) - Smooth scrolling for the web
+4. [ember-addons/ember-forms](https://github.com/ember-addons/ember-forms) - Smart, Intuitive forms for Ember.js styled with Bootstrap & Validation ready.
+5. [fuelUX](http://exacttarget.github.io/fuelux) - Additional lightweight JavaScript controls
+6. [Messenger](http://github.hubspot.com/messenger/) - Alerts for the 21st century
+7. [todc/todc-bootstrap](https://github.com/todc/todc-bootstrap) - Google-styled theme for Twitter Bootstrap
+8. [Bootstrap Arrows](http://bootstrap-arrows.iarfhlaith.com/) - Include arrows at any angle
+9. [pfefferle/openwebicons](https://github.com/pfefferle/openwebicons) - Set of icons to show the support for the Open Web
 
 
 ## In the long-term roadmap ##
 1. This app requires a lot of information of the user, in a perfect world, all this data must be private & personal. [It's necessary to build a backend with webfinger](https://github.com/RedRudeBoy/HowManyBackendNodeDeprecated) for create independent nodes [("pods")](http://podupti.me/) like [diaspora](https://diasporafoundation.org/about).
 
 
-## Not used directly, but an important source of inspiration or in the past roadmap ##
+### Not used directly, but an important source of inspiration or in the past roadmap ###
 1. [Backbone](https://github.com/documentcloud/backbone) - MVC for browser
 2. [Underscore](https://github.com/documentcloud/underscore) - JS Utils
 3. [fernandogmar/Emberjs-RequireJS](https://github.com/fernandogmar/Emberjs-RequireJS) - Starter kit for EmberJS using RequireJS
@@ -99,6 +101,10 @@ grunt server
 15. [RequireJS-plugins](https://github.com/millermedeiros/requirejs-plugins) - Small set of plugins for RequireJS
 16. [emberjs-addons/ember-bootstrap](https://github.com/emberjs-addons/ember-bootstrap) - A set of UI elements styled using the Boostrap toolkit to use with Ember.js
 17. [dgeb/grunt-ember-templates](https://github.com/dgeb/grunt-ember-templates) - Precompile Handlebars templates for Ember.js
+18. [Raphaël](http://raphaeljs.com/) - Library that should simplify your work with vector graphics on the web
+19. [CrowdStrike/ember-timetree](https://github.com/CrowdStrike/ember-timetree) - Visualize hierarchical timeline data. Built with Ember.js and D3.js
+20. [StoicLoofah/chronoline.js](https://github.com/StoicLoofah/chronoline.js) - Library for making a chronology timeline out of events on a horizontal timescale
+
 
 
 # Thank you so much to all this Open Source projects!!
