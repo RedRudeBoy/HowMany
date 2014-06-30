@@ -1,0 +1,48 @@
+<small>new {{this}} {{model}} {{mola}} {{tmp_model_type}}</small>
+<br />
+<br />
+<div class="well">
+	<button {{action asEvent}}>asEvent</button>
+	<button {{action asTodo}}>asTodo</button>
+	<button {{action asJournal}}>asJournal</button>
+	<br />
+	{{#if isEvent}}<h1>isEvent</h1>{{/if}}
+	{{#if isTodo}}<h1>isTodo</h1>{{/if}}
+	{{#if isJournal}}<h1>isJournal</h1>{{/if}}
+</div>
+<br />
+
+{{#form-for tmp_component}}
+
+<div class="well">
+	<form class="form-horizontal" role="form">
+		{{input summary hintTranslation="calendar.component.form.summary.hint" labelTranslation="calendar.component.form.summary.label"}}
+		<br />
+		{{input description hintTranslation="calendar.component.form.description.hint" labelTranslation="calendar.component.form.description.label"}}
+		<br />
+		{{!--input x-wr-timezone hintTranslation="calendar.form.x-wr-timezone.hint" labelTranslation="calendar.form.x-wr-timezone.label"--}}
+		<br />
+		<div class="hide">
+			{{!--input prodid hintTranslation="calendar.form.prodid.hint" labelTranslation="calendar.form.prodid.label"--}}
+			<br />
+			{{!--input version hintTranslation="calendar.form.version.hint" labelTranslation="calendar.form.version.label"--}}
+			<br />
+		</div>
+
+		{{#if isTodo}}
+		{{input due}}
+		{{/if}}
+
+		<div class="form-group">
+			<div class="col-sm-offset-1 col-sm-10">
+				<br />
+				{{#bs-button type="primary" large=true block=true clicked="submit" clickedParam="this"}}{{t calendar.form.save}}{{/bs-button}}
+				{{submit}}
+			</div>
+		</div>
+	</form>
+	<div class="clearfix"></div>
+</div>
+
+
+{{/form-for}}

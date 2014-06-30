@@ -15,5 +15,5 @@ export default DS.FixtureAdapter.extend();
 //
 //LocalStorage
 export default DS.LSAdapter.extend({
-    namespace: 'how_many'
+	namespace: 'how_many'
 });

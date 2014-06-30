@@ -1,0 +1,161 @@
+{{outlet}}
+<h1>vcalendar.hbs</h1>
+<div class="row">
+	<div class="col-xs-2">
+		<div class="well">
+			<div class="row">
+				<div class="col-xs-12">
+					<center>Item views</center>
+					<div class="btn-group btn-group-justified">
+						<div class="btn-group">
+							<button class="btn btn-default btn-lg btn-block active" type="button" {{action showIconsView}}>Icons</button>
+						</div>
+						<div class="btn-group">
+							<button class="btn btn-default btn-lg btn-block" type="button" {{action showListView}}>List</button>
+						</div>
+					</div>
+					{{!--bs-btn-group contentBinding="itemViewSelector" selectedBinding="itemViewSelected"--}}
+					{{!--itemViewSelected--}}
+				</div>
+			</div>
+			{{!--
+			<div class="row">
+				<div class="col-xs-6">
+					{{#bs-button large=true block=true clicked="toggleProperty" clickedParam="hideHistory"}}Icons{{/bs-button}}
+				</div>
+				<div class="col-xs-6">
+					{{#bs-button large=true block=true clicked="toggleProperty" clickedParam="hideWindRose"}}List{{/bs-button}}
+				</div>
+			</div>
+			--}}
+		</div>
+		<div class="well">
+			<div class="row">
+				<div class="col-xs-12">
+					<center>Acomplished graphs</center>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6">
+					{{#bs-button large=true block=true clicked="toggleProperty" clickedParam="hideHistory"}}History{{/bs-button}}
+				</div>
+				<div class="col-xs-6">
+					{{#bs-button large=true block=true clicked="toggleProperty" clickedParam="hideWindRose"}}WindRose{{/bs-button}}
+				</div>
+			</div>
+		</div>
+		<div class="well">
+			<div class="row">
+				<div class="col-xs-12">
+					<center>Tags</center>
+				</div>
+			</div>
+			{{#each tag in tags}}
+				{{#unless tag.parent}}
+					<div class="row">
+						<div class="col-xs-12">
+							<button type="button" class="btn btn-block" data-toggle="collapse" data-target="#HowManysBigIcons{{unbound tag.name}}">{{{unbound tag.name}}}</button>
+							<div class="row collapse in" id="HowManysBigIcons{{unbound name}}">
+								{{#each tag.children}}
+									<div class="col-xs-6 pull-left" style="margin-top: 5px;">
+										<button type="button" class="btn btn-block">
+											{{#if icon}}<i class="fa fa-{{unbound icon}}"></i> <br />{{/if}}
+											{{{unbound name}}}
+										</button>
+									</div>
+								{{/each}}
+							</div>
+						</div>
+					</div>
+					<br />
+				{{/unless}}
+			{{/each}}
+		</div>
+	</div>
+	<div class="col-xs-10">
+		<div {{bind-attr class=":row hideHistory:hidden"}}>
+			<div class="col-xs-12">
+				<center class="well">
+					<img src="/img/tests/HowManyHomeHistory.png" />
+				</center>
+			</div>
+		</div>
+		<div {{bind-attr class=":row hideWindRose:hidden"}}>
+			<div class="col-xs-12">
+				<center class="well">
+					<img src="/img/tests/HowManyHomeRosaDelsVents.png" />
+				</center>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				<div style="background-color: whitesmoke;">
+					<h1>Todo: Without Date ({{numTodos}})</h1>
+					{{#if isIconSelected}}
+					<ol>
+						{{#each vtodo}}
+							<li draggable="true">Icon ToDo {{id}}: {{summary}}</li>
+						{{/each}}
+					</ol>
+					{{/if}}
+					{{#if isListSelected}}
+					<ol>
+						{{#each vtodo}}
+							<li draggable="true">List ToDo {{id}}: {{summary}}</li>
+						{{/each}}
+					</ol>
+					{{/if}}
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<div style="background-color: whitesmoke;">
+					<h1>Events & Journals: Date ({{numEventsJournals}})</h1>
+					{{#if isIconSelected}}
+					<ol>
+						{{#each eventsJournals}}
+							<li draggable="true">Icon eventJournal {{id}}: {{summary}}</li>
+						{{/each}}
+					</ol>
+					{{/if}}
+					{{#if isListSelected}}
+					<ol>
+						{{#each eventsJournals}}
+							<li draggable="true">List eventJournal {{id}}: {{summary}}</li>
+						{{/each}}
+					</ol>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{!--
+<div class='jumbotron'>
+	<h1>Calendar: {{calendarName}} <small>mola: {{mola}}</small></h1>
+	<p>
+		prodid: {{prodid}}<br />
+		version: {{version}}<br />
+		description: {{calendarDesc}}<br />
+		timezone: {{x-wr-timezone}}<br />
+	</p>
+	<h3>Events ({{numEvents}}):</h3>
+	<ul>
+		{{#each vevent}}
+			<li>hola</li>
+			<li>{{this}}</li>
+		{{/each}}
+	</ul>
+	<h3>ToDo ({{numTodos}}):</h3>
+	<ul>
+		{{#each vtodo}}
+			<li>{{this}}</li>
+		{{/each}}
+	</ul>
+	<h3>Journal ({{numJournals}}):</h3>
+	<ul>
+		{{#each vjournal}}
+			<li>{{this}}</li>
+		{{/each}}
+	</ul>
+</div>
+--}}

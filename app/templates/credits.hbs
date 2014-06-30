@@ -1,0 +1,9 @@
+<h1>creadits.hbs, {{mola}}</h1>
+<div class="well">
+	<p>each model {{model}}</p>
+	<ul>
+	{{#each model}}
+		<li>model: {{this}}, description: {{description}}, summary: {{summary}}, isDirty: {{isDirty}}</li>
+	{{/each}}
+	</ul>
+</div>

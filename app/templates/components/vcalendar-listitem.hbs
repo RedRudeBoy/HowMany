@@ -2,4 +2,8 @@
 <span class="badge" style="background-color: gold;">{{countNormal}}</span>
 <span class="badge" style="background-color: red;">{{countHigh}}</span>
 <h4 class="list-group-item-heading">{{calendarName}}</h4>
-<p class="list-group-item-text">{{calendarDesc}}</p>
+<p class="list-group-item-text">
+	{{calendarDesc}}
+	{{#bs-button clicked="removeCalendar" clickedParam=this type="warning" icon="fa fa-trash-o" bubbles=false}}{{t calendar.remove}}{{/bs-button}}
+	{{#bs-button clicked="editCalendar" clickedParam=this type="warning" icon="fa fa-pencil" bubbles=false}}{{t calendar.edit}}{{/bs-button}}
+</p>

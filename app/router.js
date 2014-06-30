@@ -1,16 +1,16 @@
 var Router = Ember.Router.extend(); // ensure we don't share routes between all Router instances
 /* Original
 Router.map(function() {
-  this.route('component-test');
-  this.route('helper-test');
-  // this.resource('posts', function() {
-  //   this.route('new');
-  // });
+	this.route('component-test');
+	this.route('helper-test');
+//	this.resource('posts', function() {
+//		this.route('new');
+//	});
 });
 */
-	//	With extra params
+
 Router.map(function() {
-    this.resource('Wizard', function () {
+	this.resource('Wizard', function () {
 		this.route('Welcome');
 		this.route('BasicInfo');
 		this.route('Body');
@@ -22,12 +22,32 @@ Router.map(function() {
 	this.route('Notifications');
 	this.route('Configuration');
 	this.route('Credits');
-//    this.route('Report');
-//    this.route('Login');
+//	this.route('Report');
+//	this.route('Login');
 
-    this.resource('calendars', function() {
-        this.resource('calendar', { path: '/:id' });
-    });
+	this.resource('vcalendars', { path: '/calendars' }, function() {
+		//index
+		this.route('new'); //New calendar
+		this.resource('vcalendar', { path: '/:id' }, function() {
+			//index
+			this.route('edit');
+			this.route('new'); //New vcomponent
+
+			this.resource('vevent', { path: '/event/:eid' }, function() {
+				//index
+				this.route('edit');
+				this.route('done');
+			});
+			this.resource('vtodo', { path: '/todo/:tid' }, function() {
+				//index
+				this.route('edit');
+			});
+			this.resource('vjournal', { path: '/journal/:jid' }, function() {
+				//index
+				this.route('edit');
+			});
+		});
+	});
 /*
 	this.resource('howmanys', function() {
 										//HowManysIndex

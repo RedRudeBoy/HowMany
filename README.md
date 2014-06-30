@@ -35,25 +35,30 @@ grunt server
 6. [rpflorence/ember-localstorage-adapter](https://github.com/rpflorence/ember-localstorage-adapter) - Name says it all.
 7. [jamesarosen/ember-i18n](https://github.com/jamesarosen/ember-i18n) - Internationalization for Ember.
 8. [ember-addons/bootstrap-for-ember](https://github.com/ember-addons/bootstrap-for-ember) - Bootstrap for Ember.js.
-9. [mozilla-comm/ical.js](https://github.com/mozilla-comm/ical.js) - Javascript parser for ics files (rfc5545).
-10. [Moment.js](http://momentjs.com/) - Library for parsing, validating, manipulating, and formatting dates
-11. [Twitter Bootstrap](http://getbootstrap.com/2.3.2/) - Front-end framework
-12. [GLYPHICONS Halflings](http://glyphicons.com/) - Monochromatic icons and symbols part of Bootstrap from Twitter
-13. [Font Awesome](http://fortawesome.github.io/Font-Awesome/) - The iconic font designed for Bootstrap
+9. [dockyard/ember-validations](https://github.com/dockyard/ember-validations) - Validations for Ember Objects
+10. [dockyard/ember-easyForm](https://github.com/dockyard/ember-easyForm) - Easily build semantic forms in Ember
+11. [mozilla-comm/ical.js](https://github.com/mozilla-comm/ical.js) - Javascript parser for ics files (rfc5545).
+12. [Moment.js](http://momentjs.com/) - Library for parsing, validating, manipulating, and formatting dates
+13. [Twitter Bootstrap](http://getbootstrap.com/2.3.2/) - Front-end framework
+14. [GLYPHICONS Halflings](http://glyphicons.com/) - Monochromatic icons and symbols part of Bootstrap from Twitter
+14. [FortAwesome/Font-Awesome](https://github.com/FortAwesome/Font-Awesome/) - The iconic font and CSS framework [http://fontawesome.io](http://fontawesome.io)
+
 
 
 ## In the roadmap (probably not all) ##
 Data modeling
 
 1. [orbitjs/orbit.js](https://github.com/orbitjs/orbit.js) - Standalone library for coordinating access to data sources and keeping their contents synchronized.
-  1. [dgeb/ember-orbit-example](https://github.com/dgeb/ember-orbit-example) - Example App that uses Orbit.js and Ember.js
-  2. [dgeb/orbit-ember-data-adapter.js](https://gist.github.com/dgeb/8446998) - A very simple example Orbit adapter implementation for Ember Data
+  1. [orbitjs/ember-orbit](https://github.com/orbitjs/ember-orbit) - Ember.js data layer built with Orbit.js
+  2. [dgeb/ember-orbit-example](https://github.com/dgeb/ember-orbit-example) - Example App that uses Orbit.js and Ember.js
+  3. [dgeb/orbit-ember-data-adapter.js](https://gist.github.com/dgeb/8446998) - A very simple example Orbit adapter implementation for Ember Data
 2. iCal Parsers
   1. [mozilla-comm/ical.js](https://github.com/mozilla-comm/ical.js) - Javascript parser for ics files (rfc5545).
   2. [kurakin/node-vcal](https://github.com/kurakin/node-vcal) - Create and parse ics files
 3. CalDav Parsers
-  1. [mozilla-b2g/caldav](https://github.com/mozilla-b2g/caldav) - Calendar Protocols.
-  2. [sandro-pasquali/jquery.dav](https://github.com/sandro-pasquali/jquery.dav) - JQuery plugin providing WebDAV access methods
+  1. [gaye/dav](https://github.com/gaye/dav) - caldav and carddav client for nodejs and the browser.
+  2. [mozilla-b2g/caldav](https://github.com/mozilla-b2g/caldav) - Calendar Protocols.
+  3. [sandro-pasquali/jquery.dav](https://github.com/sandro-pasquali/jquery.dav) - JQuery plugin providing WebDAV access methods
 4. CalDav Parsers Discarted: [jqCalDAV](https://gitorious.org/jqcaldav), [CalDavZAP](http://www.inf-it.com/open-source/clients/caldavzap/), [agenDAV](http://agendav.org/), [webical](https://code.google.com/p/webical/), [arshaw/fullcalendar](https://github.com/arshaw/fullcalendar)
 5. [Google APIs](https://developers.google.com/google-apps/app-apis) - For realtime sync if no CalDav lib if found
   1. [Google APIs Client Library for JavaScript](https://developers.google.com/api-client-library/javascript/) - JavaScript client-application [Example](https://developers.google.com/api-client-library/javascript/start/start-js)
@@ -67,6 +72,7 @@ Front-end helpers & libs
 1. [d3js](http://d3js.org/) - Library for manipulating documents based on data
   1. [addepar/ember-charts](https://github.com/addepar/ember-charts) - A beautiful and easily extensible chart suite built with D3.js and Ember.js.
   2. [samselikoff/talks](https://github.com/samselikoff/talks) - Ember and D3: Building a simple dashboard.
+  3. [front-back.com/an-ember-js-gauge-component](http://front-back.com/an-ember-js-gauge-component) - An Ember JS Gauge Component
 2. [billysbilling/ember-animated-outlet](https://github.com/billysbilling/ember-animated-outlet) - Animated transitions.
 3. [emberjs/list-view](https://github.com/emberjs/list-view) - An efficient incremental rendering list view for large lists.
   1. [∞.js](http://airbnb.github.io/infinity/) - Speeds up scrolling through long lists and keeps your infinite feeds smooth and stable for your users
@@ -77,6 +83,7 @@ Front-end helpers & libs
 7. [todc/todc-bootstrap](https://github.com/todc/todc-bootstrap) - Google-styled theme for Twitter Bootstrap
 8. [Bootstrap Arrows](http://bootstrap-arrows.iarfhlaith.com/) - Include arrows at any angle
 9. [pfefferle/openwebicons](https://github.com/pfefferle/openwebicons) - Set of icons to show the support for the Open Web
+10. [easelinc/tourist](https://github.com/easelinc/tourist) - Simple, flexible tours for your app [http://easelinc.github.io/tourist/](http://easelinc.github.io/tourist/]
 
 
 ## In the long-term roadmap ##

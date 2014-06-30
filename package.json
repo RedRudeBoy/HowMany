@@ -1,6 +1,6 @@
 {
   "name": "HowMany",
-  "description":"Work In Progress - How Many Days have been since I did...",
+  "description": "Work In Progress - How Many Days have been since I did...",
   "keywords": [
     "HowMany",
     "HowManyDays",
@@ -18,11 +18,11 @@
   },
   "licenses": [{
     "type": "GPL-3.0",
-    "url": "http://opensource.org/licenses/GPL-3.0",
+    "url": "http://opensource.org/licenses/GPL-3.0"
   }],
   "license": {
     "type": "GPLv3",
-    "url": "http://opensource.org/licenses/GPL-3.0",
+    "url": "http://opensource.org/licenses/GPL-3.0"
   },
   "readmeFilename": "README.md",
   "namespace": "appkit",

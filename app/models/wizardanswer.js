@@ -7,14 +7,14 @@ var attr = DS.attr,
  * Answers for suggest new ToDo
  */
 var WizardAnswer = DS.Model.extend({
-    answer: attr(),
-    question: belongsTo('WizardQuestion'),
-    filterTags: hasMany('Tag'),
-    howManys: hasMany('HowMany')
+	answer: attr(),
+	question: belongsTo('WizardQuestion'),
+	filterTags: hasMany('Tag'),
+	howManys: hasMany('HowMany')
 });
 
 WizardAnswer.reopenClass({
-    FIXTURES: [
+	FIXTURES: [
 {	id: 1,
 	answer: "Gimnas",
 	question: 1,

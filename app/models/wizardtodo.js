@@ -11,7 +11,7 @@ var attr = DS.attr,
 var WizardTodo = vToDo.extend({});
 
 WizardTodo.reopenClass({
-    FIXTURES: [
+	FIXTURES: [
 {	id: 1,
 	question: "Com t'agrada practicar esport?",
 	answers: [1,2,3]

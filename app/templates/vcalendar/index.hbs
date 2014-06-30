@@ -1,0 +1,82 @@
+<div clas="row">
+	<div class="col-xs-12">
+		<div class="btn-group btn-group-justified">
+			<div class="btn-group">
+				<button type="button" class="btn btn-default" {{action "showAgenda"}}>Agenda</button>
+			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default" {{action "showToConfirm"}}>To Confirm</button>
+			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default" {{action "showHistory"}}>History Timeline</button>
+			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default" {{action "showWindRose"}}>WindRose{{!-- & Gauge--}}</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div clas="row" style="margin-top: 60px;">
+	<div class="col-xs-2 well">
+		<div class="row">
+			<div class="col-xs-12">
+				<center>Tags</center>
+			</div>
+		</div>
+		<div class="row">
+		{{!--#each tag in tags}}
+			<div class="col-xs-6 pull-left" style="margin-top: 5px;">
+				<button type="button" class="btn btn-block">
+					{{#if icon}}<i class="fa fa-{{unbound icon}}"></i> <br />{{/if}}
+					{{{unbound name}}}
+				</button>
+			</div>
+		{{/each--}}
+		{{#each tag in tags}}
+			{{#unless tag.parent}}
+				<div class="row">
+					<div class="col-xs-12">
+						<button type="button" class="btn btn-block" data-toggle="collapse" data-target="#HowManysBigIcons{{unbound tag.name}}">{{{unbound tag.name}}}</button>
+						<div class="row collapse" id="HowManysBigIcons{{unbound name}}">{{!--class "in" for open by default--}}
+							{{#each tag.children}}
+								<div class="col-xs-6 pull-left" style="margin-top: 5px;">
+									<button type="button" class="btn btn-block">
+										{{#if icon}}<i class="fa fa-{{unbound icon}}"></i> <br />{{/if}}
+										{{{unbound name}}}
+									</button>
+								</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+				<br />
+			{{/unless}}
+		{{/each}}
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<center>Users</center>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<center>Time?</center>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-10">
+		<div {{bind-attr class=":row :agenda onAgendaView::hidden"}}>
+			{{vcalendar-agenda vevents=events vtodos=todos vjournals=journals}}
+		</div>
+		<div {{bind-attr class=":row :toConfirm onToConfirmView::hidden"}}>
+			{{vevents-toconfirm vevents=events}}
+		</div>
+		<div {{bind-attr class=":row :history onHistoryView::hidden"}}>
+			{{vcalendar-history vevents=events}}
+		</div>
+		<div {{bind-attr class=":row :windRose onWindRoseView::hidden"}}>
+			{{vcalendar-windrose vevents=events vtodos=todos}}
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>

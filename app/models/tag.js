@@ -47,7 +47,7 @@ Tag.reopenClass({
 	children: [7,8,9,10]
 },
 	{	id: 7,
-		name: 'Culture<br />Intelligence<br />Learn',
+		name: 'Culture<br />Learn', //<br />Intelligence
 		icon: 'book',
 		parent: 6
 	},
@@ -62,7 +62,7 @@ Tag.reopenClass({
 		parent: 6
 	},
 	{	id: 10,
-		name: 'Center<br />Moral<br />Philosophy<br />Spirituality',
+		name: 'Center<br />Spirituality', //Moral<br />Philosophy<br />
 		icon: 'compass',
 		parent: 6
 	},

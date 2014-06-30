@@ -7,12 +7,12 @@ var attr = DS.attr,
  * Questions for suggest new ToDo
  */
 var WizardQuestion = DS.Model.extend({
-    question: DS.attr('string'),
-    answers: DS.hasMany('WizardAnswer') //,{ async: true }
+	question: DS.attr('string'),
+	answers: DS.hasMany('WizardAnswer') //,{ async: true }
 });
 
 WizardQuestion.reopenClass({
-    FIXTURES: [
+	FIXTURES: [
 {	id: 1,
 	question: "Com t'agrada practicar esport?",
 	answers: [1,2,3]
