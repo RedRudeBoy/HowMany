@@ -54,13 +54,13 @@ Data modeling
   3. [dgeb/orbit-ember-data-adapter.js](https://gist.github.com/dgeb/8446998) - A very simple example Orbit adapter implementation for Ember Data
 2. iCal Parsers
   1. [mozilla-comm/ical.js](https://github.com/mozilla-comm/ical.js) - Javascript parser for ics files (rfc5545).
-  2. [kurakin/node-vcal](https://github.com/kurakin/node-vcal) - Create and parse ics files
+  2. iCal Parsers Discarted: [kurakin/node-vcal](https://github.com/kurakin/node-vcal) - Create and parse ics files
 3. CalDav Parsers
   1. [gaye/dav](https://github.com/gaye/dav) - caldav and carddav client for nodejs and the browser.
   2. [mozilla-b2g/caldav](https://github.com/mozilla-b2g/caldav) - Calendar Protocols.
   3. [sandro-pasquali/jquery.dav](https://github.com/sandro-pasquali/jquery.dav) - JQuery plugin providing WebDAV access methods
-4. CalDav Parsers Discarted: [jqCalDAV](https://gitorious.org/jqcaldav), [CalDavZAP](http://www.inf-it.com/open-source/clients/caldavzap/), [agenDAV](http://agendav.org/), [webical](https://code.google.com/p/webical/), [arshaw/fullcalendar](https://github.com/arshaw/fullcalendar)
-5. [Google APIs](https://developers.google.com/google-apps/app-apis) - For realtime sync if no CalDav lib if found
+  4. CalDav Parsers Discarted: [jqCalDAV](https://gitorious.org/jqcaldav), [CalDavZAP](http://www.inf-it.com/open-source/clients/caldavzap/), [agenDAV](http://agendav.org/), [webical](https://code.google.com/p/webical/), [arshaw/fullcalendar](https://github.com/arshaw/fullcalendar)
+4. [Google APIs](https://developers.google.com/google-apps/app-apis) - For realtime sync if no CalDav lib if found
   1. [Google APIs Client Library for JavaScript](https://developers.google.com/api-client-library/javascript/) - JavaScript client-application [Example](https://developers.google.com/api-client-library/javascript/start/start-js)
   2. [Google Calendar API](https://developers.google.com/google-apps/calendar/)
   3. [Google Tasks API](https://developers.google.com/google-apps/tasks/)
@@ -70,9 +70,11 @@ Data modeling
 Front-end helpers & libs
 
 1. [d3js](http://d3js.org/) - Library for manipulating documents based on data
-  1. [addepar/ember-charts](https://github.com/addepar/ember-charts) - A beautiful and easily extensible chart suite built with D3.js and Ember.js.
-  2. [samselikoff/talks](https://github.com/samselikoff/talks) - Ember and D3: Building a simple dashboard.
-  3. [front-back.com/an-ember-js-gauge-component](http://front-back.com/an-ember-js-gauge-component) - An Ember JS Gauge Component
+  1. [andrewreedy/ember-dc](https://github.com/andrewreedy/ember-dc) - Multi-Dimensional charting built to work natively with crossfilter rendered with d3.js & dc.js. [http://andrewreedy.github.io/ember-dc](http://andrewreedy.github.io/ember-dc)
+    1. [vpham21/snack](https://github.com/vpham21/snack.git) - [Snack Dashboard Demo](http://jeroenooms.github.io/dashboard/snack/)
+  2. [addepar/ember-charts](https://github.com/addepar/ember-charts) - A beautiful and easily extensible chart suite built with D3.js and Ember.js.
+  3. [samselikoff/talks](https://github.com/samselikoff/talks) - Ember and D3: Building a simple dashboard.
+  4. [front-back.com/an-ember-js-gauge-component](http://front-back.com/an-ember-js-gauge-component) - An Ember JS Gauge Component
 2. [billysbilling/ember-animated-outlet](https://github.com/billysbilling/ember-animated-outlet) - Animated transitions.
 3. [emberjs/list-view](https://github.com/emberjs/list-view) - An efficient incremental rendering list view for large lists.
   1. [∞.js](http://airbnb.github.io/infinity/) - Speeds up scrolling through long lists and keeps your infinite feeds smooth and stable for your users
@@ -115,3 +117,7 @@ Front-end helpers & libs
 
 
 # Thank you so much to all this Open Source projects!!
+
+
+## License ##
+The project is licensed under the [GNU Affero GPL v3](http://www.gnu.org/licenses/agpl-3.0.html). [Explained](http://choosealicense.com/licenses/agpl-3.0/).

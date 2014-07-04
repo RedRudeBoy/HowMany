@@ -3,9 +3,14 @@ export default {
 'home.test': 'Hello World!',
 'home.createNewEmpty': 'Create new calendar empty',
 
+'application.navbar.new': 'New',
+'application.navbar.configuration': 'Configuration',
+'application.navbar.credits': 'Credits',
+
 'calendar.addNew': 'Add new calendar',
 'calendar.remove': 'Remove',
 'calendar.edit': 'Edit',
+'calendar.save': 'Save',
 
 'calendar.form.x-wr-calname.label': 'Name',
 'calendar.form.x-wr-calname.hint': 'The display name of the calendar',
@@ -30,9 +35,14 @@ export default {
 'home.test': 'Hola mon!',
 'home.createNewEmpty': 'Crear un nou calendari buit',
 
+'application.navbar.new': 'Nou',
+'application.navbar.configuration': 'Configuració',
+'application.navbar.credits': 'Credits',
+
 'calendar.addNew': 'Afegeix un calendari',
 'calendar.remove': 'Borrar',
 'calendar.edit': 'Editar',
+'calendar.save': 'Guardar',
 
 'calendar.form.x-wr-calname.label': 'Nom',
 'calendar.form.x-wr-calname.hint': 'El nom que vols que es mostri per aquest calendari',

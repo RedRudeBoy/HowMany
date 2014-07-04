@@ -1,4 +1,6 @@
 export default Ember.Component.extend({
+	classNameBindings: [':row',':toConfirm','show::hidden'],
+
 	eventsTentative: function() {
 		return this.get('vevents').filterBy('status','TENTATIVE');
 	}.property('vevents'),

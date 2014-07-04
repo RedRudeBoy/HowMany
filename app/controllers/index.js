@@ -1,5 +1,7 @@
-export default Ember.ArrayController.extend({
-//    hasCalendars: Ember.computed.notEmpty('this'),
+import vCalendarUtils from "appkit/mixins/vcalendarutils";
+
+export default Ember.ArrayController.extend(vCalendarUtils, {
+//	hasCalendars: Ember.computed.notEmpty('this'),
 	savedCalendars: function() {
 		return this.get('model').filterBy('isNew',false);
 	}.property('model'),
@@ -29,14 +31,39 @@ export default Ember.ArrayController.extend({
 			this.transitionToRoute('vcalendar.edit', param);
 		},
 		removeCalendar: function(vcalendar) {
-			vcalendar.deleteRecord();
-			vcalendar.save().then(function() {
-				Ember.Logger.log(this,' Calendar removed!');
-			});
+			/**
+			 * @ToDO: OUCH! confirm is SOOO UGLY!
+			 */
+//			if (window.confirm("Are you sure you want to delete this calendar?")) {
+				//Remove all childrens
+				vcalendar.eachRelationship(function(name, meta){
+					if (meta.kind === "hasMany") {
+						var childrens = vcalendar.get(name);
+						childrens.forEach(function(children) {
+//							children.deleteRecord();
+//							children.save();
+							children.destroyRecord();
+						});
+					}
+				});
+//				vcalendar.deleteRecord();
+//				vcalendar.save().then(function() {Ember.Logger.log('Calendar removed!');});
+				vcalendar.destroyRecord();
+//			}
 			return false;
 		},
 		goToCalendar: function(param) {
 			Ember.Logger.log(this,' goToCalendar');
+		},
+		parseNewCalendar: function(text) {
+			Ember.Logger.log('hola parseNewCalendar!');
+			this.iCal2EmberDataSync(text);
+			return false;
+		},
+		saveCalendar: function(vcalendar) {
+			Ember.Logger.log('hola saveCalendar!');
+			this.emberData2iCal(vcalendar);
+			return false;
 		}
 	}
 });

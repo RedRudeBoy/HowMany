@@ -5,6 +5,9 @@ export default Ember.Component.extend({
 		},
 		editCalendar: function(param) {
 			this.sendAction('editCalendar', this.get('vcalendar'));
+		},
+		saveCalendar: function(param) {
+			this.sendAction('saveCalendar', this.get('vcalendar'));
 		}
 	},
 	click: function() {

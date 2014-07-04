@@ -5,16 +5,33 @@
 	{{/each}}
 </div>
 <div class="col-xs-6">
-	<span>Events</span>
-	<ul>
-	{{#each vevents}}
-		<li>model: {{this}}, description: {{description}}, summary: {{summary}}, isDirty: {{isDirty}}</li>
-	{{/each}}
-	</ul>
-	<span>Journals</span>
-	<ul>
-	{{#each vjournals}}
-		<li>model: {{this}}, description: {{description}}, summary: {{summary}}, isDirty: {{isDirty}}</li>
-	{{/each}}
-	</ul>
+	<div class="row">
+		<div class="col-xs-12"><div class="agenda-day">Monday</div></div>
+		<div class="col-xs-12"><div class="agenda-day">Tuesday</div></div>
+		<div class="col-xs-12"><div class="agenda-day">Wednesday</div></div>
+		<div class="col-xs-12"><div class="agenda-day">Thursday</div></div>
+		<div class="col-xs-12"><div class="agenda-day">Friday</div></div>
+		<div class="col-xs-12">
+			<div class="row agenda-weekend">
+				<div class="col-xs-6"><div class="agenda-weekend-day">Saturday</div></div>
+				<div class="col-xs-6"><div class="agenda-weekend-day">Sunday</div></div>
+			</div>
+		</div>
+
+		{{!-- @ToDo: move in to their day --}}
+		<div class="col-xs-12">
+			<span>Events</span>
+			<ul>
+			{{#each vevents}}
+				<li>model: {{this}}, description: {{description}}, summary: {{summary}}, isDirty: {{isDirty}}</li>
+			{{/each}}
+			</ul>
+			<span>Journals</span>
+			<ul>
+			{{#each vjournals}}
+				<li>model: {{this}}, description: {{description}}, summary: {{summary}}, isDirty: {{isDirty}}</li>
+			{{/each}}
+			</ul>
+		</div>
+	</div>
 </div>

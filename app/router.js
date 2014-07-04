@@ -10,6 +10,7 @@ Router.map(function() {
 */
 
 Router.map(function() {
+	/*
 	this.resource('Wizard', function () {
 		this.route('Welcome');
 		this.route('BasicInfo');
@@ -19,9 +20,10 @@ Router.map(function() {
 		this.route('Vice');
 		this.route('Finish');
 	});
-	this.route('Notifications');
-	this.route('Configuration');
-	this.route('Credits');
+	*/
+	this.route('configuration');
+	this.route('credits');
+//	this.route('Notifications');
 //	this.route('Report');
 //	this.route('Login');
 

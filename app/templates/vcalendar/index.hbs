@@ -65,18 +65,13 @@
 		</div>
 	</div>
 	<div class="col-xs-10">
-		<div {{bind-attr class=":row :agenda onAgendaView::hidden"}}>
-			{{vcalendar-agenda vevents=events vtodos=todos vjournals=journals}}
-		</div>
-		<div {{bind-attr class=":row :toConfirm onToConfirmView::hidden"}}>
-			{{vevents-toconfirm vevents=events}}
-		</div>
-		<div {{bind-attr class=":row :history onHistoryView::hidden"}}>
-			{{vcalendar-history vevents=events}}
-		</div>
-		<div {{bind-attr class=":row :windRose onWindRoseView::hidden"}}>
-			{{vcalendar-windrose vevents=events vtodos=todos}}
-		</div>
+		{{vcalendar-agenda show=onAgendaView vevents=events vtodos=todos vjournals=journals}}
+		
+		{{vevents-toconfirm show=onToConfirmView vevents=events}}
+		
+		{{vcalendar-history show=onHistoryView vevents=events}}
+		
+		{{vcalendar-windrose show=onWindRoseView vevents=events vtodos=todos}}
 	</div>
 	<div class="clearfix"></div>
 </div>

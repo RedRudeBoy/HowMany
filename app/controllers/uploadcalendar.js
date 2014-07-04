@@ -1,29 +1,27 @@
 /* global ICAL */
-/**
- *@ToDo: Move _parseNewCalendar into lib
-	Problems with promises, maybe something like this can help:
-var promises = Ember.A();
-basket.get('fruits').forEach(function(item){
-	promises.push(item.save());
-});
-Ember.RSVP.Promise.all(promises).then(function(resolvedPromises){
-	alert('All saved!');
-});
- */
-export default Ember.Controller.extend({
+
+import vCalendarUtils from "appkit/mixins/vcalendarutils";
+
+export default Ember.Controller.extend(vCalendarUtils, {
 	init: function() {
 		if (!window.File || !window.FileReader || !window.FileList || !window.Blob) {
 			Ember.Logger.warn('The File APIs are not fully supported in this browser.');
 		}
 	},
-	actions: {
-		parseNewCalendar: function(text) {
-			Ember.run.next(this, this._parseNewCalendar, text);
-			//Ember.run.once(this, this._parseNewCalendar, text);
-			//this._parseNewCalendar(text);
-		}
-	},
+//	actions: {
+//		parseNewCalendar: function(text) {
+//			Ember.run.next(this, this._parseNewCalendar, text);
+//			Ember.run.once(this, this._parseNewCalendar, text);
+//			this._parseNewCalendar(text);
+//		},
+//		saveCalendar: function(vcalendar) {
+//			return this.emberData2iCal(vcalendar);
+//		}
+//	},
 	_parseNewCalendar: function(text) {
+		return this.iCal2EmberDataSync(text);
+	},
+	_parseNewCalendarOld: function(text) {
 		var self = this;
 		var jcalData = ICAL.parse(text);
 //		var comp = new ICAL.Component(jCalData[1]);
