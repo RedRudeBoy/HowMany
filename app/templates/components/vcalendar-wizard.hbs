@@ -1,0 +1,48 @@
+<div class="row"><div class="col-xs-12">
+{{#each tag in tags}}
+	{{#unless tag.parent}}
+		<div class="row">
+			<div class="col-xs-12">
+				<button type="button" class="btn btn-block" data-toggle="collapse" data-target="#HowManysBigIcons{{unbound tag.name}}">{{{unbound tag.name}}}</button>
+				<div class="row collapse in" id="HowManysBigIcons{{unbound name}}">{{!--class "in" for open by default--}}
+					{{#each tag.children}}
+						<div class="col-xs-6 pull-left" style="margin-top: 5px;">
+							<button type="button" class="btn btn-block">
+								{{#if icon}}<i class="fa fa-{{unbound icon}}"></i> <br />{{/if}}
+								{{{unbound name}}}
+							</button>
+						</div>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+		<br />
+	{{/unless}}
+{{/each}}
+</div></div>
+
+{{!--
+{{#each tags}}
+	{{#unless parent}}
+		<div {{action "imgChange"}} {{bind-attr class="smallParent:span6:span12"}}>
+			<button type="button" class="btn btn-block" data-toggle="collapse" data-target="#HowManysBigIcons{{unbound name}}">{{unbound name}}</button>
+
+			<div class="row collapse in" id="HowManysBigIcons{{unbound name}}">
+			{{#each children itemViewClass="App.HowManysBigIconsItemView"}}
+				<div {{bind-attr class=":span2 view.offset"}}>
+					{{#linkTo 'HowManys.index' classNames="btn btn-block"}}
+						{{#if icon}}<i class="icon-{{unbound icon}} icon-2x"></i> <br />{{/if}}
+						{{{unbound name}}}
+					{{/linkTo}}
+				</div>
+			{{/each}}
+			</div>
+		</div>
+	{{/unless}}
+{{/each}}
+--}}
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<div class="row">
+	<div class="col-xs-12"><h1><a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Tots els icones i molts més són d'aquí</a></h1></div>
+</div>

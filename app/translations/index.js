@@ -24,10 +24,35 @@ export default {
 'calendar.form.version.hint': 'iCalendar specification that is required in order to interpret the iCalendar object',
 'calendar.form.save': 'Save changes',
 
-'calendar.component.form.summary.hint': 'Summary',
-'calendar.component.form.summary.label': 'Summary help',
-'calendar.component.form.description.hint': 'Description',
-'calendar.component.form.description.label': 'Description help'
+'calendar.vcomponent.form.new.vevent': 'Create event',
+'calendar.vcomponent.form.new.vtodo': 'Create To Do',
+'calendar.vcomponent.form.new.vjournal': 'Create Journal',
+
+'calendar.vcomponent.form.summary.hint': 'Summary',
+'calendar.vcomponent.form.summary.label': 'Short summary or subject for the component',
+'calendar.vcomponent.form.description.hint': 'Description',
+'calendar.vcomponent.form.description.label': 'Complete description of the calendar component',
+'calendar.vcomponent.form.categories.hint': 'Categories',
+'calendar.vcomponent.form.categories.label': 'Like tags, separated by comma',
+'calendar.vcomponent.form.class.hint': 'Class',
+'calendar.vcomponent.form.class.label': '"PUBLIC" / "PRIVATE" / "CONFIDENTIAL" ',
+'calendar.vcomponent.form.dtstart.hint': 'Start date',
+'calendar.vcomponent.form.dtstart.label': 'The beggining of the component',
+'calendar.vcomponent.form.url.hint': 'Url',
+'calendar.vcomponent.form.url.label': 'A webpage',
+
+'calendar.vcomponenttime.form.location.hint': 'Location',
+'calendar.vcomponenttime.form.location.label': 'Where',
+'calendar.vcomponenttime.form.priority.hint': 'Priority',
+'calendar.vcomponenttime.form.priority.label': '"HIGH" / "MEDIUM" / "LOW"',
+'calendar.vcomponenttime.form.duration.hint': 'Duration',
+'calendar.vcomponenttime.form.duration.label': 'Duration of the component (instead of end date)',
+
+'calendar.vtodo.form.due.hint': 'Due',
+'calendar.vtodo.form.due.label': 'When is expected to be completed',
+
+'calendar.vevent.form.dtend.hint': 'End date',
+'calendar.vevent.form.dtend.label': 'The ending of the component'
 },
 
 
@@ -37,7 +62,7 @@ export default {
 
 'application.navbar.new': 'Nou',
 'application.navbar.configuration': 'Configuració',
-'application.navbar.credits': 'Credits',
+'application.navbar.credits': 'Crèdits',
 
 'calendar.addNew': 'Afegeix un calendari',
 'calendar.remove': 'Borrar',
@@ -56,10 +81,31 @@ export default {
 'calendar.form.version.hint': 'iCalendar specification that is required in order to interpret the iCalendar object',
 'calendar.form.save': 'Guardar canvis',
 
-'calendar.component.form.summary.hint': 'Summary',
-'calendar.component.form.summary.label': 'Summary ajuda',
-'calendar.component.form.description.hint': 'Description',
-'calendar.component.form.description.label': 'Description ajuda'
+'calendar.vcomponent.form.summary.hint': 'Títol',
+'calendar.vcomponent.form.summary.label': 'Un breu descripció del component',
+'calendar.vcomponent.form.description.hint': 'Descripció',
+'calendar.vcomponent.form.description.label': 'Una descripció completa del component',
+'calendar.vcomponent.form.categories.hint': 'Categories',
+'calendar.vcomponent.form.categories.label': 'Altrament anomenats "tags", han d\'estar separats per comes',
+'calendar.vcomponent.form.class.hint': 'Privadesa',
+'calendar.vcomponent.form.class.label': '"PUBLIC" / "PRIVATE" / "CONFIDENTIAL" ',
+'calendar.vcomponent.form.dtstart.hint': 'Start date',
+'calendar.vcomponent.form.dtstart.label': 'Data d\'inici del component',
+'calendar.vcomponent.form.url.hint': 'Url',
+'calendar.vcomponent.form.url.label': 'Una pàgina web',
+
+'calendar.vcomponenttime.form.location.hint': 'On',
+'calendar.vcomponenttime.form.location.label': 'Localització',
+'calendar.vcomponenttime.form.priority.hint': 'Prioritat',
+'calendar.vcomponenttime.form.priority.label': '"HIGH" / "MEDIUM" / "LOW"',
+'calendar.vcomponenttime.form.duration.hint': 'Duració',
+'calendar.vcomponenttime.form.duration.label': 'Duració of the event (en comptes de data de finalització)',
+
+'calendar.vtodo.form.due.hint': 'Abans de',
+'calendar.vtodo.form.due.label': 'Quan esperes tenir-ho fet',
+
+'calendar.vevent.form.dtend.hint': 'End date',
+'calendar.vevent.form.dtend.label': 'Data de finalització del component'
 }
 
 };

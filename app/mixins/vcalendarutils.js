@@ -251,7 +251,7 @@ export default Em.Mixin.create({
 				//Only vAlarm
 //				vcomponent.eachRelationship(function(name, meta) {
 //					valarms = vcalendar.get(name);
-					valarms = vcalendar.get('valarm');
+					var valarms = vcalendar.get('valarm');
 					valarms.forEach(function(valarm) {
 						var iCalAlarm = new ICAL.Component('valarm');
 						valarm.eachAttribute(function(name, meta) {

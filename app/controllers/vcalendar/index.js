@@ -28,16 +28,18 @@ export default Ember.ObjectController.extend({
 
 	//Pseudo-View
 	actualView: function() {
-		return 'agenda';	//agenda || toConfirm || history || windRose
+		return 'agenda';	//agenda || toConfirm || history || windRose || wizard
 	}.property(),
 	onAgendaView: Ember.computed.equal('actualView', 'agenda'),
 	onToConfirmView: Ember.computed.equal('actualView', 'toConfirm'),
 	onHistoryView: Ember.computed.equal('actualView', 'history'),
 	onWindRoseView: Ember.computed.equal('actualView', 'windRose'),
+	onWizardView: Ember.computed.equal('actualView', 'wizard'),
 	actions: {
 		showAgenda: function() { this.set('actualView', 'agenda'); },
 		showToConfirm: function() { this.set('actualView', 'toConfirm'); },
 		showHistory: function() { this.set('actualView', 'history'); },
-		showWindRose: function() { this.set('actualView', 'windRose'); }
+		showWindRose: function() { this.set('actualView', 'windRose'); },
+		showWizard: function() { this.set('actualView', 'wizard'); }
 	}
 });

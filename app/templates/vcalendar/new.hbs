@@ -2,13 +2,14 @@
 <br />
 <br />
 <div class="well">
-	<button {{action asEvent}}>asEvent</button>
-	<button {{action asTodo}}>asTodo</button>
-	<button {{action asJournal}}>asJournal</button>
-	<br />
-	{{#if isEvent}}<h1>isEvent</h1>{{/if}}
-	{{#if isTodo}}<h1>isTodo</h1>{{/if}}
-	{{#if isJournal}}<h1>isJournal</h1>{{/if}}
+	<button {{action asEvent}}>{{t calendar.vcomponent.form.new.vevent}}</button>
+	<button {{action asTodo}}>{{t calendar.vcomponent.form.new.vtodo}}</button>
+	<button {{action asJournal}}>{{t calendar.vcomponent.form.new.vjournal}}</button>
+	<p class="pull-right">
+		{{#if isEvent}}<small>isEvent</small>{{/if}}
+		{{#if isTodo}}<small>isTodo</small>{{/if}}
+		{{#if isJournal}}<small>isJournal</small>{{/if}}
+	</p>
 </div>
 <br />
 
@@ -16,21 +17,57 @@
 
 <div class="well">
 	<form class="form-horizontal" role="form">
-		{{input summary hintTranslation="calendar.component.form.summary.hint" labelTranslation="calendar.component.form.summary.label"}}
-		<br />
-		{{input description hintTranslation="calendar.component.form.description.hint" labelTranslation="calendar.component.form.description.label"}}
-		<br />
-		{{!--input x-wr-timezone hintTranslation="calendar.form.x-wr-timezone.hint" labelTranslation="calendar.form.x-wr-timezone.label"--}}
-		<br />
-		<div class="hide">
-			{{!--input prodid hintTranslation="calendar.form.prodid.hint" labelTranslation="calendar.form.prodid.label"--}}
-			<br />
-			{{!--input version hintTranslation="calendar.form.version.hint" labelTranslation="calendar.form.version.label"--}}
-			<br />
-		</div>
+		{{!-- vcomponent mixing:
+		UnUsed attrs:
+		attach, comment, status	//Descriptive
+		attendee, contact, organizer, recurrence_id, related_to, uid	//Relationship
+		exdate, exrule, rdate, rrule, rstatus	//Recurrence
+		dtstamp //Change Management
+		--}}
+		{{input summary hintTranslation="calendar.vcomponent.form.summary.hint" labelTranslation="calendar.vcomponent.form.summary.label"}}
 
+		{{input description hintTranslation="calendar.vcomponent.form.description.hint" labelTranslation="calendar.vcomponent.form.description.label"}}
+
+		{{input categories hintTranslation="calendar.vcomponent.form.categories.hint" labelTranslation="calendar.vcomponent.form.categories.label"}}
+
+		{{!--
+		{{classOptions}}
+		{{classSelected}}
+		input class as="select" collection=classOptions selection=classSelected optionValuePath=content.id optionLabelPath=content.name
+			optionValuePath="content.id" optionLabelPath="content.name" classSelected --}}
+		{{input class hintTranslation="calendar.vcomponent.form.class.hint" labelTranslation="calendar.vcomponent.form.class.label"}}
+
+		{{input dtstart as="date" hintTranslation="calendar.vcomponent.form.dtstart.hint" labelTranslation="calendar.vcomponent.form.dtstart.label"}}
+
+		{{input url as="url" hintTranslation="calendar.vcomponent.form.url.hint" labelTranslation="calendar.vcomponent.form.url.label"}}
+
+
+		{{!-- vcomponenttime mixing: (only events & todos)
+		UnUsed attrs:
+		geo, resources	//Descriptive
+		--}}
+		{{#unless isJournal}}
+			{{input location hintTranslation="calendar.vcomponenttime.form.location.hint" labelTranslation="calendar.vcomponenttime.form.location.label"}}
+
+			{{input priority hintTranslation="calendar.vcomponenttime.form.priority.hint" labelTranslation="calendar.vcomponenttime.form.priority.label"}}
+
+			{{input duration hintTranslation="calendar.vcomponenttime.form.duration.hint" labelTranslation="calendar.vcomponenttime.form.duration.label"}}
+		{{/unless}}
+
+		{{!-- only todos
+		UnUsed attrs:
+		percent_complete, completed
+		--}}
 		{{#if isTodo}}
-		{{input due}}
+			{{input due as="date" hintTranslation="calendar.vtodo.form.due.hint" labelTranslation="calendar.vtodo.form.due.label"}}
+		{{/if}}
+
+		{{!-- only events
+		UnUsed attrs:
+		transp
+		--}}
+		{{#if isEvent}}
+			{{input dtend as="date" hintTranslation="calendar.vevent.form.dtend.hint" labelTranslation="calendar.vevent.form.dtend.label"}}
 		{{/if}}
 
 		<div class="form-group">

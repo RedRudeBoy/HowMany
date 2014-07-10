@@ -18,6 +18,14 @@ export default Ember.ObjectController.extend({
 		return this.get('store').createRecord(this.get('tmp_model_type'));
 	}.property('tmp_model_type'),
 
+	classOptions: function() {
+		return Ember.A([{ id: "PUBLIC", name: "Public"},{id: "PRIVATE", name: "Private"},{id:"CONFIDENTIAL", name: "Confidential"}]);
+//		return Ember.A(["Public","Private","Confidential"]);
+	}.property(),
+	classSelected: function() {
+		return this.get('classOptions')[1];
+	}.property(),
+
 	actions: {
 		asEvent: function() {
 			this.set('tmp_model_type','vevent');
@@ -48,8 +56,12 @@ export default Ember.ObjectController.extend({
 			});
 			*/
 			//Sync
-			var tmp_comp = controller.get('tmp_component');
-			tmp_comp.set('vcalendar', vcalendar).set('status','TENTATIVE').save();
+			var tmp_comp = controller.get('tmp_component'),
+				now = new Date();
+			tmp_comp
+				.set('vcalendar', vcalendar).set('status','TENTATIVE')
+				.set('created', now).set('last-modified', now).set('sequence', 1)
+				.save();
 			var onSuccess = function(vcalendar) {
 				controller.transitionToRoute('vcalendar', vcalendar);
 			};

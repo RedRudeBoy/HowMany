@@ -1,9 +1,245 @@
-<h1>creadits.hbs, {{mola}}</h1>
-<div class="well">
-	<p>each model {{model}}</p>
-	<ul>
-	{{#each model}}
-		<li>model: {{this}}, description: {{description}}, summary: {{summary}}, isDirty: {{isDirty}}</li>
-	{{/each}}
-	</ul>
+<div id="readme" class="clearfix announce instapaper_body md">
+	<span class="name">
+		<span class="octicon octicon-book"></span>
+		<a href="https://github.com/RedRudeBoy/HowMany/blob/master/README.md" target="_blank">README.md</a>
+	</span>
+
+	<article class="markdown-body entry-content" itemprop="mainContentOfPage">
+		<h1>
+<a name="user-content-how-many-days" class="anchor" href="#how-many-days" aria-hidden="true"><span class="octicon octicon-link"></span></a>How Many Days</h1>
+
+		<p>How Many Days have been since I did... ~ How many days have passed since I did...</p>
+
+		<h2>
+<a name="user-content-the-application" class="anchor" href="#the-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Application</h2>
+
+		<p>A la recerca de possibles necessitats, i les seves solucions respectives, m'he dit...</p>
+
+		<p>Quan cullons fa que no rego les plantes? Quants dies fa que no visito l'àvia? Quants dies fa que no llegeixo? Quants mesos fa que no faig una escapada?</p>
+
+		<h3>
+<a name="user-content-try-it-herenot-yet" class="anchor" href="#try-it-herenot-yet" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://github.com">Try It Here(Not Yet)</a>
+</h3>
+
+		<h3>
+<a name="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
+
+		<div class="highlight highlight-bash"><pre>npm install -g grunt-cli
+npm install -g bower
+npm install
+bower install
+</pre>
+		</div>
+
+		<h3>
+<a name="user-content-run" class="anchor" href="#run" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run</h3>
+
+		<div class="highlight highlight-bash"><pre>grunt server
+</pre>
+		</div>
+
+		<h2>
+<a name="user-content-software-used" class="anchor" href="#software-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>Software used</h2>
+
+		<ol class="task-list">
+			<li>
+				<a href="http://emberjs.com/">ember.js</a> - A framework for creating ambitious web applications</li>
+			<li>
+				<a href="http://handlebarsjs.com/">handlebars</a> - Semantic Templates compatible with Mustache</li>
+			<li>
+				<a href="http://jquery.com/">jQuery</a> - Cross-browser compatibility for DOM manipulation, ajax...</li>
+			<li>
+				<a href="http://iamstef.net/ember-app-kit/">stefanpenner/ember-app-kit</a> - Starting point for "ambitious web applications"</li>
+			<li>
+				<a href="https://github.com/emberjs/data">emberjs/ember-data</a> - A data persistence library for Ember.js.</li>
+			<li>
+				<a href="https://github.com/rpflorence/ember-localstorage-adapter">rpflorence/ember-localstorage-adapter</a> - Name says it all.</li>
+			<li>
+				<a href="https://github.com/jamesarosen/ember-i18n">jamesarosen/ember-i18n</a> - Internationalization for Ember.</li>
+			<li>
+				<a href="https://github.com/ember-addons/bootstrap-for-ember">ember-addons/bootstrap-for-ember</a> - Bootstrap for Ember.js.</li>
+			<li>
+				<a href="https://github.com/dockyard/ember-validations">dockyard/ember-validations</a> - Validations for Ember Objects</li>
+			<li>
+				<a href="https://github.com/dockyard/ember-easyForm">dockyard/ember-easyForm</a> - Easily build semantic forms in Ember</li>
+			<li>
+				<a href="https://github.com/mozilla-comm/ical.js">mozilla-comm/ical.js</a> - Javascript parser for ics files (rfc5545).</li>
+			<li>
+				<a href="http://momentjs.com/">Moment.js</a> - Library for parsing, validating, manipulating, and formatting dates</li>
+			<li>
+				<a href="http://getbootstrap.com/2.3.2/">Twitter Bootstrap</a> - Front-end framework</li>
+			<li>
+				<a href="http://glyphicons.com/">GLYPHICONS Halflings</a> - Monochromatic icons and symbols part of Bootstrap from Twitter</li>
+			<li>
+				<a href="https://github.com/FortAwesome/Font-Awesome/">FortAwesome/Font-Awesome</a> - The iconic font and CSS framework <a href="http://fontawesome.io">http://fontawesome.io</a>
+			</li>
+		</ol>
+		<h2>
+<a name="user-content-in-the-roadmap-probably-not-all" class="anchor" href="#in-the-roadmap-probably-not-all" aria-hidden="true"><span class="octicon octicon-link"></span></a>In the roadmap (probably not all)</h2>
+
+		<p>Data modeling</p>
+
+		<ol class="task-list">
+			<li>
+				<a href="https://github.com/orbitjs/orbit.js">orbitjs/orbit.js</a> - Standalone library for coordinating access to data sources and keeping their contents synchronized.
+
+				<ol class="task-list">
+					<li>
+						<a href="https://github.com/orbitjs/ember-orbit">orbitjs/ember-orbit</a> - Ember.js data layer built with Orbit.js</li>
+					<li>
+						<a href="https://github.com/dgeb/ember-orbit-example">dgeb/ember-orbit-example</a> - Example App that uses Orbit.js and Ember.js</li>
+					<li>
+						<a href="https://gist.github.com/dgeb/8446998">dgeb/orbit-ember-data-adapter.js</a> - A very simple example Orbit adapter implementation for Ember Data</li>
+				</ol>
+			</li>
+			<li>iCal Parsers
+
+				<ol class="task-list">
+					<li>
+						<a href="https://github.com/mozilla-comm/ical.js">mozilla-comm/ical.js</a> - Javascript parser for ics files (rfc5545).</li>
+					<li>iCal Parsers Discarted: <a href="https://github.com/kurakin/node-vcal">kurakin/node-vcal</a> - Create and parse ics files</li>
+				</ol>
+			</li>
+			<li>CalDav Parsers
+
+				<ol class="task-list">
+					<li>
+						<a href="https://github.com/gaye/dav">gaye/dav</a> - caldav and carddav client for nodejs and the browser.</li>
+					<li>
+						<a href="https://github.com/mozilla-b2g/caldav">mozilla-b2g/caldav</a> - Calendar Protocols.</li>
+					<li>
+						<a href="https://github.com/sandro-pasquali/jquery.dav">sandro-pasquali/jquery.dav</a> - JQuery plugin providing WebDAV access methods</li>
+					<li>CalDav Parsers Discarted: <a href="https://gitorious.org/jqcaldav">jqCalDAV</a>, <a href="http://www.inf-it.com/open-source/clients/caldavzap/">CalDavZAP</a>, <a href="http://agendav.org/">agenDAV</a>, <a href="https://code.google.com/p/webical/">webical</a>, <a href="https://github.com/arshaw/fullcalendar">arshaw/fullcalendar</a>
+					</li>
+				</ol>
+			</li>
+			<li>
+				<a href="https://developers.google.com/google-apps/app-apis">Google APIs</a> - For realtime sync if no CalDav lib if found
+
+				<ol class="task-list">
+					<li>
+						<a href="https://developers.google.com/api-client-library/javascript/">Google APIs Client Library for JavaScript</a> - JavaScript client-application <a href="https://developers.google.com/api-client-library/javascript/start/start-js">Example</a>
+					</li>
+					<li><a href="https://developers.google.com/google-apps/calendar/">Google Calendar API</a>
+					</li>
+					<li><a href="https://developers.google.com/google-apps/tasks/">Google Tasks API</a>
+					</li>
+					<li><a href="https://developers.google.com/drive/quickstart-js">Google Drive SDK</a>
+					</li>
+					<li>
+						<a href="https://developers.google.com/picker/docs">Google Picker</a> - Google Picker is a "File Open" dialog for the information stored in Google servers</li>
+				</ol>
+			</li>
+		</ol>
+		<p>Front-end helpers &amp; libs</p>
+
+		<ol class="task-list">
+			<li>
+				<a href="http://d3js.org/">d3js</a> - Library for manipulating documents based on data
+
+				<ol class="task-list">
+					<li>
+						<a href="https://github.com/andrewreedy/ember-dc">andrewreedy/ember-dc</a> - Multi-Dimensional charting built to work natively with crossfilter rendered with d3.js &amp; dc.js. <a href="http://andrewreedy.github.io/ember-dc">http://andrewreedy.github.io/ember-dc</a>
+
+						<ol class="task-list">
+							<li>
+								<a href="https://github.com/vpham21/snack.git">vpham21/snack</a> - <a href="http://jeroenooms.github.io/dashboard/snack/">Snack Dashboard Demo</a>
+							</li>
+						</ol>
+					</li>
+					<li>
+						<a href="https://github.com/addepar/ember-charts">addepar/ember-charts</a> - A beautiful and easily extensible chart suite built with D3.js and Ember.js.</li>
+					<li>
+						<a href="https://github.com/samselikoff/talks">samselikoff/talks</a> - Ember and D3: Building a simple dashboard.</li>
+					<li>
+						<a href="http://front-back.com/an-ember-js-gauge-component">front-back.com/an-ember-js-gauge-component</a> - An Ember JS Gauge Component</li>
+				</ol>
+			</li>
+			<li>
+				<a href="https://github.com/billysbilling/ember-animated-outlet">billysbilling/ember-animated-outlet</a> - Animated transitions.</li>
+			<li>
+				<a href="https://github.com/emberjs/list-view">emberjs/list-view</a> - An efficient incremental rendering list view for large lists.
+
+				<ol class="task-list">
+					<li>
+						<a href="http://airbnb.github.io/infinity/">∞.js</a> - Speeds up scrolling through long lists and keeps your infinite feeds smooth and stable for your users</li>
+					<li>
+						<a href="http://cubiq.org/">iScroll</a> - Smooth scrolling for the web</li>
+				</ol>
+			</li>
+			<li>
+				<a href="https://github.com/ember-addons/ember-forms">ember-addons/ember-forms</a> - Smart, Intuitive forms for Ember.js styled with Bootstrap &amp; Validation ready.</li>
+			<li>
+				<a href="http://exacttarget.github.io/fuelux">fuelUX</a> - Additional lightweight JavaScript controls</li>
+			<li>
+				<a href="http://github.hubspot.com/messenger/">Messenger</a> - Alerts for the 21st century</li>
+			<li>
+				<a href="https://github.com/todc/todc-bootstrap">todc/todc-bootstrap</a> - Google-styled theme for Twitter Bootstrap</li>
+			<li>
+				<a href="http://bootstrap-arrows.iarfhlaith.com/">Bootstrap Arrows</a> - Include arrows at any angle</li>
+			<li>
+				<a href="https://github.com/pfefferle/openwebicons">pfefferle/openwebicons</a> - Set of icons to show the support for the Open Web</li>
+			<li>
+				<a href="https://github.com/easelinc/tourist">easelinc/tourist</a> - Simple, flexible tours for your app [<a href="http://easelinc.github.io/tourist/%5D(http://easelinc.github.io/tourist/">http://easelinc.github.io/tourist/](http://easelinc.github.io/tourist/</a>]</li>
+		</ol>
+		<h2>
+<a name="user-content-in-the-long-term-roadmap" class="anchor" href="#in-the-long-term-roadmap" aria-hidden="true"><span class="octicon octicon-link"></span></a>In the long-term roadmap</h2>
+
+		<ol class="task-list">
+			<li>This app requires a lot of information of the user, in a perfect world, all this data must be private &amp; personal. <a href="https://github.com/RedRudeBoy/HowManyBackendNodeDeprecated">It's necessary to build a backend with webfinger</a> for create independent nodes <a href="http://podupti.me/">("pods")</a> like <a href="https://diasporafoundation.org/about">diaspora</a>.</li>
+		</ol>
+		<h3>
+<a name="user-content-not-used-directly-but-an-important-source-of-inspiration-or-in-the-past-roadmap" class="anchor" href="#not-used-directly-but-an-important-source-of-inspiration-or-in-the-past-roadmap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Not used directly, but an important source of inspiration or in the past roadmap</h3>
+
+		<ol class="task-list">
+			<li>
+				<a href="https://github.com/documentcloud/backbone">Backbone</a> - MVC for browser</li>
+			<li>
+				<a href="https://github.com/documentcloud/underscore">Underscore</a> - JS Utils</li>
+			<li>
+				<a href="https://github.com/fernandogmar/Emberjs-RequireJS">fernandogmar/Emberjs-RequireJS</a> - Starter kit for EmberJS using RequireJS</li>
+			<li>
+				<a href="https://github.com/vinkaga/node-backbone">vinkaga/node-backbone</a> - Backbone starter kit</li>
+			<li>
+				<a href="https://github.com/ccoenraets/backbone-jax-cellar">ccoenraets/backbone-jax-cellar</a> - Backbone starter kit</li>
+			<li>
+				<a href="https://github.com/diaspora/diaspora">diaspora</a> - Distributed and contextual social networking</li>
+			<li>
+				<a href="https://github.com/vmx/couchappspora">vmx/couchappspora</a> - diaspora... as a couchapp</li>
+			<li>
+				<a href="https://github.com/jo/backbone-pouch">jo/backbone-pouch</a> - Backbone PouchDB Adapter (original idea)</li>
+			<li>
+				<a href="http://expressjs.com/">express</a> - Web application framework for node</li>
+			<li>
+				<a href="http://expressjs.com/">locomotive</a> - Powerful MVC web framework for Node.js</li>
+			<li>
+				<a href="https://github.com/persvr/perstore">persvr/perstore</a> - Object store interface for mapping persistent objects to various different storage mediums</li>
+			<li>
+				<a href="http://jquerymobile.com/">jQuery Mobile</a> - Used for <a href="http://demos.jquerymobile.com/1.4.0/listview-grid/listview-grid.html">ListViews</a>(<a href="http://jsfiddle.net/Shreerang/ggzHT/">jsfiddle</a>) &amp; <a href="http://demos.jquerymobile.com/1.4.2/panel/">Panels</a>
+			</li>
+			<li>
+				<a href="http://requirejs.org/">RequireJS</a> - JavaScript modular script loader</li>
+			<li>
+				<a href="https://github.com/guybedford/require-css">Require-css</a> - CSS loader plugin for RequireJS</li>
+			<li>
+				<a href="https://github.com/millermedeiros/requirejs-plugins">RequireJS-plugins</a> - Small set of plugins for RequireJS</li>
+			<li>
+				<a href="https://github.com/emberjs-addons/ember-bootstrap">emberjs-addons/ember-bootstrap</a> - A set of UI elements styled using the Boostrap toolkit to use with Ember.js</li>
+			<li>
+				<a href="https://github.com/dgeb/grunt-ember-templates">dgeb/grunt-ember-templates</a> - Precompile Handlebars templates for Ember.js</li>
+			<li>
+				<a href="http://raphaeljs.com/">Raphaël</a> - Library that should simplify your work with vector graphics on the web</li>
+			<li>
+				<a href="https://github.com/CrowdStrike/ember-timetree">CrowdStrike/ember-timetree</a> - Visualize hierarchical timeline data. Built with Ember.js and D3.js</li>
+			<li>
+				<a href="https://github.com/StoicLoofah/chronoline.js">StoicLoofah/chronoline.js</a> - Library for making a chronology timeline out of events on a horizontal timescale</li>
+		</ol>
+		<h1>
+<a name="user-content-thank-you-so-much-to-all-this-open-source-projects" class="anchor" href="#thank-you-so-much-to-all-this-open-source-projects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Thank you so much to all this Open Source projects!!</h1>
+
+		<h2>
+<a name="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+		<p>The project is licensed under the <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero GPL v3</a>. <a href="http://choosealicense.com/licenses/agpl-3.0/">Explained</a>.</p>
+	</article>
 </div>
