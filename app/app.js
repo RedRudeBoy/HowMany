@@ -8,7 +8,7 @@ var App = Ember.Application.extend({
   locale: Locale
 });
 
-Locale.set(App, 'ca');
+Locale.set(App, 'en'); //ca
 loadInitializers(App, 'appkit');
 
 export default App;

@@ -81,6 +81,10 @@ export default {
 'calendar.form.version.hint': 'iCalendar specification that is required in order to interpret the iCalendar object',
 'calendar.form.save': 'Guardar canvis',
 
+'calendar.vcomponent.form.new.vevent': 'Crear event',
+'calendar.vcomponent.form.new.vtodo': 'Crear To Do',
+'calendar.vcomponent.form.new.vjournal': 'Crear Journal',
+
 'calendar.vcomponent.form.summary.hint': 'Títol',
 'calendar.vcomponent.form.summary.label': 'Un breu descripció del component',
 'calendar.vcomponent.form.description.hint': 'Descripció',

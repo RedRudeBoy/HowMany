@@ -12,10 +12,16 @@ export default Ember.Component.extend({
 	},
 	click: function() {
 		this.sendAction('goTo', 'vcalendar', this.get('vcalendar'));
-		//this.send('btnLinkTo', 'hola!');
-		//this.transitionTo('howmany', this.get('vcalendar'));
+//		this.send('btnLinkTo', 'hola!');
+//		this.transitionTo('howmany', this.get('vcalendar'));
 	},
+	/**
+	 * @ToDo: Only works the first time, seems unhydrated.
+	 */
 	countHigh: Ember.computed.alias('vcalendar.vevent.length'),
+//	countHigh: function() {
+//		return this.get('vcalendar').get('vevent').length;
+//	}.property('vcalendar.vevent.length'),
 	countNormal: Ember.computed.alias('vcalendar.vtodo.length'),
 	countLow: Ember.computed.alias('vcalendar.vjournal.length'),
 

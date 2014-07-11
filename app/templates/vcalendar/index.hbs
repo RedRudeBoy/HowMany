@@ -37,31 +37,31 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-12">
-				<center>Users</center>
+				<center>Where</center>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-12">
-				<center>Time?</center>
+				<center>With who</center>
 			</div>
 		</div>
 	</div>
 	<div class="col-xs-10">
 		<div class="btn-group btn-group-justified">
 			<div class="btn-group">
-				<button type="button" class="btn btn-default" {{action "showAgenda"}}>Agenda</button>
+				<button type="button" {{bind-attr class=":btn :btn-default onAgendaView:active"}} {{action "showAgenda"}}>Agenda</button>
 			</div>
 			<div class="btn-group">
-				<button type="button" class="btn btn-default" {{action "showToConfirm"}}>To Confirm</button>
+				<button type="button" {{bind-attr class=":btn :btn-default onToConfirmView:active"}} {{action "showToConfirm"}}>To Confirm</button>
 			</div>
 			<div class="btn-group">
-				<button type="button" class="btn btn-default" {{action "showHistory"}}>History Timeline</button>
+				<button type="button" {{bind-attr class=":btn :btn-default onHistoryView:active"}} {{action "showHistory"}}>History Timeline</button>
 			</div>
 			<div class="btn-group">
-				<button type="button" class="btn btn-default" {{action "showWindRose"}}>WindRose{{!-- & Gauge--}}</button>
+				<button type="button" {{bind-attr class=":btn :btn-default onWindRoseView:active"}} {{action "showWindRose"}}>WindRose{{!-- & Gauge--}}</button>
 			</div>
 			<div class="btn-group">
-				<button type="button" class="btn btn-default" {{action "showWizard"}}>Wizard</button>
+				<button type="button" {{bind-attr class=":btn :btn-default onWizardView:active"}} {{action "showWizard"}}>Wizard</button>
 			</div>
 		</div>
 	</div>

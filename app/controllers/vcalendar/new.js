@@ -7,6 +7,19 @@
 export default Ember.ObjectController.extend({
 	mola: 'vcalendar/new',
 
+	/**
+	 * @ToDo: Dirty events are showed event unsaved, this solution is not working
+	 */
+	activate: function() { //Hook called when entering the route
+		Ember.Logger.log('controller:vcalencar:new:activate');
+	},
+	deactivate: function() { //Hook for perform any teardown if needed
+		Ember.Logger.log('controller:vcalencar:new:deactivate',this.get('tmp_component.isDirty'),his.get('tmp_component.isNew'));
+		if(this.get('tmp_component.isNew')) {
+			this.get('tmp_component').destroyRecord();
+		}
+	},
+
 	isEvent: Ember.computed.equal('tmp_model_type','vevent'),
 	isTodo: Ember.computed.equal('tmp_model_type','vtodo'),
 	isJournal: Ember.computed.equal('tmp_model_type','vjournal'),
@@ -60,7 +73,7 @@ export default Ember.ObjectController.extend({
 				now = new Date();
 			tmp_comp
 				.set('vcalendar', vcalendar).set('status','TENTATIVE')
-				.set('created', now).set('last-modified', now).set('sequence', 1)
+				.set('created', now).set('last-modified', now).set('sequence', tmp_comp.get('sequence')+1)
 				.save();
 			var onSuccess = function(vcalendar) {
 				controller.transitionToRoute('vcalendar', vcalendar);
@@ -70,8 +83,7 @@ export default Ember.ObjectController.extend({
 				debugger;
 			};
 			vcalendar.get(controller.get('tmp_model_type')).pushObject(tmp_comp).save().then(onSuccess, onFail);
-//			this.get('store').commit();
-			this.get('store').push(tmp_comp);
+//			this.get('store').push(tmp_comp);
 		}
 	}
 });

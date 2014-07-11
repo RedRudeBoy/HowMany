@@ -120,4 +120,4 @@ Front-end helpers & libs
 
 
 ## License ##
-The project is licensed under the [GNU Affero GPL v3](http://www.gnu.org/licenses/agpl-3.0.html). [Explained](http://choosealicense.com/licenses/agpl-3.0/).
+The project is licensed under the [GNU Affero GPL v3](http://www.gnu.org/licenses/agpl-3.0.html), [explanation](http://choosealicense.com/licenses/agpl-3.0/).
