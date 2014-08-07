@@ -10,7 +10,19 @@ export default Ember.ObjectController.extend({
 //	init: function() {
 //		this.set('tmp_cal', this.get('store').createRecord('vcalendar'));
 //	},
-
+/*
+	willTransition: function (transition) {
+		//@ToDO: Translation!!
+		if(this.get('tmp_cal').get('isDirty') && confirm("You have unsaved changes. Click OK to stay on the current page. Click cancel to discard these changes and move to the requested page.")) {
+			//Stay on same page and continue editing
+			transition.abort();
+		}
+		// Rollback modifications
+		this.get('tmp_cal').rollback();
+		// Bubble the `willTransition` event so that parent routes can decide whether or not to abort.
+		return true;
+	},
+*/
 	tmp_cal: function() {
 		this.set('tmp_cal', this.get('store').createRecord('vcalendar'));
 	}.property(),

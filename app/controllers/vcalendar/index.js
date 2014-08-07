@@ -2,21 +2,21 @@ export default Ember.ObjectController.extend({
 	//test
 	mola: 'controllers/vcalendar/index.js',
 	allTodos: function() {
-		return this.get('vtodo');
-	}.property('vtodo'),
+		return this.get('vtodos');
+	}.property('vtodos'),
 
 	//properties
-	numEvents: Ember.computed.alias('vevent.length'),
-	numTodos: Ember.computed.alias('vtodo.length'),
-	numJournals: Ember.computed.alias('vjournal.length'),
+	numEvents: Ember.computed.alias('vevents.length'),
+	numTodos: Ember.computed.alias('vtodos.length'),
+	numJournals: Ember.computed.alias('vjournals.length'),
 	numEventsJournals: function() {
-		return (this.get('vevent.length') + this.get('vjournal.length'));
-	}.property('vevent.length','vjournal.length'),
+		return (this.get('vevents.length') + this.get('vjournals.length'));
+	}.property('vevents.length','vjournals.length'),
 	eventsJournals: function() {
-		return this.get('vevent').addObjects(this.get('vjournal'));
+		return this.get('vevents').addObjects(this.get('vjournals'));
 		//return Ember.A();
-		//return (this.get('vevent').concat(this.get('vjournal')));
-	}.property('vevent','vjournal'),
+		//return (this.get('vevents').concat(this.get('vjournals')));
+	}.property('vevents','vjournals'),
 
 	calendarName: function() {
 		return (this.get('x-wr-calname') || this.get('prodid'));

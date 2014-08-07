@@ -11,7 +11,7 @@ var attr = DS.attr,
  */
 //var vJournal = vComponent.extend({});
 var vJournal = DS.Model.extend(vComponent, {
-	vcalendar: belongsTo('vcalendar', { inverse: 'vjournal' }) //polymorphic: true, async: true
+	parent_vcalendar: belongsTo('vcalendar', { inverse: 'vjournals' }) //polymorphic: true, async: true
 });
 
 

@@ -82,7 +82,7 @@ export default Ember.Controller.extend(vCalendarUtils, {
 									}, self);
 									*/
 									Ember.Logger.log('vcal gettings: ',c_name, ' for: ', vcomponent);
-									vcal.get(c_name).then(function(vcomps) {
+									vcal.get(c_name+'s').then(function(vcomps) {
 										Ember.Logger.log('for now be have ', vcomps.length, vcomps);
 										vcomps.pushObject(vcomponent);
 										Ember.Logger.log('and now be have ', vcomps.length, vcomps);
@@ -98,9 +98,9 @@ export default Ember.Controller.extend(vCalendarUtils, {
 						}, self);
 						vcal.save().then(function(vcal) {
 							Ember.Logger.log('Calendar finished!');
-							vcal.get("vevent").then(function(vevents) { Ember.Logger.log('Num events: ',vevents.get('length')); });
-							vcal.get("vtodo").then(function(vtodos) { Ember.Logger.log('Num vtodos: ',vtodos.get('length')); });
-							vcal.get("vjournal").then(function(vjournals) { Ember.Logger.log('Num vjournals: ',vjournals.get('length')); });
+							vcal.get("vevents").then(function(vevents) { Ember.Logger.log('Num events: ',vevents.get('length')); });
+							vcal.get("vtodos").then(function(vtodos) { Ember.Logger.log('Num vtodos: ',vtodos.get('length')); });
+							vcal.get("vjournals").then(function(vjournals) { Ember.Logger.log('Num vjournals: ',vjournals.get('length')); });
 						});
 					});
 

@@ -18,12 +18,12 @@ export default Ember.Component.extend({
 	/**
 	 * @ToDo: Only works the first time, seems unhydrated.
 	 */
-	countHigh: Ember.computed.alias('vcalendar.vevent.length'),
+	countHigh: Ember.computed.alias('vcalendar.vevents.length'),
 //	countHigh: function() {
-//		return this.get('vcalendar').get('vevent').length;
-//	}.property('vcalendar.vevent.length'),
-	countNormal: Ember.computed.alias('vcalendar.vtodo.length'),
-	countLow: Ember.computed.alias('vcalendar.vjournal.length'),
+//		return this.get('vcalendar').get('vevents').length;
+//	}.property('vcalendar.vevents.length'),
+	countNormal: Ember.computed.alias('vcalendar.vtodos.length'),
+	countLow: Ember.computed.alias('vcalendar.vjournals.length'),
 
 	calendarName: function() {
 		return (this.get('vcalendar.x-wr-calname') || this.get('vcalendar.prodid'));

@@ -12,6 +12,8 @@ export default {
 'calendar.edit': 'Edit',
 'calendar.save': 'Save',
 
+'calendar.agenda.removeDate': 'Remove date',
+
 'calendar.form.x-wr-calname.label': 'Name',
 'calendar.form.x-wr-calname.hint': 'The display name of the calendar',
 'calendar.form.x-wr-caldesc.label': 'Description',
@@ -68,6 +70,8 @@ export default {
 'calendar.remove': 'Borrar',
 'calendar.edit': 'Editar',
 'calendar.save': 'Guardar',
+
+'calendar.agenda.removeDate': 'Borrar data',
 
 'calendar.form.x-wr-calname.label': 'Nom',
 'calendar.form.x-wr-calname.hint': 'El nom que vols que es mostri per aquest calendari',

@@ -1,5 +1,8 @@
 <div class="col-xs-6 agenda-withoutstart">
 	<div class="text-center agenda-withoutstart-title">Without Date:</div>
+	{{#view 'droppablevcomponent' class="text-center agenda-withoutstart-droppable"}}
+		{{t "calendar.agenda.removeDate"}}
+	{{/view}}
 	{{#each componentsWithoutDtStart}}
 		{{vcalendar-agenda-item vcomponent=this}}
 	{{/each}}
@@ -25,76 +28,76 @@
 			</div>
 		</div>
 		<div class="col-xs-12 agenda-weekday">
-			<div class="agenda-day">
+			{{#view 'droppablevcomponent' class="agenda-day" day=firstDayWeek}}
 				<div class="agenda-day-legend">{{firstDayWeekName}}</div>
 				<div class="agenda-day-events">
 					{{#each firstDayWeekEvents}}
 						{{vcalendar-agenda-item vcomponent=this}}
 					{{/each}}
 				</div>
-			</div>
+			{{/view}}
 		</div>
 		<div class="col-xs-12 agenda-weekday">
-			<div class="agenda-day">
+			{{#view 'droppablevcomponent' class="agenda-day" day=secondDayWeek}}
 				<div class="agenda-day-legend">{{secondDayWeekName}}</div>
 				<div class="agenda-day-events">
 					{{#each secondDayWeekEvents}}
 						{{vcalendar-agenda-item vcomponent=this}}
 					{{/each}}
 				</div>
-			</div>
+			{{/view}}
 		</div>
 		<div class="col-xs-12 agenda-weekday">
-			<div class="agenda-day">
+			{{#view 'droppablevcomponent' class="agenda-day" day=thirdDayWeek}}
 				<div class="agenda-day-legend">{{thirdDayWeekName}}</div>
 				<div class="agenda-day-events">
 					{{#each thirdDayWeekEvents}}
 						{{vcalendar-agenda-item vcomponent=this}}
 					{{/each}}
 				</div>
-			</div>
+			{{/view}}
 		</div>
 		<div class="col-xs-12 agenda-weekday">
-			<div class="agenda-day">
+			{{#view 'droppablevcomponent' class="agenda-day" day=fourthDayWeek}}
 				<div class="agenda-day-legend">{{fourthDayWeekName}}</div>
 				<div class="agenda-day-events">
 					{{#each fourthDayWeekEvents}}
 						{{vcalendar-agenda-item vcomponent=this}}
 					{{/each}}
 				</div>
-			</div>
+			{{/view}}
 		</div>
 		<div class="col-xs-12 agenda-weekday">
-			<div class="agenda-day">
+			{{#view 'droppablevcomponent' class="agenda-day" day=fifthDayWeek}}
 				<div class="agenda-day-legend">{{fifthDayWeekName}}</div>
 				<div class="agenda-day-events">
 					{{#each fifthDayWeekEvents}}
 						{{vcalendar-agenda-item vcomponent=this}}
 					{{/each}}
 				</div>
-			</div>
+			{{/view}}
 		</div>
 		<div class="col-xs-12">
 			<div class="row agenda-weekend">
 				<div class="col-xs-6">
-					<div class="agenda-weekend-day">
+					{{#view 'droppablevcomponent' class="agenda-weekend-day" day=sixthDayWeek}}
 						<div class="agenda-day-legend">{{sixthDayWeekName}}</div>
 						<div class="agenda-day-events">
 							{{#each sixthDayWeekEvents}}
 								{{vcalendar-agenda-item vcomponent=this}}
 							{{/each}}
 						</div>
-					</div>
+					{{/view}}
 				</div>
 				<div class="col-xs-6">
-					<div class="agenda-weekend-day">
+					{{#view 'droppablevcomponent' class="agenda-weekend-day" day=seventhDayWeek}}
 						<div class="agenda-day-legend">{{seventhDayWeekName}}</div>
 						<div class="agenda-day-events">
 							{{#each seventhDayWeekEvents}}
 								{{vcalendar-agenda-item vcomponent=this}}
 							{{/each}}
 						</div>
-					</div>
+					{{/view}}
 				</div>
 			</div>
 		</div>

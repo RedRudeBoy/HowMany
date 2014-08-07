@@ -1,6 +1,17 @@
 export default Ember.Route.extend({
 	model: function(params) {
 		return this.get('store').find('vcalendar'); //, { isNew: false}
+//		return this.get('store').findAll('vcalendar').then(function(calendars) {
+//			calendars.forEach(function(calendar) {
+//				calendar.get('vevents'); //.then(function(vevents) {debugger;});
+//				calendar.get('vtodos'); //.then(function(vtodos) {debugger;});
+//				calendar.get('vjournals'); //.then(function(vjournals) {debugger;});
+//			}, this);
+//			return calendars;
+//		});
+//		return this.get('store').filter('vcalendar', function(calendar) {
+//			return !(calendar.get('isDirty'));
+//		});
 	},
 	setupController: function(controller, model) {
 		controller.set('model', model);

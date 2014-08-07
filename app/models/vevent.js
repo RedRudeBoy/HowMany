@@ -11,7 +11,7 @@ var attr = DS.attr,
  */
 //var vEvent = vComponentTime.extend({
 var vEvent = DS.Model.extend(vComponentTime, {
-	vcalendar: belongsTo('vcalendar', { inverse: 'vevent' }), //polymorphic: true, async: true
+	parent_vcalendar: belongsTo('vcalendar', { inverse: 'vevents' }), //polymorphic: true, async: true
 
 	dtend: attr(),  //'date'  Required Once
 	transp: attr()  //'opaque' or 'transparent', indicate if event consume time on a calendar.

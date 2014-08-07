@@ -26,6 +26,13 @@ grunt server
 ```
 
 
+## Known bugs ##
+1. In the initilization the calendars are unhydrated, why ember-data don't populate the relationships? [Bug: Sideloading relations (hasMany) on models not working!](https://github.com/emberjs/data/issues/1834) [hasMany tests](https://github.com/emberjs/data/blob/master/packages/ember-data/tests/integration/relationships/has_many_test.js) [store api](http://emberjs.com/api/data/classes/DS.Store.html)
+2. Updates in vcomponents data doesn't trigger UI updates.
+3. Going from /calendars/do6rd to / throws: "Uncaught TypeError: Cannot read property 'shouldSupercede' of undefined". The problem is in the breadcrumb, controlled by /app/controllers/application.js
+3. Instead of using mixings for vcomponents, use polymorphism.
+
+
 ## Software used ##
 1. [ember.js](http://emberjs.com/) - A framework for creating ambitious web applications
 2. [handlebars](http://handlebarsjs.com/) - Semantic Templates compatible with Mustache
@@ -52,15 +59,16 @@ Data modeling
   1. [orbitjs/ember-orbit](https://github.com/orbitjs/ember-orbit) - Ember.js data layer built with Orbit.js
   2. [dgeb/ember-orbit-example](https://github.com/dgeb/ember-orbit-example) - Example App that uses Orbit.js and Ember.js
   3. [dgeb/orbit-ember-data-adapter.js](https://gist.github.com/dgeb/8446998) - A very simple example Orbit adapter implementation for Ember Data
-2. iCal Parsers
+2. [limeapps/ember-share](https://github.com/limeapps/ember-share) - Ember persistence and collaboration. [Real-time demo](http://embershare.com/).
+3. iCal Parsers
   1. [mozilla-comm/ical.js](https://github.com/mozilla-comm/ical.js) - Javascript parser for ics files (rfc5545).
   2. iCal Parsers Discarted: [kurakin/node-vcal](https://github.com/kurakin/node-vcal) - Create and parse ics files
-3. CalDav Parsers
+4. CalDav Parsers
   1. [gaye/dav](https://github.com/gaye/dav) - caldav and carddav client for nodejs and the browser.
   2. [mozilla-b2g/caldav](https://github.com/mozilla-b2g/caldav) - Calendar Protocols.
   3. [sandro-pasquali/jquery.dav](https://github.com/sandro-pasquali/jquery.dav) - JQuery plugin providing WebDAV access methods
   4. CalDav Parsers Discarted: [jqCalDAV](https://gitorious.org/jqcaldav), [CalDavZAP](http://www.inf-it.com/open-source/clients/caldavzap/), [agenDAV](http://agendav.org/), [webical](https://code.google.com/p/webical/), [arshaw/fullcalendar](https://github.com/arshaw/fullcalendar)
-4. [Google APIs](https://developers.google.com/google-apps/app-apis) - For realtime sync if no CalDav lib if found
+5. [Google APIs](https://developers.google.com/google-apps/app-apis) - For realtime sync if no CalDav lib if found
   1. [Google APIs Client Library for JavaScript](https://developers.google.com/api-client-library/javascript/) - JavaScript client-application [Example](https://developers.google.com/api-client-library/javascript/start/start-js)
   2. [Google Calendar API](https://developers.google.com/google-apps/calendar/)
   3. [Google Tasks API](https://developers.google.com/google-apps/tasks/)
@@ -71,7 +79,7 @@ Front-end helpers & libs
 
 1. [d3js](http://d3js.org/) - Library for manipulating documents based on data
   1. [andrewreedy/ember-dc](https://github.com/andrewreedy/ember-dc) - Multi-Dimensional charting built to work natively with crossfilter rendered with d3.js & dc.js. [http://andrewreedy.github.io/ember-dc](http://andrewreedy.github.io/ember-dc)
-    1. [vpham21/snack](https://github.com/vpham21/snack.git) - [Snack Dashboard Demo](http://jeroenooms.github.io/dashboard/snack/)
+    1. [vpham21/snack](https://github.com/vpham21/snack) - [Snack Dashboard Demo](http://jeroenooms.github.io/dashboard/snack/)
   2. [addepar/ember-charts](https://github.com/addepar/ember-charts) - A beautiful and easily extensible chart suite built with D3.js and Ember.js.
   3. [samselikoff/talks](https://github.com/samselikoff/talks) - Ember and D3: Building a simple dashboard.
   4. [front-back.com/an-ember-js-gauge-component](http://front-back.com/an-ember-js-gauge-component) - An Ember JS Gauge Component
@@ -85,7 +93,7 @@ Front-end helpers & libs
 7. [todc/todc-bootstrap](https://github.com/todc/todc-bootstrap) - Google-styled theme for Twitter Bootstrap
 8. [Bootstrap Arrows](http://bootstrap-arrows.iarfhlaith.com/) - Include arrows at any angle
 9. [pfefferle/openwebicons](https://github.com/pfefferle/openwebicons) - Set of icons to show the support for the Open Web
-10. [easelinc/tourist](https://github.com/easelinc/tourist) - Simple, flexible tours for your app [http://easelinc.github.io/tourist/](http://easelinc.github.io/tourist/]
+10. [easelinc/tourist](https://github.com/easelinc/tourist) - Simple, flexible tours for your app [http://easelinc.github.io/tourist/](http://easelinc.github.io/tourist/)
 
 
 ## In the long-term roadmap ##

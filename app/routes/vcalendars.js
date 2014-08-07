@@ -1,9 +1,10 @@
 export default Ember.Route.extend({
 	model: function() {
 		return this.get('store').find('vcalendar');
-		//return this.modelFor('index');
-		//return this.get('store').findAll('vcalendar');
-		//return ['red', 'yellow', 'blue'];
+//		return this.modelFor('index');
+//		return this.get('store').findAll('vcalendar');
+//		return ['red', 'yellow', 'blue'];
+//		return this.modelFor('index');
 	},
 	setupController: function(controller, model) {
 		controller.set('model', model);

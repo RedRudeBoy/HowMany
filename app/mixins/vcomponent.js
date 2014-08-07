@@ -14,6 +14,15 @@ var vComponent = Em.Mixin.create({
 	//Descriptive Component Properties
 	attach: attr(),
 	categories: attr(),
+	tags : function(){
+		var tags = this.get('categories').split(',');
+		var tagArray = new Array();
+		for(var i = 0;i<tags.length;i++ ){
+			tagArray.push(tags[i].trim())
+		}
+		Ember.Logger.log(tagArray);
+		return tagArray;
+	}.property('categories'),
 	'class': attr(),
 	comment: attr(),
 	description: attr(),

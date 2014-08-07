@@ -12,9 +12,9 @@ var vCalendar = DS.Model.extend({
 //	calscale: attr(), //This property defines the calendar scale used for the calendar information specified in the iCalendar object. The default value is "GREGORIAN".
 //  method: attr(),
 
-	vevent: hasMany('vevent', { inverse: 'vcalendar' }), //polymorphic: true, async: true
-	vtodo: hasMany('vtodo', { inverse: 'vcalendar' }), //polymorphic: true, async: true
-	vjournal: hasMany('vjournal', { inverse: 'vcalendar' }), //polymorphic: true, async: true
+	vevents: hasMany('vevent', { inverse: 'parent_vcalendar' }), //polymorphic: true, async: true
+	vtodos: hasMany('vtodo', { inverse: 'parent_vcalendar' }), //polymorphic: true, async: true
+	vjournals: hasMany('vjournal', { inverse: 'parent_vcalendar' }), //polymorphic: true, async: true
 	//freebusy & TimeZone
 
 	//Not in the specifications, but are very used

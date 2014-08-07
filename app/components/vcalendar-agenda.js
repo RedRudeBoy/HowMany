@@ -31,6 +31,47 @@ export default Ember.Component.extend({
 			var year = moment(this.get('viewDate')).year(); //Shadow Clone
 			var oneYearMore = moment(this.get('viewDate')).year(year+1);
 			this.set('viewDate', oneYearMore);
+		},
+		vcomponentSetDtStart: function(vtype, id, day) {
+			Ember.Logger.log('received vcomponentSetDtStart by vcalendar-agenda!', vtype, id, day);
+			var store = this.get('store'),
+				vcomp = store.find(vtype, id);
+			vcomp.then(
+				function(vcomp_store) {
+					Ember.Logger.log('vcalendar-agenda success vcomponentSetDtStart');
+					vcomp_store.set('dtstart', day);
+					if(moment(vcomp.get('dtend')).isBefore(moment(vcomp.get('dtstart')))) {
+						var duration = (vcomp.has('duration')) ? moment(vcomp.get('duration')) : moment.duration(1,'hours');
+						var dtend = moment(vcomp.get('dtstart')).add(duration);
+						vcomp_store.set('dtend', dtend);
+					}
+					vcomp_store.save();
+					store.push(vtype, vcomp_store); //store.update(vtype, vcomp_store);
+//					vcomp_store.store.reloadRecord(vcomp_store).then(function() {},function() {});
+				}.bind(this),
+				function(reason) {
+					Ember.Logger.log('vcomponent not founded: ',reason);
+					return false;
+				}.bind(this)
+			);
+		},
+		vcomponentRemoveDtStart: function(vtype, id) {
+			Ember.Logger.log('received vcomponentRemoveDtStart by vcalendar-agenda!', vtype, id);
+			var store = this.get('store'),
+				vcomp = store.find(vtype, id);
+			vcomp.then(
+				function(vcomp_store) {
+					Ember.Logger.log('vcalendar-agenda success vcomponentRemoveDtStart');
+					vcomp_store.set('dtstart', null);
+					vcomp_store.set('dtend', null);
+					vcomp_store.save();
+					store.push(vtype, vcomp_store); //store.update(vtype, vcomp_store);
+				}.bind(this),
+				function(reason) {
+					Ember.Logger.log('vcomponent not founded: ',reason);
+					return false;
+				}.bind(this)
+			);
 		}
 	},
 
@@ -38,9 +79,9 @@ export default Ember.Component.extend({
 	viewDate: function() {
 		return moment();
 	}.property(),
-	viewDateObserver: function() {
+/*	viewDateObserver: function() {
 		Ember.Logger.log('viewDate changed!');
-	}.observes('viewDate'),
+	}.observes('viewDate'),*/
 
 	//All components
 	components: function() {
@@ -70,7 +111,8 @@ export default Ember.Component.extend({
 
 	//Helpers
 	sameDay:function(d1,d2) {
-		return (moment(d1).format('DD MM YYYY') === moment(d2).format('DD MM YYYY')); //Shadow Clone
+		return moment(d1).isSame(d2, 'day');
+//		return (moment(d1).format('DD MM YYYY') === moment(d2).format('DD MM YYYY')); //Shadow Clone
 	},
 
 	//Toolbar

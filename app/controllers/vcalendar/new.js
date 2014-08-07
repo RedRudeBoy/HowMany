@@ -14,7 +14,7 @@ export default Ember.ObjectController.extend({
 		Ember.Logger.log('controller:vcalencar:new:activate');
 	},
 	deactivate: function() { //Hook for perform any teardown if needed
-		Ember.Logger.log('controller:vcalencar:new:deactivate',this.get('tmp_component.isDirty'),his.get('tmp_component.isNew'));
+		Ember.Logger.log('controller:vcalencar:new:deactivate',this.get('tmp_component.isDirty'),this.get('tmp_component.isNew'));
 		if(this.get('tmp_component.isNew')) {
 			this.get('tmp_component').destroyRecord();
 		}
@@ -70,20 +70,28 @@ export default Ember.ObjectController.extend({
 			*/
 			//Sync
 			var tmp_comp = controller.get('tmp_component'),
-				now = new Date();
+				now = new Date(),
+				sequence = (isNaN(parseInt(tmp_comp.get('sequence'),10))) ? 1 : tmp_comp.get('sequence')+1;
 			tmp_comp
 				.set('vcalendar', vcalendar).set('status','TENTATIVE')
 				.set('created', now).set('last-modified', now).set('sequence', tmp_comp.get('sequence')+1)
 				.save();
 			var onSuccess = function(vcalendar) {
+				Ember.Logger.log('onSuccess: ',vcalendar.get(controller.get('tmp_model_type')+'s'));
 				controller.transitionToRoute('vcalendar', vcalendar);
 			};
 			var onFail = function(vcalendar) {
 				console.error('ERROR');
 				debugger;
 			};
-			vcalendar.get(controller.get('tmp_model_type')).pushObject(tmp_comp).save().then(onSuccess, onFail);
-//			this.get('store').push(tmp_comp);
+//			vcalendar.push(controller.get('tmp_model_type'),tmp_comp).save().then(onSuccess, onFail);
+			//¿push or add?
+			Ember.Logger.log('Previous: ',vcalendar.get(controller.get('tmp_model_type')+'s'));
+//			vcalendar.get(controller.get('tmp_model_type')).pushObject(tmp_comp).save().then(onSuccess, onFail);
+			vcalendar.get(controller.get('tmp_model_type')+'s').addObject(tmp_comp).save().then(onSuccess, onFail);
+			debugger;
+			this.get('store').push(tmp_comp);
+			this.get('store').push(vcalendar);
 		}
 	}
 });

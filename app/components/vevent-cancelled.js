@@ -3,19 +3,19 @@ export default Ember.Component.extend({
 //	dragLeave
 //	dragStart
 	dragOver: function(event) {
-		console.log('dragOver');
+		Ember.Logger.log('dragOver');
 		return event.preventDefault();
 	},
 	drop: function(event) {
 		var id, vtype;
-		console.log('drop');
+		Ember.Logger.log('drop');
 		vtype = event.dataTransfer.getData('text/vtype');
 		if(vtype !== 'vevent') {
-			console.log('ignored: ',vtype);
+			Ember.Logger.log('ignored: ',vtype);
 			return false;
 		}
 		id = event.dataTransfer.getData('text/id');
-		console.log('send eventStatusCancelled '+id);
+		Ember.Logger.log('send eventStatusCancelled '+id);
 		this.sendAction('eventStatusCancelled', id);
 	}
 	/*

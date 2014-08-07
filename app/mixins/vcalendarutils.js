@@ -69,7 +69,7 @@ export default Em.Mixin.create({
 							*/
 
 							vcomponent.save();
-							vcal.get(c_name).pushObject(vcomponent);
+							vcal.get(c_name+'s').pushObject(vcomponent);
 //							Ember.Logger.log('vcomponent saved!');
 
 						} else if(c_name === "vtimezone") {
@@ -80,7 +80,7 @@ export default Em.Mixin.create({
 					}, self);
 
 					vcal.save();
-					Ember.Logger.log('Calendar finished!','Num events: ',vcal.get('vevent.length'),'Num vtodos: ',vcal.get('vtodo.length'),'Num vjournals: ',vcal.get('vjournal.length'));
+					Ember.Logger.log('Calendar finished!','Num events: ',vcal.get('vevents.length'),'Num vtodos: ',vcal.get('vtodos.length'),'Num vjournals: ',vcal.get('vjournals.length'));
 					self.get('store').push('vcalendar',vcal);
 				}
 			}, self);
@@ -172,7 +172,7 @@ export default Em.Mixin.create({
 						vcal.save().then(function(vcal) {
 							Ember.Logger.log('Calendar finished!');
 							vcal.get("vevent").then(function(vevents) { Ember.Logger.log('Num events: ',vevents.get('length')); });
-							vcal.get("vtodo").then(function(vtodos) { Ember.Logger.log('Num vtodos: ',vtodos.get('length')); });
+							vcal.get("vtodos").then(function(vtodos) { Ember.Logger.log('Num vtodos: ',vtodos.get('length')); });
 							vcal.get("vjournal").then(function(vjournals) { Ember.Logger.log('Num vjournals: ',vjournals.get('length')); });
 						});
 					});

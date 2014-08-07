@@ -12,7 +12,7 @@ var attr = DS.attr,
 
 //var vToDo = vComponentTime.extend({
 var vToDo = DS.Model.extend(vComponentTime, {
-	vcalendar: belongsTo('vcalendar', { inverse: 'vtodo' }), //polymorphic: true, async: true
+	parent_vcalendar: belongsTo('vcalendar', { inverse: 'vtodos' }), //polymorphic: true, async: true
 
 	percent_complete: attr('number'), //Optional Once: Positive integer between zero and one hundred. "0" indicates the to-do has not yet been started. A value of "100" indicates that the to-do has been completed.
 	completed: attr(), //'date'  Optional Once: Date and time that a to-do was actually completed.
