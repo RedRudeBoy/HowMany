@@ -28,9 +28,28 @@ grunt server
 
 ## Known bugs ##
 1. In the initilization the calendars are unhydrated, why ember-data don't populate the relationships? [Bug: Sideloading relations (hasMany) on models not working!](https://github.com/emberjs/data/issues/1834) [hasMany tests](https://github.com/emberjs/data/blob/master/packages/ember-data/tests/integration/relationships/has_many_test.js) [store api](http://emberjs.com/api/data/classes/DS.Store.html)
-2. Updates in vcomponents data doesn't trigger UI updates.
+2. Add new vcomponents doesn't trigger UI updates.
 3. Going from /calendars/do6rd to / throws: "Uncaught TypeError: Cannot read property 'shouldSupercede' of undefined". The problem is in the breadcrumb, controlled by /app/controllers/application.js
-3. Instead of using mixings for vcomponents, use polymorphism.
+4. Instead of using mixings for vcomponents, use polymorphism.
+
+
+
+## ToDo ##
+1. calendar
+  1. Filters click
+  2. Puntuation logic
+    1. WindRose (Radar Chart)
+    2. History (Line + Bar Chart)
+  3. Without id, return all calendars in one
+  4. Diary wysiwyg
+  5. Confirmer with 100% height
+  6. Challenger
+2. CRUD vcomponent
+  1. Recurrence + Alarms
+  2. Attach
+  3. Tags
+3. CalDav Sync
+
 
 
 ## Software used ##
@@ -48,7 +67,7 @@ grunt server
 12. [Moment.js](http://momentjs.com/) - Library for parsing, validating, manipulating, and formatting dates
 13. [Twitter Bootstrap](http://getbootstrap.com/2.3.2/) - Front-end framework
 14. [GLYPHICONS Halflings](http://glyphicons.com/) - Monochromatic icons and symbols part of Bootstrap from Twitter
-14. [FortAwesome/Font-Awesome](https://github.com/FortAwesome/Font-Awesome/) - The iconic font and CSS framework [http://fontawesome.io](http://fontawesome.io)
+15. [FortAwesome/Font-Awesome](https://github.com/FortAwesome/Font-Awesome/) - The iconic font and CSS framework [http://fontawesome.io](http://fontawesome.io)
 
 
 

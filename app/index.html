@@ -18,6 +18,7 @@
 
   <!-- build:css(tmp/result) /assets/app.min.css -->
   <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="/assets/HowManyEdit.css">
     
     <!-- @if dist=false -->
     <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
@@ -57,7 +58,7 @@
     <!-- @endif --><!-- @if dist=true -->
     <script src="/vendor/jquery/jquery.min.js"></script>
     <!--Not valid for Ember.I18n <script src="/vendor/handlebars/handlebars.runtime.js"></script>-->
-	<script src="/vendor/handlebars/handlebars.min.js"></script>
+    <script src="/vendor/handlebars/handlebars.min.js"></script>
     <script src="/vendor/ember/ember.prod.js"></script>
     <!-- @endif -->
     <script src="/vendor/ember-data/ember-data.js"></script>
@@ -73,27 +74,40 @@
     <script src="/vendor/ember-i18n/lib/i18n.js"></script>
     <!-- @ToDo: Refractor code to use only the necessary, move to bower. Uses npm module ical.js-one.com/ical. Not founded if is in ./app/vendor -->
     <script src="/vendor/out-of-bower/ical.js"></script>
+    <script src="/vendor/rrule/lib/rrule.js"></script>
     <!-- @if dist=false -->
     <script src="/vendor/out-of-bower/ember-easyForm/ember-easyForm.js"></script>
     <!--<script src="/vendor/out-of-bower/ember-validations/ember-validations.js"></script>-->
     <script src="/vendor/momentjs/min/moment-with-langs.js"></script>
     <!-- Bootstrap for Ember -->
     <!--<script src="/vendor/bootstrap/dist/js/bootstrap.js"></script>-->
-	<script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-core.max.js"></script>
-	<!-- <script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-basic.max.js"></script> -->
-	<script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-alert.max.js"></script>
+    <script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-core.max.js"></script>
+    <!-- <script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-basic.max.js"></script> -->
+    <script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-alert.max.js"></script>
     <script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-button.max.js"></script>
     <!-- @endif --><!-- @if dist=true -->
     <script src="/vendor/out-of-bower/ember-easyForm/ember-easyForm.min.js"></script>
     <!--<script src="/vendor/out-of-bower/ember-validations/ember-validations.min.js"></script>-->
     <script src="/vendor/momentjs/min/moment-with-langs.min.js"></script>
     <!--<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>-->
-	<script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-core.min.js"></script>
-	<!-- <script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-basic.min.js"></script> -->
+    <script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-core.min.js"></script>
+    <!-- <script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-basic.min.js"></script> -->
     <script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-alert.min.js"></script>
     <script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-button.min.js"></script>
     <!-- @endif -->
 
+  <!-- endbuild -->
+
+  <!-- build:js(tmp/result) /assets/d3.min.js -->
+  <script src="/vendor/test-dc/colorbrewer.js"></script>
+  <script src="/vendor/test-dc/crossfilter.js"></script>
+  <script src="/vendor/test-dc/d3.js"></script>
+  <script src="/vendor/test-dc/dc.js"></script>
+  <script src="/vendor/test-dc/ember-dc.js"></script>
+  <!-- endbuild -->
+  <!-- build:css(tmp/result) /assets/d3.min.css -->
+  <link rel="stylesheet" href="/vendor/test-dc/dc.css">
+  <link rel="stylesheet" href="/vendor/test-dc/ember-dc.css">
   <!-- endbuild -->
 
   <!-- build:js(tmp/result) /assets/app.min.js -->

@@ -1,8 +1,9 @@
 /* global moment */
+/* global RRule */
 
 export default Ember.Component.extend({
 	classNameBindings: [':row',':agenda','show::hidden'],
-	
+
 	actions: {
 		oneWeekLess: function() {
 			var oneWeekLess = moment(this.get('viewDate')).weekday(-7); //Shadow Clone
@@ -109,12 +110,6 @@ export default Ember.Component.extend({
 		return rtn;
 	}.property('components'),
 
-	//Helpers
-	sameDay:function(d1,d2) {
-		return moment(d1).isSame(d2, 'day');
-//		return (moment(d1).format('DD MM YYYY') === moment(d2).format('DD MM YYYY')); //Shadow Clone
-	},
-
 	//Toolbar
 	viewYear: function() {
 		return moment(this.get('viewDate')).format('YYYY'); //Shadow Clone
@@ -148,7 +143,16 @@ export default Ember.Component.extend({
 	firstDayWeekEvents: function() {
 		var rtn = [];
 		this.get('componentsValidDtStart').forEach(function(comp) {
+			/*
 			if(this[0].sameDay(comp.get('dtstart'),this[0].get('firstDayWeek'))) {
+				this[1].push(comp);
+			}
+			//Check recurrence
+			if(this[0].checkRecurr('day', this[0].get('firstDayWeek'), comp.get('rdate'), comp.get('rrule'), comp.get('exdate'), comp.get('exrule'))) {
+				this[1].push(comp);
+			}
+			*/
+			if(comp.isSame('day', this[0].get('firstDayWeek').toDate())) {
 				this[1].push(comp);
 			}
 		}, [this, rtn]);
@@ -164,7 +168,16 @@ export default Ember.Component.extend({
 	secondDayWeekEvents: function() {
 		var rtn = [];
 		this.get('componentsValidDtStart').forEach(function(comp) {
+			/*
 			if(this[0].sameDay(comp.get('dtstart'),this[0].get('secondDayWeek'))) {
+				this[1].push(comp);
+			}
+			//Check recurrence
+			if(this[0].checkRecurr('day', this[0].get('secondDayWeek'), comp.get('rdate'), comp.get('rrule'), comp.get('exdate'), comp.get('exrule'))) {
+				this[1].push(comp);
+			}
+			*/
+			if(comp.isSame('day', this[0].get('secondDayWeek').toDate())) {
 				this[1].push(comp);
 			}
 		}, [this, rtn]);
@@ -180,7 +193,16 @@ export default Ember.Component.extend({
 	thirdDayWeekEvents: function() {
 		var rtn = [];
 		this.get('componentsValidDtStart').forEach(function(comp) {
+			/*
 			if(this[0].sameDay(comp.get('dtstart'),this[0].get('thirdDayWeek'))) {
+				this[1].push(comp);
+			}
+			//Check recurrence
+			if(this[0].checkRecurr('day', this[0].get('thirdDayWeek'), comp.get('rdate'), comp.get('rrule'), comp.get('exdate'), comp.get('exrule'))) {
+				this[1].push(comp);
+			}
+			*/
+			if(comp.isSame('day', this[0].get('thirdDayWeek').toDate())) {
 				this[1].push(comp);
 			}
 		}, [this, rtn]);
@@ -196,7 +218,16 @@ export default Ember.Component.extend({
 	fourthDayWeekEvents: function() {
 		var rtn = [];
 		this.get('componentsValidDtStart').forEach(function(comp) {
+			/*
 			if(this[0].sameDay(comp.get('dtstart'),this[0].get('fourthDayWeek'))) {
+				this[1].push(comp);
+			}
+			//Check recurrence
+			if(this[0].checkRecurr('day', this[0].get('fourthDayWeek'), comp.get('rdate'), comp.get('rrule'), comp.get('exdate'), comp.get('exrule'))) {
+				this[1].push(comp);
+			}
+			*/
+			if(comp.isSame('day', this[0].get('fourthDayWeek').toDate())) {
 				this[1].push(comp);
 			}
 		}, [this, rtn]);
@@ -212,7 +243,16 @@ export default Ember.Component.extend({
 	fifthDayWeekEvents: function() {
 		var rtn = [];
 		this.get('componentsValidDtStart').forEach(function(comp) {
+			/*
 			if(this[0].sameDay(comp.get('dtstart'),this[0].get('fifthDayWeek'))) {
+				this[1].push(comp);
+			}
+			//Check recurrence
+			if(this[0].checkRecurr('day', this[0].get('fifthDayWeek'), comp.get('rdate'), comp.get('rrule'), comp.get('exdate'), comp.get('exrule'))) {
+				this[1].push(comp);
+			}
+			*/
+			if(comp.isSame('day', this[0].get('fifthDayWeek').toDate())) {
 				this[1].push(comp);
 			}
 		}, [this, rtn]);
@@ -228,7 +268,16 @@ export default Ember.Component.extend({
 	sixthDayWeekEvents: function() {
 		var rtn = [];
 		this.get('componentsValidDtStart').forEach(function(comp) {
+			/*
 			if(this[0].sameDay(comp.get('dtstart'),this[0].get('sixthDayWeek'))) {
+				this[1].push(comp);
+			}
+			//Check recurrence
+			if(this[0].checkRecurr('day', this[0].get('sixthDayWeek'), comp.get('rdate'), comp.get('rrule'), comp.get('exdate'), comp.get('exrule'))) {
+				this[1].push(comp);
+			}
+			*/
+			if(comp.isSame('day', this[0].get('sixthDayWeek').toDate())) {
 				this[1].push(comp);
 			}
 		}, [this, rtn]);
@@ -244,7 +293,16 @@ export default Ember.Component.extend({
 	seventhDayWeekEvents: function() {
 		var rtn = [];
 		this.get('componentsValidDtStart').forEach(function(comp) {
+			/*
 			if(this[0].sameDay(comp.get('dtstart'),this[0].get('seventhDayWeek'))) {
+				this[1].push(comp);
+			}
+			//Check recurrence
+			if(this[0].checkRecurr('day', this[0].get('seventhDayWeek'), comp.get('rdate'), comp.get('rrule'), comp.get('exdate'), comp.get('exrule'))) {
+				this[1].push(comp);
+			}
+			*/
+			if(comp.isSame('day', this[0].get('seventhDayWeek').toDate())) {
 				this[1].push(comp);
 			}
 		}, [this, rtn]);

@@ -14,6 +14,7 @@ export default Ember.Component.extend({
 		this.sendAction('goTo', 'vcalendar', this.get('vcalendar'));
 //		this.send('btnLinkTo', 'hola!');
 //		this.transitionTo('howmany', this.get('vcalendar'));
+//		App.Router.router.transitionTo('vcalendar', this.get('vcalendar'));
 	},
 	/**
 	 * @ToDo: Only works the first time, seems unhydrated.

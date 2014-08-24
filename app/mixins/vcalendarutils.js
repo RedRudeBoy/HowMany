@@ -1,4 +1,7 @@
 /* global ICAL */
+/* global moment */
+/* jshint browser: true */
+
 /**
  * Mixing for import/export vcalendar files:
  *	iCal2EmberDataSync, import iCal file using ICAL library with a sync models (like LocalStorage Adapter)
@@ -35,6 +38,7 @@ export default Em.Mixin.create({
 							c_components = comp[2];
 //							c_alarms = Em.A();
 
+//						if(['vevent','vtodo','vjournal'].contains(c_name)) {
 						if(c_name === "vevent" || c_name === "vtodo" || c_name === "vjournal") {
 
 							var vcomponent = self.store.createRecord(c_name);
@@ -199,12 +203,50 @@ export default Em.Mixin.create({
 			}
 
 			//Transform types
-			if(type === "date-time") value = new Date(value);
-			//else if(type === "duration") value = new Date(value);
-			//else if(Ember.typeOf(value) !== 'string')  value = new String(value);
+			if(type === "date-time" || type === 'date') {
+				if(!moment(value).isValid()) {
+					Ember.Logger.warn('Invalid '+type, value);return;
+				} else {
+//					value = new Date(value);
+					value = moment(value).toDate();
+				}
+			}
+			else if(type === "recur") {
+				//Bug in ical.js or in rrule.
+				//UNTIL prop must respect ISO8601 standard: 'YYYY-MM-DD[T]HH:mm:ss.SSS[Z]'
+				//But RRule expects: /^(\d{4})(\d{2})(\d{2})(T(\d{2})(\d{2})(\d{2})Z)?$/
+				//Code from ical/design.js
+				var idx = value.indexOf('UNTIL=');
+				if (idx !== -1) {
+					idx += 6;
+					// everything before the value
+					var begin = value.substr(0, idx);
+					// everything after the value
+					var end;
+					// current until value
+					var until;
+					// end of value could be -1 meaning this is the last param.
+					var endValueIdx = value.indexOf(';', idx);
+					if (endValueIdx === -1) {
+						end = '';
+						until = value.substr(idx);
+					} else {
+						end = value.substr(endValueIdx);
+						until = value.substr(idx, endValueIdx - idx);
+					}
+					if(!moment(until).isValid()) {
+						Ember.Logger.warn('Invalid recur', until);return;
+					}
+					value = begin + moment(until).format('YYYYMMDD[T]HHmmss[Z]') + end;
+				}
+			}
+//			else if(type === "duration") value = new Date(value);
+//			else if(type === "text") value = new String(value);
+//			else if(type === "integer") value = parseInt(value,10);
+//			else debugger;
 
 			//Set value
-			Ember.Logger.log('name: ',name,'Value: ', value);
+			Ember.Logger.log('Type: ',type,'Name: ',name,'Value: ', value);
 			model.set(name,value);
 		}, this);
 	},

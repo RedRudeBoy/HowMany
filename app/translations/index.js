@@ -12,7 +12,7 @@ export default {
 'calendar.edit': 'Edit',
 'calendar.save': 'Save',
 
-'calendar.agenda.removeDate': 'Remove date',
+'calendar.agenda.removeDate': 'Remove start date',
 
 'calendar.form.x-wr-calname.label': 'Name',
 'calendar.form.x-wr-calname.hint': 'The display name of the calendar',
@@ -25,9 +25,11 @@ export default {
 'calendar.form.version.label': 'Version',
 'calendar.form.version.hint': 'iCalendar specification that is required in order to interpret the iCalendar object',
 'calendar.form.save': 'Save changes',
+'calendar.form.cancel': 'Cancel Changes & Return',
+'calendar.form.remove': 'Remove',
 
-'calendar.vcomponent.form.new.vevent': 'Create event',
-'calendar.vcomponent.form.new.vtodo': 'Create To Do',
+'calendar.vcomponent.form.new.vevent': 'Known date (Create event)',
+'calendar.vcomponent.form.new.vtodo': 'Without date (Create To Do)',
 'calendar.vcomponent.form.new.vjournal': 'Create Journal',
 
 'calendar.vcomponent.form.summary.hint': 'Summary',
@@ -37,9 +39,9 @@ export default {
 'calendar.vcomponent.form.categories.hint': 'Categories',
 'calendar.vcomponent.form.categories.label': 'Like tags, separated by comma',
 'calendar.vcomponent.form.class.hint': 'Class',
-'calendar.vcomponent.form.class.label': '"PUBLIC" / "PRIVATE" / "CONFIDENTIAL" ',
+//'calendar.vcomponent.form.class.label': '"PUBLIC" / "PRIVATE" / "CONFIDENTIAL" ',
 'calendar.vcomponent.form.dtstart.hint': 'Start date',
-'calendar.vcomponent.form.dtstart.label': 'The beggining of the component',
+'calendar.vcomponent.form.dtstart.label': 'Beginning',
 'calendar.vcomponent.form.url.hint': 'Url',
 'calendar.vcomponent.form.url.label': 'A webpage',
 
@@ -54,7 +56,7 @@ export default {
 'calendar.vtodo.form.due.label': 'When is expected to be completed',
 
 'calendar.vevent.form.dtend.hint': 'End date',
-'calendar.vevent.form.dtend.label': 'The ending of the component'
+'calendar.vevent.form.dtend.label': 'Ending'
 },
 
 
@@ -84,9 +86,11 @@ export default {
 'calendar.form.version.label': 'Versió',
 'calendar.form.version.hint': 'iCalendar specification that is required in order to interpret the iCalendar object',
 'calendar.form.save': 'Guardar canvis',
+'calendar.form.cancel': 'Desfer canvir i tornar',
+'calendar.form.remove': 'Esborrar',
 
-'calendar.vcomponent.form.new.vevent': 'Crear event',
-'calendar.vcomponent.form.new.vtodo': 'Crear To Do',
+'calendar.vcomponent.form.new.vevent': 'Té data (Crear event)',
+'calendar.vcomponent.form.new.vtodo': 'No té data (Crear To Do)',
 'calendar.vcomponent.form.new.vjournal': 'Crear Journal',
 
 'calendar.vcomponent.form.summary.hint': 'Títol',
@@ -96,7 +100,7 @@ export default {
 'calendar.vcomponent.form.categories.hint': 'Categories',
 'calendar.vcomponent.form.categories.label': 'Altrament anomenats "tags", han d\'estar separats per comes',
 'calendar.vcomponent.form.class.hint': 'Privadesa',
-'calendar.vcomponent.form.class.label': '"PUBLIC" / "PRIVATE" / "CONFIDENTIAL" ',
+//'calendar.vcomponent.form.class.label': '"PUBLIC" / "PRIVATE" / "CONFIDENTIAL" ',
 'calendar.vcomponent.form.dtstart.hint': 'Start date',
 'calendar.vcomponent.form.dtstart.label': 'Data d\'inici del component',
 'calendar.vcomponent.form.url.hint': 'Url',

@@ -25,4 +25,15 @@ export default Ember.Component.extend({
 		}
 	}
 	*/
+	click: function() {
+		if(['vevent','vtodo'].contains(this.get('vcomponent.constructor.typeKey'))) {
+//			Ember.Logger.log('Going to '+this.get('vcomponent.constructor.typeKey')+' #'+this.get('vcomponent').get('id'));
+			App.Router.router.transitionTo(this.get('vcomponent.constructor.typeKey'), this.get('vcomponent').get('id'));
+
+		} else if(['vjournal'].contains(this.get('vcomponent.constructor.typeKey'))) {
+			Ember.Logger.warn('@ToDo: transitionTo diary');
+		} else {
+			Ember.Logger.error('vcomponent with unknown type',this.get('vcomponent.constructor.typeKey'),this.get('vcomponent.constructor'));
+		}
+	}
 });

@@ -6,6 +6,15 @@
 	{{#each componentsWithoutDtStart}}
 		{{vcalendar-agenda-item vcomponent=this}}
 	{{/each}}
+	<div class="list-divider">
+		<h4 class="list-divider-title text-center">Hot list / Urgent</h4>
+		<h4 class="list-divider-title text-center">Next</h4>
+		<h4 class="list-divider-title text-center">Backlog</h4>
+		<h4 class="list-divider-title text-center">Waiting</h4>
+		<h4 class="list-divider-title text-center">Paused</h4>
+		<h4 class="list-divider-title text-center">Archived</h4>
+		<small>Add this property as a x-*?</small>
+	</div>
 </div>
 <div class="col-xs-6 agenda-withstart">
 	<div class="text-center agenda-withstart-title">With Date:</div>
@@ -101,6 +110,7 @@
 				</div>
 			</div>
 		</div>
+		<small>Colors by tag? by status? by calendar?</small>
 		{{!--
 		<div class="col-xs-12">
 			<span>Events</span>

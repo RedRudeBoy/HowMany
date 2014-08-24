@@ -1,3 +1,33 @@
+{{!--#each tag in tags}}
+	<div class="col-xs-6 pull-left" style="margin-top: 5px;">
+		<button type="button" class="btn btn-block">
+			{{#if icon}}<i class="fa fa-{{unbound icon}}"></i> <br />{{/if}}
+			{{{unbound name}}}
+		</button>
+	</div>
+{{/each--}}
+{{#each tag in tags}}
+	{{#unless tag.parent}}
+		<div class="row">
+			<div class="col-xs-12">
+				<button type="button" class="btn btn-block" data-toggle="collapse" data-target="#HowManysBigIcons{{unbound tag.name}}">{{{unbound tag.name}}}</button>
+				<div class="row collapse" id="HowManysBigIcons{{unbound name}}">{{!--class "in" for open by default--}}
+					{{#each tag.children}}
+						<div class="col-xs-6 pull-left" style="margin-top: 5px;">
+							<button type="button" class="btn btn-block">
+								{{#if icon}}<i class="fa fa-{{unbound icon}}"></i> <br />{{/if}}
+								{{{unbound name}}}
+							</button>
+						</div>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+		<br />
+	{{/unless}}
+{{/each}}
+
+
 <div clas="row">
 	<div class="col-xs-12">
 		<div class="btn-group btn-group-justified">
@@ -26,10 +56,6 @@
 	{{/each}}
 	<p>each2</p>
 	{{#each vtodo}}
-		<p>something</p> {{this}}
-	{{/each}}
-	<p>each3</p>
-	{{#each allTodos}}
 		<p>something</p> {{this}}
 	{{/each}}
 	<p>each3</p>

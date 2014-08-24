@@ -6,34 +6,7 @@
 			</div>
 		</div>
 		<div class="row">
-		{{!--#each tag in tags}}
-			<div class="col-xs-6 pull-left" style="margin-top: 5px;">
-				<button type="button" class="btn btn-block">
-					{{#if icon}}<i class="fa fa-{{unbound icon}}"></i> <br />{{/if}}
-					{{{unbound name}}}
-				</button>
-			</div>
-		{{/each--}}
-		{{#each tag in tags}}
-			{{#unless tag.parent}}
-				<div class="row">
-					<div class="col-xs-12">
-						<button type="button" class="btn btn-block" data-toggle="collapse" data-target="#HowManysBigIcons{{unbound tag.name}}">{{{unbound tag.name}}}</button>
-						<div class="row collapse" id="HowManysBigIcons{{unbound name}}">{{!--class "in" for open by default--}}
-							{{#each tag.children}}
-								<div class="col-xs-6 pull-left" style="margin-top: 5px;">
-									<button type="button" class="btn btn-block">
-										{{#if icon}}<i class="fa fa-{{unbound icon}}"></i> <br />{{/if}}
-										{{{unbound name}}}
-									</button>
-								</div>
-							{{/each}}
-						</div>
-					</div>
-				</div>
-				<br />
-			{{/unless}}
-		{{/each}}
+			<div class="col-xs-12">{{vcomponents-tags-piechart content=vcomponents_array}}</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-12">
@@ -41,10 +14,15 @@
 			</div>
 		</div>
 		<div class="row">
+			<div class="col-xs-12">{{vcomponents-locations-piechart content=vcomponents_array}}</div>
+		</div>
+		{{!--
+		<div class="row">
 			<div class="col-xs-12">
 				<center>With who</center>
 			</div>
 		</div>
+		--}}
 	</div>
 	<div class="col-xs-10">
 		<div class="btn-group btn-group-justified">
@@ -52,16 +30,19 @@
 				<button type="button" {{bind-attr class=":btn :btn-default onAgendaView:active"}} {{action "showAgenda"}}>Agenda</button>
 			</div>
 			<div class="btn-group">
-				<button type="button" {{bind-attr class=":btn :btn-default onToConfirmView:active"}} {{action "showToConfirm"}}>To Confirm</button>
+				<button type="button" {{bind-attr class=":btn :btn-default onToConfirmView:active"}} {{action "showToConfirm"}}>Confirmer <span class="badge" style="background-color: red;">{{numToConfirm}}</span></button>
 			</div>
 			<div class="btn-group">
 				<button type="button" {{bind-attr class=":btn :btn-default onHistoryView:active"}} {{action "showHistory"}}>History Timeline</button>
 			</div>
 			<div class="btn-group">
-				<button type="button" {{bind-attr class=":btn :btn-default onWindRoseView:active"}} {{action "showWindRose"}}>WindRose{{!-- & Gauge--}}</button>
+				<button type="button" {{bind-attr class=":btn :btn-default onWindRoseView:active"}} {{action "showWindRose"}}>Actual WindRose{{!-- & Gauge--}}</button>
 			</div>
 			<div class="btn-group">
-				<button type="button" {{bind-attr class=":btn :btn-default onWizardView:active"}} {{action "showWizard"}}>Wizard</button>
+				<button type="button" {{bind-attr class=":btn :btn-default onDiaryView:active"}} {{action "showDiary"}}>Diary</button>
+			</div>
+			<div class="btn-group">
+				<button type="button" {{bind-attr class=":btn :btn-default onWizardView:active"}} {{action "showWizard"}}>Challenger{{--Wizard--}}</button>
 			</div>
 		</div>
 	</div>
@@ -73,10 +54,12 @@
 		
 		{{vevents-toconfirm show=onToConfirmView vevents=events}}
 		
-		{{vcalendar-history show=onHistoryView vevents=events}}
+		{{vcalendar-history show=onHistoryView vevents=events vtodos=todos vjournals=journals tags=tags}}
 		
 		{{vcalendar-windrose show=onWindRoseView vevents=events vtodos=todos}}
 		
+		{{vcalendar-diary show=onDiaryView components=vcomponents}}
+
 		{{vcalendar-wizard show=onWizardView vtodos=todos tags=tags}}
 	</div>
 	<div class="clearfix"></div>

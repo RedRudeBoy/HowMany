@@ -1,14 +1,16 @@
 import vCalendarUtils from "appkit/mixins/vcalendarutils";
 
 export default Ember.ArrayController.extend(vCalendarUtils, {
-//	hasCalendars: Ember.computed.notEmpty('this'),
+
 	savedCalendars: function() {
 		return this.get('model').filterBy('isNew',false);
 	}.property('model'),
+//	hasCalendars: Ember.computed.notEmpty('this'),
 	hasCalendars: function() {
 		return this.get('length') > 0;
 	}.property('length'),
 	showAddNewCalendar: false,
+
 	actions: {
 		btnLinkTo: function(param, param2) {
 			Ember.Logger.log(this," Passed controller as a param: " + param+ " "+param2);
@@ -56,12 +58,16 @@ export default Ember.ArrayController.extend(vCalendarUtils, {
 			Ember.Logger.log(this,' goToCalendar');
 		},
 		parseNewCalendar: function(text) {
-			Ember.Logger.log('hola parseNewCalendar!');
+			Ember.Logger.log('controller::index received parseNewCalendar!');
+//			Ember.run.next(this, this.iCal2EmberDataSync, text);
+//			Ember.run.once(this, this.iCal2EmberDataSync, text);
 			this.iCal2EmberDataSync(text);
 			return false;
 		},
 		saveCalendar: function(vcalendar) {
-			Ember.Logger.log('hola saveCalendar!');
+			Ember.Logger.log('controller::index received  saveCalendar!');
+//			Ember.run.next(this, this.emberData2iCal, vcalendar);
+//			Ember.run.once(this, this.emberData2iCal, vcalendar);
 			this.emberData2iCal(vcalendar);
 			return false;
 		}
