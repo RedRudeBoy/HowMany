@@ -12,7 +12,7 @@ export default Ember.Component.extend({
 	}.property('model'),
 
 	/**
-	 * @ToDo: Dirty events are showed event unsaved, this solution is not working
+	 * @ToDo: Dirty events are showed event unsaved, this solution is not working, this hooks are for routes
 	activate: function() { //Hook called when entering the route
 		Ember.Logger.log('vcalencar-edit:activate');
 	},
@@ -22,14 +22,12 @@ export default Ember.Component.extend({
 			this.get('model').destroyRecord();
 		}
 	},
-	 */
+
 	willTransition: function (transition) {
 		var model = this.get('model');
 
 		if (model && model.get('isDirty')) {
-			/**
-			 * @ToDo: Translation & Confirm is ugly...
-			 */
+			//@ToDo: Translation & Confirm is ugly...
 			if (confirm("You have unsaved changes. Click OK to stay on the current page. Click cancel to discard these changes and move to the requested page.")) {
 				//Stay on same page and continue editing
 				transition.abort();
@@ -44,6 +42,7 @@ export default Ember.Component.extend({
 			return true;
 		}
 	},
+	 */
 
 	//Pseudo-View for tabs
 	actualTabView: function() {
@@ -157,7 +156,7 @@ export default Ember.Component.extend({
 			Ember.Logger.log('Previous: ',vcalendar.get(self.get('model_type')+'s'));
 //			vcalendar.get(self.get('model_type')).pushObject(tmp_comp).save().then(onSuccess, onFail); //Not in a controller
 			vcalendar.get(self.get('model_type')+'s').addObject(tmp_comp).save().then(onSuccess, onFail);
-			debugger;
+//			debugger;
 			this.get('store').push(tmp_comp);
 			this.get('store').push(vcalendar);
 		},

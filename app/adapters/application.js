@@ -11,6 +11,10 @@ export default ApplicationAdapter;
 
 //Fixture
 export default DS.FixtureAdapter.extend();
+
+App.store.adapter.on('QUOTA_EXCEEDED_ERR', function(records){
+	Ember.Logger.error('LocalStorage QUOTA_EXCEEDED_ERR',records);
+});
  */
 //
 //LocalStorage

@@ -1,3 +1,3 @@
 export default Ember.ArrayController.extend({
-	mola: 'poc'
+	mola: 'vcalendars'
 });

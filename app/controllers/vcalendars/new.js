@@ -31,6 +31,7 @@ export default Ember.ObjectController.extend({
 		submit: function() {
 			var controller = this;
 			this.get('tmp_cal').save().then(function (vcalendar) {
+//				controller.get('store').push('vcalendar', vcalendar);
 				controller.set('tmp_cal', controller.get('store').createRecord('vcalendar'));
 				controller.transitionToRoute('index');
 			});

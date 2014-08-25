@@ -5,22 +5,19 @@
     "jquery": "~1.9.1",
     "qunit": "~1.12.0",
     "ember-qunit": "https://github.com/rpflorence/ember-qunit.git#master",
-    "ember": "~1.5.0",
-    "ember-data": "~1.0.0-beta.7",
+    "ember": "~1.7.0",
+    "ember-data": "~1.0.0-beta.9",
     "ember-resolver": "~0.1.1",
     "ic-ajax": "~1.0.4",
     "ember-testing-httpRespond": "~0.1.1",
     "loader.js": "git://github.com/stefanpenner/loader.js",
     "ember-load-initializers": "git://github.com/stefanpenner/ember-load-initializers.git#0.0.1",
-    "bootstrap": "~3.1.1",
+    "bootstrap": "~3.2.0",
     "ember-addons.bs_for_ember": "~0.7.0",
-    "font-awesome": "~4.0.3",
+    "font-awesome": "~4.1.0",
     "momentjs": "~2.6.0",
     "ember-i18n": "~1.6.4",
-    "ember-localstorage-adapter": "~0.3.1",
+    "ember-localstorage-adapter": "~0.3.2",
     "rrule": "~2.1.0"
-  },
-  "resolutions": {
-    "ember": "~1.5.0"
   }
 }

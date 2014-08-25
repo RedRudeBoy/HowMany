@@ -12,9 +12,11 @@ export default Ember.ObjectController.extend({
 	eventsJournals: function() {
 		return this.get('events').addObjects(this.get('journals'));
 	}.property('events','journals'),
+//	eventsJournals: Ember.computed.union('events','journals'),
 	vcomponents: function() {
 		return this.get('events').addObjects(this.get('journals')).addObjects(this.get('todos'));
 	}.property('events','journals','todos'),
+//	vcomponents: Ember.computed.union('events','todos','journals'),
 	vcomponents_array: function() {
 		var comps_array = [],
 			comps = this.get('vcomponents');
