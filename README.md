@@ -111,12 +111,16 @@ The project is licensed under the [GNU Affero GPL v3](http://www.gnu.org/license
     1. WindRose (Radar Chart [demo1](http://graves.cl/radar-chart-d3/) [demo2](https://github.com/alangrafu/radar-chart-d3/blob/master/src/radar-chart.js) [demo3](http://www.larsko.org/v/euc/) [demo4](http://bl.ocks.org/nbremer/raw/6506614/))
     2. History (Line + Bar Chart)
   3. Without id, return all calendars in one.
-  4. Diary wysiwyg & attach photos & files.
-  5. Confirmer with 100% height
+  4. Diary
+    1. wysiwyg
+    2. Attach photos & files.
+  5. Confirmer
+    1. [Draggable only horitzontal](http://stackoverflow.com/questions/8933513/html5-drag-drop-on-x-axis-and-without-fade), better ux for desktop.
+    2. 100% height
   6. Challenger, suggest new ToDos answering questions.
 2. CRUD vcomponent
   1. Recurrence + Alarms
-  2. Attach photos & filse
+  2. Attach photos & files
   3. Tags
 3. CalDav Sync
 4. [Migrate ember-app-kit to ember-cli](https://github.com/stefanpenner/ember-app-kit#migrating-to-ember-cli), npm install -g ember-cli && ember init, in branch [master-broccoli](https://github.com/RedRudeBoy/HowMany/tree/master-broccoli).

@@ -9,11 +9,11 @@ export default Ember.Component.extend({
 	},
 	/*
 	dragOver: function(event) {
-		console.log('dragOver');
+		Ember.Logger.log('dragOver');
 		//event.preventDefault();
 	},
 	drop: function(event) {
-		console.log('drop');
+		Ember.Logger.log('drop');
 	}
 
 	actions: {
