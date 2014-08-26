@@ -41,9 +41,10 @@ export default Ember.Component.extend({
 				function(vcomp_store) {
 					Ember.Logger.log('vcalendar-agenda success vcomponentSetDtStart');
 					vcomp_store.set('dtstart', day);
-					if(moment(vcomp.get('dtend')).isBefore(moment(vcomp.get('dtstart')))) {
-						var duration = (vcomp.has('duration')) ? moment(vcomp.get('duration')) : moment.duration(1,'hours');
-						var dtend = moment(vcomp.get('dtstart')).add(duration);
+					if(!Ember.isNone(vcomp.get('dtend')) && moment(vcomp.get('dtend')).isBefore(moment(vcomp.get('dtstart')))) {
+//						var duration = (vcomp.has('duration')) ? moment(vcomp.get('duration')) : moment.duration(1,'hours'); //Hardcoding
+						var duration = (Ember.isNone(vcomp.get('duration'))) ? moment(vcomp.get('duration')) : moment.duration(1,'hours'); //Hardcoding
+						var dtend = moment(vcomp.get('dtstart')).add(duration).toDate();
 						vcomp_store.set('dtend', dtend);
 					}
 					vcomp_store.save();
@@ -51,7 +52,7 @@ export default Ember.Component.extend({
 //					vcomp_store.store.reloadRecord(vcomp_store).then(function() {},function() {});
 				}.bind(this),
 				function(reason) {
-					Ember.Logger.log('vcomponent not founded: ',reason);
+					Ember.Logger.error('vcomponent not founded: ',reason);
 					return false;
 				}.bind(this)
 			);
@@ -69,7 +70,7 @@ export default Ember.Component.extend({
 					store.push(vtype, vcomp_store); //store.update(vtype, vcomp_store);
 				}.bind(this),
 				function(reason) {
-					Ember.Logger.log('vcomponent not founded: ',reason);
+					Ember.Logger.error('vcomponent not founded: ', reason);
 					return false;
 				}.bind(this)
 			);
@@ -156,6 +157,7 @@ export default Ember.Component.extend({
 				this[1].push(comp);
 			}
 		}, [this, rtn]);
+		this.sortByDtStart(rtn);
 		return rtn;
 	}.property('firstDayWeek','componentsValidDtStart'),
 	
@@ -181,6 +183,7 @@ export default Ember.Component.extend({
 				this[1].push(comp);
 			}
 		}, [this, rtn]);
+		this.sortByDtStart(rtn);
 		return rtn;
 	}.property('secondDayWeek','componentsValidDtStart'),
 	
@@ -206,6 +209,7 @@ export default Ember.Component.extend({
 				this[1].push(comp);
 			}
 		}, [this, rtn]);
+		this.sortByDtStart(rtn);
 		return rtn;
 	}.property('thirdDayWeek','componentsValidDtStart'),
 
@@ -231,6 +235,7 @@ export default Ember.Component.extend({
 				this[1].push(comp);
 			}
 		}, [this, rtn]);
+		this.sortByDtStart(rtn);
 		return rtn;
 	}.property('fourthDayWeek','componentsValidDtStart'),
 
@@ -256,6 +261,7 @@ export default Ember.Component.extend({
 				this[1].push(comp);
 			}
 		}, [this, rtn]);
+		this.sortByDtStart(rtn);
 		return rtn;
 	}.property('fifthDayWeek','componentsValidDtStart'),
 
@@ -281,6 +287,7 @@ export default Ember.Component.extend({
 				this[1].push(comp);
 			}
 		}, [this, rtn]);
+		this.sortByDtStart(rtn);
 		return rtn;
 	}.property('sixthDayWeek','componentsValidDtStart'),
 
@@ -306,7 +313,16 @@ export default Ember.Component.extend({
 				this[1].push(comp);
 			}
 		}, [this, rtn]);
+		this.sortByDtStart(rtn);
 		return rtn;
 	}.property('seventhDayWeek','componentsValidDtStart'),
 
+	//Utils
+	sortByDtStart: function(components) {
+		return components.sort(function(comp_a,comp_b) {
+			if(moment(comp_a.get('dtstart')).isBefore(moment(comp_b.get('dtstart'))))
+				return 1;
+			return -1;
+		});
+	}
 });

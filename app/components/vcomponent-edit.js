@@ -168,8 +168,13 @@ export default Ember.Component.extend({
 				this.get('model').rollback();
 			}
 			Ember.Logger.log('Cancel done');
+			if(Ember.isNone(this.get('model').get('parent_vcalendar'))) {
+				Ember.Logger.error('Component without parent',this.get('model').toJSON());
+				throw 'Component without parent';
+			}
 //			this.transitionToRoute('vcalendar', this.get('model').get('parent_vcalendar')); //Not in a controller
-			App.Router.router.transitionTo('vcalendar', this.get('model').get('parent_vcalendar'));
+			//Use global scope App is not the right way...
+			App.Router.router.transitionTo('vcalendar', this.get('model').get('parent_vcalendar').get('id'));
 		},
 
 		remove: function() {
@@ -177,8 +182,13 @@ export default Ember.Component.extend({
 				this.get('model').destroyRecord();
 //			}
 			Ember.Logger.log('Remove done');
+			if(Ember.isNone(this.get('model').get('parent_vcalendar'))) {
+				Ember.Logger.error('Component without parent',this.get('model').toJSON());
+				throw 'Component without parent';
+			}
 //			this.transitionToRoute('vcalendar', this.get('model').get('parent_vcalendar')); //Not in a controller
-			App.Router.router.transitionTo('vcalendar', this.get('model').get('parent_vcalendar'));
+			//Use global scope App is not the right way...
+			App.Router.router.transitionTo('vcalendar', this.get('model').get('parent_vcalendar').get('id'));
 		}
 	}
 });
