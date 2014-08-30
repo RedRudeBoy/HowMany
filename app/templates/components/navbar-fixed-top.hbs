@@ -2,12 +2,8 @@
 	<div class="container"><!-- .container-fluid -->
 		<div class="navbar-header">
 			{{#link-to 'index' classNames="navbar-brand"}}HowMany{{/link-to}}
-			{{#if hasCalendarSelected}}
-			<div class="navbar-nav">
-				{{#link-to 'vcalendar.index' classNames="navbar-text"}}{{calendarSelectedName}}{{/link-to}}
-				{{#link-to 'vcalendar.new' classNames="btn btn-default btn-sm navbar-btn"}}{{t application.navbar.new}}{{/link-to}}
-			</div>
-			{{/if}}
+
+			{{yield}}
 
 			<div class="navbar-nav pull-right">
 				{{#link-to 'configuration' classNames="navbar-text"}}{{t application.navbar.configuration}}{{/link-to}}

@@ -1,7 +1,15 @@
-<small>Edit {{this}} {{model}} {{mola}}</small>
+{{navbar-fixed-top}}
 
-{{#form-for model}}
+<div class="container-fluid">
 
-	{{partial "vcalendar-form"}}
+	{{!--<small>Edit {{this}} {{model}} {{mola}}</small>--}}
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+			{{#form-for model}}
 
-{{/form-for}}
+				{{partial "vcalendar-form"}}
+
+			{{/form-for}}
+		</div>
+	</div>
+</div>

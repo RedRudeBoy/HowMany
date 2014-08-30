@@ -1,57 +1,72 @@
-<div class="row">
-	<div class="col-md-8 col-md-offset-2" style="background-color: whitesmoke;">
+{{navbar-fixed-top}}
 
-		{{#if hasCalendars}}
-		<h1>
-			Calendars <small>(or Contexts) {{#bs-button clicked="showNewCalendar"}}<span class="glyphicon glyphicon-plus"></span> {{t calendar.addNew}}{{/bs-button}}</small>
-		</h1>
-		{{#if showAddNewCalendar}}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2" style="background-color: whitesmoke;">
+
+			{{#if hasCalendars}}
+			<h1>
+				Calendars <small>(or Contexts) {{!--{{#bs-button clicked="showNewCalendar"}}<span class="fa fa-plus"></span> {{t calendar.addNew}}{{/bs-button}}--}}</small>
+			</h1>
+			{{#if showAddNewCalendar}}
+				{{partial "index-add-new-calendar"}}
+			{{/if}}
+
+			{{#each savedCalendars}}
+				{{!--#link-to 'howmany' this classNames='list-group-item'}}{{/link-to--}}
+				{{!--vcalendar-listitem tagName='a' classNames='list-group-item' vcalendar=this goTo="btnLinkTo" removeCalendar="removeCalendar" editCalendar="editCalendar" saveCalendar="saveCalendar" param=this--}}
+				{{vcalendar-listitem classNames="pull-left" vcalendar=this goTo="btnLinkTo" removeCalendar="removeCalendar" editCalendar="editCalendar" saveCalendar="saveCalendar" param=this}}
+			{{/each}}
+			<time datetime="" class="icon pull-left">
+				<em class="block">&zwnj;</em>
+				<strong class="block">{{t calendar.addNew classNames='block'}}</strong>
+				<!--
+				<span class="firstEmpty">Empty</span> first is a hack for :first-child bug
+				<span>From file</span>-->
+				<div class="actions-new">
+					<div class="block col-xs-6 text-center">{{render 'uploadcalendar'}}</div>
+					<div class="block col-xs-6 text-center">{{#bs-button large=true clicked="addNewCalendar"}}<span class="fa fa-plus pull-left"></span> {{t home.createNewEmpty}}{{/bs-button}}</div>
+				</div>
+			</time>
+
+			{{else}}
+
+			<h1>You don't have any calendars <small>(or Contexts)</small></h1>
+
 			{{partial "index-add-new-calendar"}}
-		{{/if}}
-		<div class="list-group">
-		{{#each savedCalendars}}
-			{{!--#link-to 'howmany' this classNames='list-group-item'}}{{/link-to--}}
-			{{vcalendar-listitem tagName='a' classNames='list-group-item' vcalendar=this goTo="btnLinkTo" removeCalendar="removeCalendar" editCalendar="editCalendar" saveCalendar="saveCalendar" param=this}}
-		{{/each}}
+
+			{{/if}}
+
+			{{!--
+			<ul>
+			{{#each}}
+				<li>{{this}} - {{vevents}} - {{vtodos}} - {{vjournals}}</li>
+				<ul>
+				{{#each vevents}}
+					<li>{{this}}</li>
+				{{/each}}
+				</ul>
+				<ul>
+				{{#each vtodos}}
+					<li>{{this}}</li>
+				{{/each}}
+				</ul>
+				<ul>
+				{{#each vjournals}}
+					<li>{{this}}</li>
+				{{/each}}
+				</ul>
+			{{/each}}
+			</ul>
+			--}}
+
+			{{!--partial "index-actions"--}}
+			{{!--
+			<br />
+			<br />
+			<span>Transaltion test: {{t home.test}}</span>
+			--}}
+			<br />
 		</div>
-
-		{{else}}
-
-		<h1>You don't have any calendars <small>(or Contexts)</small></h1>
-
-		{{partial "index-add-new-calendar"}}
-
-		{{/if}}
-
-		{{!--
-		<ul>
-		{{#each}}
-			<li>{{this}} - {{vevents}} - {{vtodos}} - {{vjournals}}</li>
-			<ul>
-			{{#each vevents}}
-				<li>{{this}}</li>
-			{{/each}}
-			</ul>
-			<ul>
-			{{#each vtodos}}
-				<li>{{this}}</li>
-			{{/each}}
-			</ul>
-			<ul>
-			{{#each vjournals}}
-				<li>{{this}}</li>
-			{{/each}}
-			</ul>
-		{{/each}}
-		</ul>
-		--}}
-
-		{{!--partial "index-actions"--}}
-		{{!--
-		<br />
-		<br />
-		<span>Transaltion test: {{t home.test}}</span>
-		--}}
-		<br />
 	</div>
 </div>

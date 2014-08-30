@@ -5,7 +5,7 @@ How Many Days have been since I did... ~ How many days have passed since I did..
 A la recerca de possibles necessitats,
  i les seves solucions respectives, m'he dit...
 
-Quan cullons fa que no rego les plantes?
+Quan fa que no rego les plantes?
 Quants dies fa que no visito l'àvia?
 Quants dies fa que no llegeixo?
 Quants mesos fa que no faig una escapada?
@@ -57,6 +57,7 @@ grunt server:dist
   2. [Crossfilter](https://github.com/square/crossfilter) - Fast Multidimensional Filtering for Coordinated Views, [http://square.github.io/crossfilter/](http://square.github.io/crossfilter/) , [api](https://github.com/square/crossfilter/wiki/API-Reference), [tutorial](http://www.codeproject.com/Articles/697043/Making-Dashboards-with-Dc-js-Part-2-Graphing).
   3. [d3js](http://d3js.org/) - Library for manipulating documents based on data.
 17. [mozilla-comm/ical.js](https://github.com/mozilla-comm/ical.js) - Javascript parser for ics files (rfc5545).
+18. [@craigbuckler/calendar-icon](http://www.sitepoint.com/create-calendar-icon-html5-css3/) - A Scalable Calendar Icon in HTML5 and CSS3, [demo](http://cssdeck.com/labs/calendar-icon).
 
 
 ### Not used directly, but an important source of inspiration or in the past roadmap ###
@@ -100,8 +101,7 @@ The project is licensed under the [GNU Affero GPL v3](http://www.gnu.org/license
 ## Known bugs ##
 1. In the initilization the calendars are unhydrated, why ember-data don't populate the relationships? [Bug: Sideloading relations (hasMany) on models not working!](https://github.com/emberjs/data/issues/1834) [hasMany tests](https://github.com/emberjs/data/blob/master/packages/ember-data/tests/integration/relationships/has_many_test.js) [store api](http://emberjs.com/api/data/classes/DS.Store.html)
 2. Add new vcomponents doesn't trigger UI updates.
-3. Going from /calendars/do6rd to / throws: "Uncaught TypeError: Cannot read property 'shouldSupercede' of undefined". The problem is in the breadcrumb, controlled by /app/controllers/application.js
-4. Instead of using mixings for vcomponents, use polymorphism.
+3. Instead of using mixings for vcomponents, use polymorphism.
 
 
 ## In the short-term roadmap ##
