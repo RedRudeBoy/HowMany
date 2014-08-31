@@ -99,6 +99,9 @@ time.icon .actions > div
   margin-top: 1em;
   background-color: #fd9f1b;
   padding-left: 1em;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 1px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 1px 1px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 time.icon .actions > div > i
 {
@@ -111,6 +114,14 @@ time.icon .actions > div > span
 time.icon .actions > div:hover
 {
   width: 7em!important;
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  -o-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+  -webkit-transition-property: width;
+  -moz-transition-property: width;
+  -o-transition-property: width;
+  transition-property: width;
 }
 time.icon .actions > div:hover > span
 {

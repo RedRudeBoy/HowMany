@@ -1,7 +1,9 @@
 {{#navbar-fixed-top}}
 	{{!--#if hasCalendarSelected--}}
 	<div class="navbar-nav">
+		<span class="navbar-text"> > </span>
 		{{#link-to 'vcalendar.index' classNames="navbar-text"}}{{calendarName}}{{/link-to}}
+		<span class="navbar-text"> > </span>
 		{{#link-to 'vcalendar.new' classNames="btn btn-default btn-sm navbar-btn"}}{{t application.navbar.new}}{{/link-to}}
 	</div>
 	{{!--/if--}}
