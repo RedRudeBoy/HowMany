@@ -22,17 +22,25 @@
 		<div class="col-xs-12">
 			<div class="row text-center agenda-toolbar">
 				<div class="col-xs-2">
-					<span {{action oneYearLess}}>&lt;</span>&nbsp;{{viewYear}}&nbsp;<span {{action oneYearMore}}>&gt;</span>
+					<div class="agenda-toolbar-fieldset">
+						<span class="agenda-toolbar-control agenda-toolbar-btn" {{action oneYearLess}}><span class="agenda-toolbar-arrow">&lt;</span>&nbsp;</span>
+						<span class="agenda-toolbar-control agenda-toolbar-btn-sel">{{viewYear}}</span>
+						<span class="agenda-toolbar-control agenda-toolbar-btn" {{action oneYearMore}}>&nbsp;<span class="agenda-toolbar-arrow">&gt;</span></span>
+					</div>
 				</div>
 				<div class="col-xs-6">
-					<span class="agenda-toolbar-control pull-left" {{action oneMonthLess}}>&lt;-{{viewMonthOneLess}}</span>
-					<span class="agenda-toolbar-control text-center">&nbsp;&nbsp;{{viewMonth}}&nbsp;&nbsp;</span>
-					<span class="agenda-toolbar-control pull-right" {{action oneMonthMore}}>{{viewMonthOneMore}}-&gt;</span>
+					<div class="agenda-toolbar-fieldset">
+						<span class="agenda-toolbar-control agenda-toolbar-btn pull-left" {{action oneMonthLess}}><span class="agenda-toolbar-arrow">&lt;</span>&nbsp;{{viewMonthOneLess}}</span>
+						<span class="agenda-toolbar-control agenda-toolbar-btn-sel text-center">&nbsp;&nbsp;{{viewMonth}}&nbsp;&nbsp;</span>
+						<span class="agenda-toolbar-control agenda-toolbar-btn pull-right" {{action oneMonthMore}}>{{viewMonthOneMore}}&nbsp;<span class="agenda-toolbar-arrow">&gt;</span></span>
+					</div>
 				</div>
 				<div class="col-xs-4">
-					<span class="agenda-toolbar-control pull-left" {{action oneWeekLess}}>&lt;-&nbsp;{{viewWeekOneLess}}</span>
-					<span class="agenda-toolbar-control text-center">&nbsp;&nbsp;{{viewWeek}}&nbsp;&nbsp;</span>
-					<span class="agenda-toolbar-control pull-right" {{action oneWeekMore}}>{{viewWeekOneMore}}&nbsp;-&gt;</span>
+					<div class="agenda-toolbar-fieldset">
+						<span class="agenda-toolbar-control agenda-toolbar-btn pull-left" {{action oneWeekLess}}><span class="agenda-toolbar-arrow">&lt;</span>&nbsp;{{viewWeekOneLess}}</span>
+						<span class="agenda-toolbar-control agenda-toolbar-btn-sel text-center">&nbsp;&nbsp;{{viewWeek}}&nbsp;&nbsp;</span>
+						<span class="agenda-toolbar-control agenda-toolbar-btn pull-right" {{action oneWeekMore}}>{{viewWeekOneMore}}&nbsp;<span class="agenda-toolbar-arrow">&gt;</span></span>
+					</div>
 				</div>
 			</div>
 		</div>

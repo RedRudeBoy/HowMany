@@ -10,11 +10,19 @@ export default Ember.ObjectController.extend({
 		return (this.get('events.length') + this.get('journals.length'));
 	}.property('events.length','journals.length'),
 	eventsJournals: function() {
-		return this.get('events').addObjects(this.get('journals'));
+		var rtn = [];
+		rtn.addObjects(this.get('events'));
+		rtn.addObjects(this.get('journals'));
+		return rtn;
 	}.property('events','journals'),
 //	eventsJournals: Ember.computed.union('events','journals'),
 	vcomponents: function() {
-		return this.get('events').addObjects(this.get('journals')).addObjects(this.get('todos'));
+		var rtn = [];
+		rtn.addObjects(this.get('events'));
+		rtn.addObjects(this.get('journals'));
+		rtn.addObjects(this.get('todos'));
+		return rtn;
+//		return this.get('events').addObjects(this.get('journals')).addObjects(this.get('todos'));
 	}.property('events','journals','todos'),
 //	vcomponents: Ember.computed.union('events','todos','journals'),
 	vcomponents_array: function() {
@@ -41,6 +49,17 @@ export default Ember.ObjectController.extend({
 		return (this.get('x-wr-caldesc') || 'Without description');
 	}.property('x-wr-caldesc'),
 
+	numToToDo: function() {
+		var rtn = [];
+		rtn.addObjects(this.get('events'));
+		rtn.addObjects(this.get('todos'));
+		rtn.forEach(function(comp) {
+			if(Ember.isNone(comp.get('dtstart')) || !moment(comp.get('dtstart')).isValid()) {
+				rtn.push(comp);
+			}
+		}, rtn);
+		return rtn.length;
+	}.property('events','todos'),
 	numToConfirm: function() {
 //	eventsTentative: function() {
 		return this.get('events').filterBy('status','TENTATIVE').get('length');

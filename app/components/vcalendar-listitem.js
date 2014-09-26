@@ -1,4 +1,6 @@
-export default Ember.Component.extend({
+import ColorsUtils from 'appkit/mixins/colorsutils';
+
+export default Ember.Component.extend( ColorsUtils, {
 	actions: {
 		removeCalendar: function(param) {
 			this.sendAction('removeCalendar', this.get('vcalendar'));
@@ -32,5 +34,19 @@ export default Ember.Component.extend({
 
 	calendarDesc: function() {
 		return (this.get('vcalendar.x-wr-caldesc') || 'Without description');
-	}.property('vcalendar.x-wr-caldesc')
+	}.property('vcalendar.x-wr-caldesc'),
+
+	/*
+	 * Styles
+	 */
+	color: function() {
+		var color = Ember.isNone(this.get('vcalendar.color')) ? this.defaultCalendarColor : this.get('vcalendar.color');
+		return color;
+	}.property('vcalendar.color'),
+	background_color: function() {
+		return 'background-color: '+this.get('color')+';';
+	}.property('color'),
+	icon_style: function() {
+		return this.get('background_color')+'box-shadow: 0 2px 0 '+this.get('color')+';';
+	}.property('background_color','color')
 });

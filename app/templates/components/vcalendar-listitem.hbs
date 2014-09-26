@@ -13,13 +13,13 @@
 <!-- the icon as a time element -->
 <time datetime="" class="icon">
 	<em class="block">{{calendarDesc}}</em>
-	<strong class="block">{{calendarName}}</strong>
+	<strong class="block" {{bind-attr style="icon_style"}}>{{calendarName}}</strong>
 	<span class="block first">{{countLow}} ToDos</span> <!--first is a hack for :first-child bug-->
 	<span class="block">{{countNormal}} Events</span>
 	<span class="block">{{countHigh}} Journals</span>
 	<div class="actions">
-		<div {{action "editCalendar" bubbles=false}}><span>{{t calendar.edit}}</span> <i class="fa fa-pencil pull-right"></i></div>
-		<div {{action "saveCalendar" bubbles=false}}><span>{{t calendar.save}}</span> <i class="fa fa-save pull-right"></i></div>
-		<div {{action "removeCalendar" bubbles=false}}><span>{{t calendar.remove}}</span> <i class="fa fa-trash-o pull-right"></i></div>
+		<div {{action "editCalendar" bubbles=false}} {{bind-attr style="background_color"}}><span>{{t calendar.edit}}</span> <i class="fa fa-pencil pull-right"></i></div>
+		<div {{action "saveCalendar" bubbles=false}} {{bind-attr style="background_color"}}><span>{{t calendar.save}}</span> <i class="fa fa-save pull-right"></i></div>
+		<div {{action "removeCalendar" bubbles=false}} {{bind-attr style="background_color"}}><span>{{t calendar.remove}}</span> <i class="fa fa-trash-o pull-right"></i></div>
 	</div>
 </time>

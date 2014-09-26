@@ -65,6 +65,11 @@ var vComponent = Em.Mixin.create({
 //	'last-mod': attr(), //'date'
 	sequence: attr(),    //'number' revision sequence number of the calendar component within a sequence of revisions
 
+	//New Properties for iCalendar draft
+	//https://tools.ietf.org/html/draft-daboo-icalendar-extensions-09
+	'color': attr('string'), //Can be defined in all vcomponents
+	'image': attr('string'),
+
 	//Helper functions
 	/**
 	 * Check if dtstart or recurrence are between the date

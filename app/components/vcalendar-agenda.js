@@ -39,20 +39,65 @@ export default Ember.Component.extend({
 				vcomp = store.find(vtype, id);
 			vcomp.then(
 				function(vcomp_store) {
-					Ember.Logger.log('vcalendar-agenda success vcomponentSetDtStart');
-					vcomp_store.set('dtstart', day);
-					if(!Ember.isNone(vcomp.get('dtend')) && moment(vcomp.get('dtend')).isBefore(moment(vcomp.get('dtstart')))) {
-//						var duration = (vcomp.has('duration')) ? moment(vcomp.get('duration')) : moment.duration(1,'hours'); //Hardcoding
+					var type = vcomp_store.get('constructor.typeKey');
+					//If is an event, just set dtstart
+					if(type == 'vevent') {
+						vcomp_store.set('dtstart', day);
+						if(!Ember.isNone(vcomp.get('dtend')) && moment(vcomp.get('dtend')).isBefore(moment(vcomp.get('dtstart')))) {
+//							var duration = (vcomp.has('duration')) ? moment(vcomp.get('duration')) : moment.duration(1,'hours'); //Hardcoding
+							var duration = (Ember.isNone(vcomp.get('duration'))) ? moment(vcomp.get('duration')) : moment.duration(1,'hours'); //Hardcoding
+							var dtend = moment(vcomp.get('dtstart')).add(duration).toDate();
+							vcomp_store.set('dtend', dtend);
+						}
+						vcomp_store.save();
+//						store.push(vtype, vcomp_store); //store.update(vtype, vcomp_store);
+//						vcomp_store.store.reloadRecord(vcomp_store).then(function() {},function() {});
+
+					//Create new event related
+					} else if (type == 'vtodo') {
 						var duration = (Ember.isNone(vcomp.get('duration'))) ? moment(vcomp.get('duration')) : moment.duration(1,'hours'); //Hardcoding
 						var dtend = moment(vcomp.get('dtstart')).add(duration).toDate();
-						vcomp_store.set('dtend', dtend);
+						var new_event = this.get('store').createRecord('vevent');
+						new_event
+							//Relations
+							.set('parent_vcalendar', vcomp_store.get('parent_vcalendar'))
+							.set('related_to',vcomp_store.get('id'))
+							//DateTime Properties
+							.set('dtstart', day).set('dtend', dtend).set('duration',duration)
+							//Descriptive & More Properties
+							.set('categories',vcomp_store.get('categories'))
+							.set('class',vcomp_store.get('class'))
+							.set('comment',vcomp_store.get('comment'))
+							.set('description',vcomp_store.get('description'))
+							.set('status',vcomp_store.get('status'))
+							.set('summary',vcomp_store.get('summary'))
+							.set('attendee',vcomp_store.get('attendee'))
+							.set('contact',vcomp_store.get('contact'))
+							.set('organizer',vcomp_store.get('organizer'))
+							.set('attendee',vcomp_store.get('attendee'))
+							.set('recurrence_id',vcomp_store.get('recurrence_id'))
+							.set('url',vcomp_store.get('url'))
+							.set('attendee',vcomp_store.get('attendee'))
+							.set('color',vcomp_store.get('color'))
+							.set('image',vcomp_store.get('image'))
+							.set('geo',vcomp_store.get('geo'))
+							.set('location',vcomp_store.get('location'))
+							.set('image',vcomp_store.get('image'))
+							.set('priority',vcomp_store.get('priority'))
+							.set('resources',vcomp_store.get('resources'))
+							;
+						new_event.save();
+//						this.get('store').push('vevent', new_event);
+
+					//Not accepted
+					} else if (type == 'vjournal') {
+						Ember.Logger.warn('Ilegal use of vjournal', vcomp_store);
+					} else {
+						Ember.Logger.warn('Unkown type '+type, vcomp_store);
 					}
-					vcomp_store.save();
-					store.push(vtype, vcomp_store); //store.update(vtype, vcomp_store);
-//					vcomp_store.store.reloadRecord(vcomp_store).then(function() {},function() {});
 				}.bind(this),
 				function(reason) {
-					Ember.Logger.error('vcomponent not founded: ',reason);
+					Ember.Logger.error('vcomponent not founded: ', reason);
 					return false;
 				}.bind(this)
 			);
@@ -85,11 +130,17 @@ export default Ember.Component.extend({
 		Ember.Logger.log('viewDate changed!');
 	}.observes('viewDate'),*/
 
-	//All components
+
+	//Events & To Do's (No Journals)
 	components: function() {
-		return this.get('vevents').addObjects(this.get('vjournals')).addObjects(this.get('vtodos'));
+		var rtn = [];
+		rtn.addObjects(this.get('vevents'));
+		rtn.addObjects(this.get('vtodos'));
+//		rtn.addObjects(this.get('vjournals'));
+		return rtn;
+//		return this.get('vevents').addObjects(this.get('vtodos')); //.addObjects(this.get('vjournals'))
 //		return (this.get('vevents').concat(this.get('vjournals')).concat(this.get('vtodos')));
-	}.property('vevents','vjournals','vtodos'),
+	}.property('vevents','vtodos'), //,'vjournals'
 	//All components with start date
 	componentsValidDtStart: function() {
 		var rtn = [];
@@ -110,6 +161,7 @@ export default Ember.Component.extend({
 		}, rtn);
 		return rtn;
 	}.property('components'),
+
 
 	//Toolbar
 	viewYear: function() {
@@ -317,7 +369,7 @@ export default Ember.Component.extend({
 		return rtn;
 	}.property('seventhDayWeek','componentsValidDtStart'),
 
-	//Utils
+	//Utils (duplicated in vcalendar-diary, move to model?)
 	sortByDtStart: function(components) {
 		return components.sort(function(comp_a,comp_b) {
 			if(moment(comp_a.get('dtstart')).isBefore(moment(comp_b.get('dtstart'))))

@@ -58,9 +58,11 @@ grunt server:dist
   3. [d3js](http://d3js.org/) - Library for manipulating documents based on data.
 17. [mozilla-comm/ical.js](https://github.com/mozilla-comm/ical.js) - Javascript parser for ics files (rfc5545).
 18. [@craigbuckler/calendar-icon](http://www.sitepoint.com/create-calendar-icon-html5-css3/) - A Scalable Calendar Icon in HTML5 and CSS3, [demo](http://cssdeck.com/labs/calendar-icon).
+19. [Thibaut Courouble](http://thibaut.me/)/[Month Picker](http://www.cssflow.com/snippets/month-picker) & [Notepad](http://www.cssflow.com/snippets/notepad) - From CSSFlow, [demo month-picker](http://www.cssflow.com/snippets/month-picker/demo), [demo notepad](http://www.cssflow.com/snippets/notepad/demo).
+20. [Tympanus](http://tympanus.net/codrops/about/)/[Moleskine Notebook with jQuery Booklet](http://tympanus.net/codrops/2010/12/14/moleskine-notebook/) - [demo](http://tympanus.net/Tutorials/MoleskineNotebook/), [insipred in My Moleskine](http://dennern.deviantart.com/art/My-Moleskine-79177093), use [jQuery Booklet Plugin](http://builtbywill.com/code/booklet/demos/)
 
 
-### Not used directly, but an important source of inspiration or in the past roadmap ###
+### Not used directly, but an important source of inspiration or used in previous versions ###
 1. [Backbone](https://github.com/documentcloud/backbone) - MVC for browser
 2. [Underscore](https://github.com/documentcloud/underscore) - JS Utils
 3. [vinkaga/node-backbone](https://github.com/vinkaga/node-backbone) - Backbone starter kit

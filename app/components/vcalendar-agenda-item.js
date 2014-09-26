@@ -1,4 +1,6 @@
-export default Ember.Component.extend({
+import ColorsUtils from 'appkit/mixins/colorsutils';
+
+export default Ember.Component.extend( ColorsUtils, {
 	attributeBindings: ['draggable'],
 	draggable: "true",
 	dragStart: function(event) {
@@ -35,5 +37,31 @@ export default Ember.Component.extend({
 		} else {
 			Ember.Logger.error('vcomponent with unknown type',this.get('vcomponent.constructor.typeKey'),this.get('vcomponent.constructor'));
 		}
-	}
+	},
+
+	lastDoneStr: function() {
+		return 'never';
+	}.property(),
+	typeKey: function() {
+		return this.get('vcomponent.constructor.typeKey')
+	}.property('vcomponent'),
+
+	/*
+	 * Styles
+	 */
+	color: function() {
+		var calendar = this.get('vcomponent').get('parent_vcalendar');
+		var color = Ember.isNone(calendar.get('color')) ? this.defaultCalendarColor : calendar.get('color');
+		return color;
+	}.property('vcomponent'),
+	color_ribbon: function() {
+		return 'background-color: '+this.get('color')+';border-bottom: 3px solid rgba('+this.shadeColorHex(this.get('color'),-30)+');';
+	}.property('color'),
+	color_extended: function() {
+		var rgb = this.hexToRgb(this.shadeColorHex(this.get('color'),-5));
+		return 'background-color: rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+',.8);';
+	}.property('color'),
+	background_image: function() {
+		return 'background-image: url(./img/uploads/Gimnas.png)';
+	}.property('color')
 });

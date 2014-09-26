@@ -2,14 +2,32 @@
 	http://microformats.org/wiki/h-event
 	[p/dt/u]-{property}
 --}}
-<div class="h-event">
-	<h1 class="p-summary">{{vcomponent.summary}}</h1>
-	<p>From
-		<time class="dt-start" datetime="2013-06-30 12:00">30<sup>th</sup> June 2013, 12:00</time>
-		to <time class="dt-end" datetime="2013-06-30 18:00">18:00</time>
-		at <span class="p-location">{{vcomponent.location}}</span>
-	</p>
-	<p class="p-description">{{vcomponent.description}}</p>
-	<span class="p-isDirty">isDirty: {{vcomponent.isDirty}}</span>
-	<span class="p-model">Model: {{vcomponent}}</span>
-</div>
+<center>
+	<div class="vcomponent-item" {{bind-attr style="background_image"}}>
+		<div class="h-event">
+			<!--{{typeKey}}-->
+			{{!--<img class="p-attached" src="./img/uploads/Gimnas.png" />--}}
+			{{!--<div class="aside pull-right">10-10-2014</div>--}}
+
+			<div class="ribbon" {{bind-attr style="color_ribbon"}}>
+				<!--<i class="fa fa-calendar-o fa-2x pull-left"></i>-->
+				<!--<i class="fa fa-2x fa-group pull-left"></i>-->
+				<h2 class="p-summary text-center">{{vcomponent.summary}}</h2>
+			</div>
+
+			<div class="extended text-left" {{bind-attr style="color_extended"}}>
+				<p>From
+					<time class="dt-start" datetime="2013-06-30 12:00">30<sup>th</sup> June 2013, 12:00</time>
+					to <time class="dt-end" datetime="2013-06-30 18:00">18:00</time>
+					at <span class="p-location">{{vcomponent.location}}</span>
+				</p>
+				<p>Not done since... {{lastDoneStr}}</p>
+				<p class="p-description">{{vcomponent.description}}</p>
+			</div>
+			{{!--
+			<span class="p-isDirty">isDirty: {{vcomponent.isDirty}}</span>
+			<span class="p-model">Model: {{vcomponent}}</span>
+			--}}
+		</div>
+	</div>
+</center>
