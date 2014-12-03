@@ -1,75 +1,56 @@
-import vCalendarUtils from "appkit/mixins/vcalendarutils";
+import Ember from 'ember';
+import TransitionsMixin from 'how-many/mixins/transitions';
 
-export default Ember.ArrayController.extend(vCalendarUtils, {
+export default Ember.ArrayController.extend(Ember.Evented, TransitionsMixin, {
+	init: function() {
+		this._super();
+		if(this.get('actualPage') === false) {
+			this.set('actualPage','main');
+		}
+		if(this.get('actualMainPage') === false) {
+			this.set('actualMainPage','all');
+		}
+	},
 
-	savedCalendars: function() {
-		return this.get('model').filterBy('isNew',false);
-	}.property('model'),
-//	hasCalendars: Ember.computed.notEmpty('this'),
-	hasCalendars: function() {
-		return this.get('length') > 0;
-	}.property('length'),
-	showAddNewCalendar: false,
+	/*
+	 * Properties
+	 */
+	//challenger || main || charts || modal
+	actualPage: function () {
+		return false;
+	}.property(),
+	//all || todo-filters || events-filters || todo-events || todo || events
+	actualMainPage: function() {
+		return false;
+	}.property(),
 
 	actions: {
-		btnLinkTo: function(param, param2) {
-			Ember.Logger.log(this," Passed controller as a param: " + param+ " "+param2);
-			this.transitionToRoute(param, param2);
+		//actualPage
+		linkToChallenger: function() {
+			return this.transitionTo('challenger');
 		},
-		showNewCalendar: function(param) {
-			Ember.Logger.log(this,' addNewCalendar');
-			this.toggleProperty('showAddNewCalendar');
+		linkToMain: function() {
+			return this.transitionTo('main');
 		},
-		addNewCalendar: function(param) {
-			this.transitionToRoute('vcalendars.new');
-			/*var controller = this;
-			var vcal = this.store.createRecord('vcalendar');
-			vcal.save().then(function(vcal){
-				controller.get('model').addObject(vcal);
-				controller.transitionToRoute('calendar',vcal);
-			});*/
+		linkToCharts: function() {
+			return this.transitionTo('charts');
 		},
-		editCalendar: function(param) {
-			this.transitionToRoute('vcalendar.edit', param);
+		//actualMainPage
+		linkToSmallerToDo: function() {
+			return this.transitionTo('main','smaller_todo');
 		},
-		removeCalendar: function(vcalendar) {
-			/**
-			 * @ToDO: OUCH! confirm is SOOO UGLY!
-			 */
-//			if (window.confirm("Are you sure you want to delete this calendar?")) {
-				//Remove all childrens
-				vcalendar.eachRelationship(function(name, meta){
-					if (meta.kind === "hasMany") {
-						var childrens = vcalendar.get(name);
-						childrens.forEach(function(children) {
-//							children.deleteRecord();
-//							children.save();
-							children.destroyRecord();
-						});
-					}
-				});
-//				vcalendar.deleteRecord();
-//				vcalendar.save().then(function() {Ember.Logger.log('Calendar removed!');});
-				vcalendar.destroyRecord();
-//			}
-			return false;
+		linkToBiggerToDo: function() {
+			return this.transitionTo('main','bigger_todo');
 		},
-		goToCalendar: function(param) {
-			Ember.Logger.log(this,' goToCalendar');
+		linkToSmallerFilters: function() {
+			return this.transitionTo('main','smaller_filters');
 		},
-		parseNewCalendar: function(text) {
-			Ember.Logger.log('controller::index received parseNewCalendar!');
-//			Ember.run.next(this, this.iCal2EmberDataSync, text);
-//			Ember.run.once(this, this.iCal2EmberDataSync, text);
-			this.iCal2EmberDataSync(text);
-			return false;
-		},
-		saveCalendar: function(vcalendar) {
-			Ember.Logger.log('controller::index received  saveCalendar!');
-//			Ember.run.next(this, this.emberData2iCal, vcalendar);
-//			Ember.run.once(this, this.emberData2iCal, vcalendar);
-			this.emberData2iCal(vcalendar);
-			return false;
+		linkToBiggerFilters: function() {
+			return this.transitionTo('main','bigger_filters');
+//		},
+		//@ToDo
+//		linkToModal: function() {
+//			return this.transitionTo('main','bigger_filters');
 		}
 	}
 });

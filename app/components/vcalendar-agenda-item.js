@@ -1,4 +1,5 @@
-import ColorsUtils from 'appkit/mixins/colorsutils';
+import Ember from 'ember';
+import ColorsUtils from 'how-many/mixins/colorsutils';
 
 export default Ember.Component.extend( ColorsUtils, {
 	attributeBindings: ['draggable'],
@@ -39,11 +40,14 @@ export default Ember.Component.extend( ColorsUtils, {
 		}
 	},
 
+	small: function() {
+		return false;
+	}.property(),
 	lastDoneStr: function() {
 		return 'never';
 	}.property(),
 	typeKey: function() {
-		return this.get('vcomponent.constructor.typeKey')
+		return this.get('vcomponent.constructor.typeKey');
 	}.property('vcomponent'),
 
 	/*
@@ -55,13 +59,16 @@ export default Ember.Component.extend( ColorsUtils, {
 		return color;
 	}.property('vcomponent'),
 	color_ribbon: function() {
-		return 'background-color: '+this.get('color')+';border-bottom: 3px solid rgba('+this.shadeColorHex(this.get('color'),-30)+');';
+		return 'background-color: '+this.get('color')+';border-bottom: 3px solid '+this.shadeColorHex(this.get('color'),-30)+';';
 	}.property('color'),
 	color_extended: function() {
 		var rgb = this.hexToRgb(this.shadeColorHex(this.get('color'),-5));
 		return 'background-color: rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+',.8);';
 	}.property('color'),
 	background_image: function() {
+		if(this.get('small')) {
+			return '';
+		}
 		return 'background-image: url(./img/uploads/Gimnas.png)';
-	}.property('color')
+	}.property('color','small')
 });

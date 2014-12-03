@@ -1,5 +1,6 @@
 /* global moment */
 /* global RRule */
+import Ember from 'ember';
 
 export default Ember.Component.extend({
 	classNameBindings: [':row',':agenda','show::hidden'],
@@ -212,7 +213,7 @@ export default Ember.Component.extend({
 		this.sortByDtStart(rtn);
 		return rtn;
 	}.property('firstDayWeek','componentsValidDtStart'),
-	
+
 	secondDayWeek: function() {
 		return moment(this.get('viewDate')).weekday(1); //Shadow Clone
 	}.property('viewDate'),
@@ -238,7 +239,7 @@ export default Ember.Component.extend({
 		this.sortByDtStart(rtn);
 		return rtn;
 	}.property('secondDayWeek','componentsValidDtStart'),
-	
+
 	thirdDayWeek: function() {
 		return moment(this.get('viewDate')).weekday(2); //Shadow Clone
 	}.property('viewDate'),

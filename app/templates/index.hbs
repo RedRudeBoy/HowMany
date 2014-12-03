@@ -1,72 +1,65 @@
 {{navbar-fixed-top}}
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2" style="background-color: whitesmoke;">
+{{outlet}}
 
-			{{#if hasCalendars}}
-			<h1>
-				Calendars <small>(or Contexts) {{!--{{#bs-button clicked="showNewCalendar"}}<span class="fa fa-plus"></span> {{t calendar.addNew}}{{/bs-button}}--}}</small>
-			</h1>
-			{{#if showAddNewCalendar}}
-				{{partial "index-add-new-calendar"}}
-			{{/if}}
-
-			{{#each savedCalendars}}
-				{{!--#link-to 'howmany' this classNames='list-group-item'}}{{/link-to--}}
-				{{!--vcalendar-listitem tagName='a' classNames='list-group-item' vcalendar=this goTo="btnLinkTo" removeCalendar="removeCalendar" editCalendar="editCalendar" saveCalendar="saveCalendar" param=this--}}
-				{{vcalendar-listitem classNames="pull-left" vcalendar=this goTo="btnLinkTo" removeCalendar="removeCalendar" editCalendar="editCalendar" saveCalendar="saveCalendar" param=this}}
-			{{/each}}
-			<time datetime="" class="icon pull-left">
-				<em class="block">&zwnj;</em>
-				<strong class="block" style="background-color: #fd9f1b;box-shadow: 0 2px 0 #fd9f1b;">{{t calendar.addNew classNames='block'}}</strong>
-				<!--
-				<span class="firstEmpty">Empty</span> first is a hack for :first-child bug
-				<span>From file</span>-->
-				<div class="actions-new">
-					<div class="block col-xs-6 text-center">{{render 'uploadcalendar'}}</div>
-					<div class="block col-xs-6 text-center">{{#bs-button large=true clicked="addNewCalendar"}}<span class="fa fa-plus pull-left"></span> {{t home.createNewEmpty}}{{/bs-button}}</div>
-				</div>
-			</time>
-
-			{{else}}
-
-			<h1>You don't have any calendars <small>(or Contexts)</small></h1>
-
-			{{partial "index-add-new-calendar"}}
-
-			{{/if}}
-
-			{{!--
-			<ul>
-			{{#each}}
-				<li>{{this}} - {{vevents}} - {{vtodos}} - {{vjournals}}</li>
-				<ul>
-				{{#each vevents}}
-					<li>{{this}}</li>
-				{{/each}}
-				</ul>
-				<ul>
-				{{#each vtodos}}
-					<li>{{this}}</li>
-				{{/each}}
-				</ul>
-				<ul>
-				{{#each vjournals}}
-					<li>{{this}}</li>
-				{{/each}}
-				</ul>
-			{{/each}}
-			</ul>
-			--}}
-
-			{{!--partial "index-actions"--}}
-			{{!--
-			<br />
-			<br />
-			<span>Transaltion test: {{t home.test}}</span>
-			--}}
-			<br />
-		</div>
-	</div>
+<div id="viewport" class="row">
+	<section id="page-challenger" class="page col-xs-12">
+		<ul class="pager">
+			<li class="next" {{action "linkToMain"}}><a href="#">&rarr;</a></li>
+		</ul>
+		<h1>Challenger</h1>
+	</section>
+	<section id="page-todo" class="page col-xs-5">
+		<ul class="pager">
+			<li class="previous" {{action "linkToChallenger"}}><a href="#">Challenger</a></li>
+			<li class="next" {{action "linkToSmallerToDo"}}><a href="#">&larr;</a></li>
+			<li class="next hide btnToCharts" {{action "linkToCharts"}}><a href="#">Charts</a></li>
+		</ul>
+		<!--
+		<ul class="nav nav-justified">
+			<li><a href="#" class="linkToChallenger">Challenger</a></li>
+			<li><a href="#" class="linkToSmallerToDo">&lt;</a></li>
+			<li><a href="#" class="linkToBiggerToDo">&gt;</a></li>
+		</ul>
+		<div class="btn-group btn-group-justified">
+			<div class="btn-group">
+				<button type="button" class="btn btn-default">
+					&nbsp;Challenger&nbsp;
+				</button>
+			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default">
+					&nbsp;&lt;&nbsp;
+				</button>
+			</div>
+		</div>-->
+		<h1>ToDo</h1>
+	</section>
+	<section id="page-events" class="page col-xs-5"><!--col-xs-push-5-->
+		<ul class="pager">
+			<li class="previous btnBiggerToDo" {{action "linkToBiggerToDo"}}><a href="#">&rarr;</a></li>
+			<li class="previous hide btnToChallenger" {{action "linkToChallenger"}}><a href="#">Challenger</a></li>
+			<li class="active"><a href="#">Daily</a></li>
+			<li><a href="#">Weekly</a></li>
+			<li><a href="#">Monthly</a></li>
+			<li class="next hide btnBiggerFilters" {{action "linkToBiggerFilters"}}><a href="#">&larr;</a></li>
+			<li class="next hide btnToCharts" {{action "linkToCharts"}}><a href="#">Charts</a></li>
+		</ul>
+		<h1>Agenda / Diary</h1>
+	</section>
+	<aside id="page-filters" class="page col-xs-2"><!--col-xs-push-10-->
+		<ul class="pager">
+			<li class="previous btnSmallerFilters" {{action "linkToSmallerFilters"}}><a href="#">&rarr;</a></li>
+			<li class="previous hide btnToMain" {{action "linkToMain"}}><a href="#">&larr;</a></li>
+			<li class="next" {{action "linkToCharts"}}><a href="#">Charts</a></li>
+			<!--<li><a href="#" class="linkToBiggerFilters hide">&lt;</a></li>-->
+		</ul>
+		<h1>Filters</h1>
+	</aside>
+	<section id="page-charts" class="page col-xs-10"><!--col-xs-push-2-->
+		<h1>Charts</h1>
+	</section>
+	<section id="page-modal" class="page">
+		<h1>Modal</h1>
+	</section>
 </div>

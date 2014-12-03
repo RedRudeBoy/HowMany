@@ -1,0 +1,161 @@
+/**
+ * vcalendar-agenda
+ */
+.agenda-toolbar {
+	height: 25px;
+	min-height: 25px;
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+	margin-bottom: 5px;
+/*	border: 1px dotted black;
+	border-bottom: 0px;*/
+}
+.agenda-toolbar > * {
+	padding: 0px !important;
+}
+.agenda-toolbar > *:not(:last-child) {
+/*	border-right: 1px dotted black;*/
+	padding-right: 2px !important;
+}
+.agenda-toolbar-fieldset {
+	font: 12px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+	color: #404040;
+
+	background: #282537;
+/*  background: rgba(0, 0, 0, 0.4);*/
+	background-image: -webkit-radial-gradient(top, circle cover, #3c3b52, #252233 80%);
+	background-image: -moz-radial-gradient(top, circle cover, #3c3b52, #252233 80%);
+	background-image: -o-radial-gradient(top, circle cover, #3c3b52, #252233 80%);
+	background-image: radial-gradient(top, circle cover, #3c3b52, #252233 80%);
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.7), inset 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.7), inset 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+
+	padding: 3px 3px;
+	width: 100%;
+
+	-webkit-transition: 0.15s ease-out;
+	-moz-transition: 0.15s ease-out;
+	-o-transition: 0.15s ease-out;
+	transition: 0.15s ease-out;
+}
+.agenda-toolbar-fieldset > *:not(:last-child) {
+/*	border-right: 1px dotted black;*/
+	margin-right: 1px;
+}
+.agenda-toolbar .agenda-toolbar-control {
+	max-width: 31%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-shadow: 0 1px 1px black;
+	color: #8d8ba6;
+}
+.agenda-toolbar .agenda-toolbar-btn {
+	cursor: pointer;
+}
+.agenda-toolbar .agenda-toolbar-btn-sel {
+	color: white;
+}
+.agenda-toolbar-arrow {
+	font-weight: bold;
+	text-shadow: 0 1px rgba(255, 255, 255, 0.1);
+}
+.agenda-withoutstart, .agenda-withstart {
+	max-height: 700px;
+	overflow: auto;
+}
+.agenda-withoutstart > .agenda-withoutstart-title {
+	border-bottom: 1px solid black;
+	margin-bottom: 5px;
+}
+.agenda-withoutstart > .agenda-withoutstart-droppable {
+	height: 50px;
+	margin-bottom: 5px;
+	border: 1px dotted black;
+}
+.agenda-withstart > .agenda-withstart-title {
+	border-bottom: 1px solid black;
+	margin-bottom: 5px;
+}
+
+.agenda-withstart .agenda-day {
+	border: 1px solid #d1d1d1;
+	border-bottom: 0px !important;
+	border-radius: 5px;
+	background: rgba(226,226,226,1);
+	background: -moz-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(254,254,254,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(226,226,226,1)), color-stop(100%, rgba(254,254,254,1)));
+	background: -webkit-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(254,254,254,1) 100%);
+	background: -o-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(254,254,254,1) 100%);
+	background: -ms-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(254,254,254,1) 100%);
+	background: linear-gradient(to bottom, rgba(226,226,226,1) 0%, rgba(254,254,254,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=0 );
+}
+/*.agenda-week > .row > .agenda-weekday:last-child > .agenda-day {
+	border-bottom: 1px dotted black;
+}*/
+.agenda-withstart .agenda-day, .agenda-withstart .agenda-weekend, .agenda-withstart .agenda-weekend-day {
+	height: 100px;
+	min-height: 100px;
+ }
+.agenda-withstart .agenda-weekend-day {
+	border-top: 1px solid #d1d1d1;
+	border-bottom: 1px solid #d1d1d1;
+	border-right: 1px solid #d1d1d1;
+	border-radius: 5px;
+	background: rgba(226,226,226,1);
+	background: -moz-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(254,254,254,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(226,226,226,1)), color-stop(100%, rgba(254,254,254,1)));
+	background: -webkit-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(254,254,254,1) 100%);
+	background: -o-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(254,254,254,1) 100%);
+	background: -ms-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(254,254,254,1) 100%);
+	background: linear-gradient(to bottom, rgba(226,226,226,1) 0%, rgba(254,254,254,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=0 );
+}
+.agenda-withstart .agenda-weekend > div:first-child {
+	padding-right: 0;
+}
+.agenda-withstart .agenda-weekend > div:last-child {
+	padding-left: 0;
+}
+.agenda-withstart .agenda-weekend > div:first-child > div {
+	border-left: 1px solid #d1d1d1;
+	border-radius: 5px;
+}
+.agenda-withstart .agenda-weekend > div:last-child {
+}
+.agenda-withstart .agenda-day-legend {
+	border-right: 1px solid #d1d1d1;
+	border-bottom: 1px solid #d1d1d1;
+	width: 50%;
+	margin-bottom: 3px;
+	padding-left: 5px;
+
+	font: 12px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+	color: white;
+
+	background: #282537;
+/*	background: rgba(0, 0, 0, 0.4);*/
+	background-image: -webkit-radial-gradient(top, circle cover, #3c3b52, #252233 80%);
+	background-image: -moz-radial-gradient(top, circle cover, #3c3b52, #252233 80%);
+	background-image: -o-radial-gradient(top, circle cover, #3c3b52, #252233 80%);
+	background-image: radial-gradient(top, circle cover, #3c3b52, #252233 80%);
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.7), inset 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.7), inset 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+}
+.agenda-withstart .agenda-weekend-day > .agenda-day-legend {
+	width: 75%;
+}
+.agenda-withstart .agenda-day-events {
+	overflow: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+	max-height: 74px;
+}
+/*.agenda-withstart .agenda-day-events > *{
+	border: 1px solid black;
+	background-color: yellow;
+	margin: 2px;
+}*/

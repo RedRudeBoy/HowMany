@@ -1,3 +1,5 @@
+import DS from "ember-data";
+
 /**
  * calDav Adapter?
 
@@ -12,12 +14,16 @@ export default ApplicationAdapter;
 //Fixture
 export default DS.FixtureAdapter.extend();
 
+//LocalStorage
+export default DS.LSAdapter.extend({
+	namespace: 'how_many'
+});
 App.store.adapter.on('QUOTA_EXCEEDED_ERR', function(records){
 	Ember.Logger.error('LocalStorage QUOTA_EXCEEDED_ERR',records);
 });
  */
-//
-//LocalStorage
-export default DS.LSAdapter.extend({
-	namespace: 'how_many'
+
+//Localforage
+export default DS.LFAdapter.extend({
+    namespace: 'how_many'
 });

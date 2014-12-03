@@ -1,0 +1,394 @@
+/**
+ * PAGES TRANSITIONS
+ */
+@mixin translateX($param) {
+  -webkit-transform: translateX($param);
+          transform: translateX($param);
+}
+@mixin transition-transform($seconds) {
+	/* For Safari 3.1 to 6.0 */
+  -webkit-transition: -webkit-transform $seconds linear; //delay
+	/* Standard syntax */
+          transition: transform $seconds linear; //delay
+}
+@mixin transition-width($seconds) {
+  -webkit-transition: width $seconds linear; //delay
+          transition: width $seconds linear; //delay
+}
+@mixin transition-all($seconds) {
+  -webkit-transition: all $seconds linear; //delay
+          transition: all $seconds linear; //delay
+}
+
+@mixin translate-transition-start($seconds, $col, $start ) {
+	@if unitless($seconds) {
+		$seconds: 1s * $seconds;
+	}
+	@include transition-transform( $seconds );
+	@if unitless($col) {
+		$col: 1% * $col;
+	}
+	@if unitless($start) {
+		$start: 1% * $start;
+	}
+	@include translateX( (12% - $start)/$col * 100% );
+}
+@mixin translate-transition($seconds, $col ) {
+	@if unitless($seconds) {
+		$seconds: 1s * $seconds;
+	}
+	@include transition-transform( $seconds );
+	@if unitless($col) {
+		$col: 1% * $col;
+	}
+	@include translateX( 12%/$col * 100% );
+}
+@mixin move( $col ) {
+//	$seconds: 1s * $col / 12; //1s -> 12 col
+	$seconds: 1s * $col;
+	@include transition-transform( $seconds );
+	@if unitless($col) {
+		$col: 1% * $col;
+	}
+	$translate: 12% / $col * 100%;
+	@include translateX( $translate );
+}
+
+@mixin outside($param) {
+	position : absolute;
+	@if $param > 0 {
+		left: $param - 0.1%; //Hack for trigger transition
+	} @else {
+		left: $param + 0.1%; //Hack for trigger transition
+	}
+}
+
+
+
+.page#page-challenger {
+	//Pre Animation
+	&.outside-left {
+		@include outside( -100% );
+	}
+	//Challenger <-> Main
+	&.challenger-in-from-main {
+		//@Todo!
+//		@include move(12);
+//		@include translate-transition( 1, 12);
+		@include translateX(100%); @include transition-transform( 1s );
+	}
+	&.challenger-out-to-main {
+//		@include move(-12);
+		@include translateX(-100%); @include transition-transform( 1s );
+	}
+}
+
+
+.page#page-todo {
+	//Pre Animation
+	&.outside-left {
+		@include outside( (-100% +16.66667%) );
+	}
+	&.outside-left-no-filters {
+		@include outside( -100% );
+	}
+	&.outside-right {
+		@include outside( 100% );
+	}
+
+	//Challenger <-> ToDo
+	&.col-xs-5.todo-in-from-challenger {
+		@include translateX( -12%/5% * 100% ); @include transition-transform( 1s );
+	}
+	&.col-xs-6.todo-in-from-challenger {
+		@include translateX( -12%/6% * 100% ); @include transition-transform( 1s );
+	}
+	&.col-xs-10.todo-in-from-challenger {
+		@include translateX( -12%/10% * 100% ); @include transition-transform( 1s );
+	}
+	&.col-xs-12.todo-in-from-challenger {
+		@include translateX(-100%); @include transition-transform( 1s );
+	}
+
+	&.col-xs-5.todo-out-to-challenger {
+		@include translateX( 12%/5% * 100% ); @include transition-transform( 1s );
+	}
+	&.col-xs-6.todo-out-to-challenger {
+		@include translateX( 12%/6% * 100% ); @include transition-transform( 1s );
+	}
+	&.col-xs-10.todo-out-to-challenger {
+		@include translateX( 12%/10% * 100% ); @include transition-transform( 1s );
+	}
+	&.col-xs-12.todo-out-to-challenger {
+		@include translateX( 100% ); @include transition-transform( 1s );
+	}
+
+	//ToDo <-> Charts
+	&.col-xs-5.todo-in-from-charts {
+		@include translateX( 10%/5% * 100% ); @include transition-transform( 0.8333s ); //10/12
+	}
+	&.col-xs-6.todo-in-from-charts {
+		@include translateX( 10%/6% * 100% ); @include transition-transform( 1s );
+	}
+	&.col-xs-10.todo-in-from-charts {
+		@include translateX( 10%/10% * 100% ); @include transition-transform( 0.8333s ); //10/12
+	}
+	&.col-xs-12.todo-in-from-charts {
+		@include translateX( 100% ); @include transition-transform( 1s );
+	}
+
+	&.col-xs-5.todo-out-to-charts {
+		@include translateX( -10%/5% * 100% ); @include transition-transform( 0.8333s ); //10/12
+	}
+	&.col-xs-6.todo-out-to-charts {
+		@include translateX( -100% ); @include transition-transform( 0.5s ); //6/12
+	}
+	&.col-xs-10.todo-out-to-charts {
+		@include translateX( -10%/10% * 100% ); @include transition-transform( 0.8333s ); //10/12
+	}
+	&.col-xs-12.todo-out-to-charts {
+		@include translateX( -100% ); @include transition-transform( 1s );
+	}
+}
+
+
+.page#page-events {
+	//Pre Animation
+	&.col-xs-5.outside-left {
+		@include outside( -41.66667% );
+	}
+	&.col-xs-6.outside-left {
+		@include outside( -50% );
+	}
+	&.col-xs-10.outside-left {
+		@include outside( -83.33333333% );
+	}
+	&.col-xs-12.outside-left {
+		@include outside( -100% );
+	}
+	&.col-xs-5.outside-right {
+		@include outside( 100% + 41.66667% );
+	}
+	&.col-xs-6.outside-right {
+		@include outside( 100% + 50% );
+	}
+	&.col-xs-10.outside-right, &.col-xs-12.outside-right {
+		@include outside( 100% );
+	}
+
+	//Challenger <-> Main
+	&.col-xs-5.events-in-from-challenger {
+		@include translateX(-240%); @include transition-transform( 1s );
+	}
+	&.col-xs-6.events-in-from-challenger {
+		@include translateX(-200%); @include transition-transform( 1s );
+	}
+	&.col-xs-10.events-in-from-challenger {
+		@include translateX(-120%); @include transition-transform( 1s );
+	}
+	&.col-xs-12.events-in-from-challenger {
+		@include translateX(-100%); @include transition-transform( 1s );
+	}
+
+	&.col-xs-5.events-out-to-challenger {
+		@include translateX(140%); @include transition-transform( 0.5833s ); //7/12s
+	}
+	&.col-xs-6.events-out-to-challenger {
+		@include translateX(100%); @include transition-transform( 0.5s );
+	}
+	&.col-xs-10.events-out-to-challenger {
+		@include translateX(120%); @include transition-transform( 1s );
+	}
+	&.col-xs-12.events-out-to-challenger {
+		@include translateX(100%); @include transition-transform( 1s );
+	}
+
+	//Main <-> Charts
+	&.col-xs-5.events-in-from-charts {
+		@include translateX( 200% ); @include transition-transform( 0.8333s ); //10/12
+	}
+	&.col-xs-6.events-in-from-charts {
+		@include translateX( 200% ); @include transition-transform( 1s );
+	}
+	&.col-xs-10.events-in-from-charts {
+		@include translateX( 10%/10% * 100% ); @include transition-transform( 0.8333s ); //10/12
+	}
+	&.col-xs-12.events-in-from-charts {
+		@include translateX( 100% ); @include transition-transform( 1s );
+	}
+
+	&.col-xs-5.events-out-to-charts {
+		@include translateX( -10%/5% * 100% ); @include transition-transform( 0.8333s ); //10/12
+	}
+	&.col-xs-6.events-out-to-charts {
+		@include translateX( -12%/6% * 100% ); @include transition-transform( 1s );
+	}
+	&.col-xs-10.events-out-to-charts {
+		@include translateX( -10%/10% * 100% ); @include transition-transform( 0.8333s ); //10/12
+	}
+	&.col-xs-12.events-out-to-charts {
+		@include translateX( -100% ); @include transition-transform( 1s );
+	}
+}
+
+
+.page#page-filters {
+	//Pre Animation
+//	&.outside-left {
+//		@include outside( -16.66667% );
+//	}
+	&.outside-right {
+		@include outside( 200% - 16.66667% );
+	}
+	&.outside-right-to-charts {
+		@include outside( 100% );
+	}
+
+	//Challenger <-> Filters
+	&.filters-in-from-challenger {
+		@include translateX(-600%); @include transition-transform( 1s );
+	}
+	&.filters-out-to-challenger {
+		@include translateX(100%); @include transition-transform( 0.1666s );
+	}
+	//Filters <-> Charts
+/*	&.filters-move-from-charts {
+		@include translateX(600%); @include transition-transform( 0.8333s );
+	}*/
+	&.filters-in-from-charts {
+		@include translateX(500%); @include transition-transform( 0.8333s );
+	}
+	&.filters-out-from-charts {
+		@include translateX(600%); @include transition-transform( 1s );
+	}
+	&.filters-move-to-charts {
+		@include translateX(-500%); @include transition-transform( 0.8333s ); //10/12
+	}
+	&.filters-out-to-charts {
+		@include translateX(-600%); @include transition-transform( 1s );
+	}
+}
+
+.page#page-charts {
+	//Pre Animation
+	&.outside-right {
+		@include outside( 100% );
+	}
+	&.outside-right-out-filters {
+		@include outside( 100% + 16.66667% );
+	}
+
+	//Charts <-> Main
+	&.charts-out-to-main {
+		@include translateX( 100% ); @include transition-transform( 0.8333s );
+	}
+	&.charts-out-to-main-no-filter {
+		@include translateX( 120% ); @include transition-transform( 1s );
+	}
+	&.charts-in-from-main {
+		@include translateX( -100% ); @include transition-transform( 0.8333s );
+	}
+	&.charts-in-from-main-no-filters {
+		@include translateX( -120% ); @include transition-transform( 1s );
+	}
+}
+
+.page#page-modal {
+	//Anywhere <-> Modal
+	&.modal-out-to-main {}
+}
+
+//Main SubPages: #page-todo #page-events #page-filters
+.page {
+	// 1/12 = 0.0833
+	&.col-xs-12.smaller { //to col-xs-10
+		width: 83.33333333%; @include transition-width( 0.1666s );
+	}
+	&.col-xs-12.smaller-6 { //to col-xs-6
+		width: 50%; @include transition-width( 0.5s );
+	}
+	&.col-xs-10.smaller-5 { //to col-xs-5
+		width: 41.66666667%; @include transition-width( 0.4166s );
+	}
+	&.col-xs-10.smaller-6 { //to col-xs-6
+		width: 50%; @include transition-width( 0.3333s );
+	}
+	&.col-xs-6.smaller-5 { //to col-xs-5
+		width: 41.66666667%;@include transition-width( 0.0833s );
+	}
+	&.col-xs-6.smaller { //to col-xs-0
+		@include transition-all( 0.5s );
+		width: 0%; padding: 0px;
+	}
+	&.col-xs-5.smaller { //to col-xs-0
+		@include transition-all( 0.4166s );
+		width: 0%; padding: 0px;
+	}
+	&.col-xs-2.smaller { //to col-xs-0 (for filters)
+		@include transition-all( 0.1666s );
+		width: 0%; padding: 0px;float: right;
+	}
+	&.col-xs-0.bigger { //to col-xs-5
+		width: 41.66666667%; @include transition-width( 0.4166s );
+	}
+	&.col-xs-0.bigger-6 { //to col-xs-6
+		width: 50%; @include transition-width( 0.5s );
+	}
+	&#page-filters.col-xs-0.bigger { //to col-xs-2
+		width: 16.66666667%; @include transition-width( 0.1666s );
+	}
+	&.col-xs-5.bigger-10 { //to col-xs-10
+		width: 83.33333333%; @include transition-width( 0.4166s );
+	}
+	&.col-xs-5.bigger-6 { //to col-xs-6
+		width: 50%; @include transition-width( 0.0833s );
+	}
+	&.col-xs-6.bigger { //to col-xs-12
+		width: 100%; @include transition-width( 0.5s );
+	}
+	&.col-xs-10.bigger { //to col-xs-12
+		width: 100%; @include transition-width( 0.1666s );
+	}
+}
+
+/*
+.tst-todo-px {
+	@include translateX(1920px); @include transition(1s);
+//	-webkit-transform: translateX(1920px); transform: translateX(1920px); transition: all 1s linear; -webkit-transition: all 1s linear;
+}
+.tst-todo-pe {
+	@include translateX(240%); @include transition(1s);
+//	-webkit-transform: translateX(240%); transform: translateX(240%); transition: all 1s linear; -webkit-transition: all 1s linear;
+}
+.tst-main-px {
+	@include translateX(1120px); @include transition(0.5833s);
+//	-webkit-transform: translateX(1120px); transform: translateX(1120px); transition: all 0.5833s linear; -webkit-transition: all 0.5833s linear;
+}
+.tst-main-pe {
+	@include translateX(140%); @include transition(0.5833s);
+//	-webkit-transform: translateX(140%); transform: translateX(140%); transition: all 0.5833s linear; -webkit-transition: all 0.5833s linear;
+}
+.tst-filters-px {
+	@include translateX(320px); @include transition(0.1667s);
+//	-webkit-transform: translateX(320px); transform: translateX(320px); transition: all 0.1667s linear; -webkit-transition: all 0.1667s linear;
+}
+.tst-filters-pe {
+	@include translateX(100%); @include transition(0.1667s);
+//	-webkit-transform: translateX(100%); transform: translateX(100%); transition: all 0.1667s linear; -webkit-transition: all 0.1667s linear;
+}
+.tst-challenger-px {
+	@include translateX(1920px); @include transition(1s);
+}
+.tst-challenger-pe {
+	position : absolute;
+	left: -100%;
+}
+.tst-challenger-pe-move-right {
+	@include translateX(100%); @include transition(1s);
+}
+.tst-challenger-pe-move-left {
+	@include translateX(-100%); @include transition(1s);
+}
+*/
+
+

@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 /* global ICAL */
 /* global moment */
 /* jshint browser: true */
@@ -15,7 +17,7 @@ Ember.RSVP.Promise.all(promises).then(function(resolvedPromises){
 });
  *	emberData2iCal, export iCal file using ...
  */
-export default Em.Mixin.create({
+export default Ember.Mixin.create({
 	//Import
 	iCal2EmberDataSync: function(text) {
 		var self = this;

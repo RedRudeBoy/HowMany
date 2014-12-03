@@ -1,8 +1,9 @@
+{{!--
 <div class="col-xs-6 agenda-withoutstart">
 	<div class="text-center agenda-withoutstart-title">Without Date:</div>
-	{{#view 'droppablevcomponent' class="text-center agenda-withoutstart-droppable"}}
+	{{!--#view 'droppablevcomponent' class="text-center agenda-withoutstart-droppable"--}}
 		{{t "calendar.agenda.removeDate"}}
-	{{/view}}
+	{{!--/view--}}
 	{{#each componentsWithoutDtStart}}
 		{{vcalendar-agenda-item vcomponent=this}}
 	{{/each}}
@@ -17,6 +18,7 @@
 	</div>
 </div>
 <div class="col-xs-6 agenda-withstart">
+--}}
 	<div class="text-center agenda-withstart-title">With Date:</div>
 	<div class="row">
 		<div class="col-xs-12">
@@ -49,7 +51,7 @@
 				<div class="agenda-day-legend">{{firstDayWeekName}}</div>
 				<div class="agenda-day-events">
 					{{#each firstDayWeekEvents}}
-						{{vcalendar-agenda-item vcomponent=this}}
+						{{vcalendar-agenda-item vcomponent=this small="true"}}
 					{{/each}}
 				</div>
 			{{/view}}
@@ -59,7 +61,7 @@
 				<div class="agenda-day-legend">{{secondDayWeekName}}</div>
 				<div class="agenda-day-events">
 					{{#each secondDayWeekEvents}}
-						{{vcalendar-agenda-item vcomponent=this}}
+						{{vcalendar-agenda-item vcomponent=this small="true"}}
 					{{/each}}
 				</div>
 			{{/view}}
@@ -69,7 +71,7 @@
 				<div class="agenda-day-legend">{{thirdDayWeekName}}</div>
 				<div class="agenda-day-events">
 					{{#each thirdDayWeekEvents}}
-						{{vcalendar-agenda-item vcomponent=this}}
+						{{vcalendar-agenda-item vcomponent=this small="true"}}
 					{{/each}}
 				</div>
 			{{/view}}
@@ -79,7 +81,7 @@
 				<div class="agenda-day-legend">{{fourthDayWeekName}}</div>
 				<div class="agenda-day-events">
 					{{#each fourthDayWeekEvents}}
-						{{vcalendar-agenda-item vcomponent=this}}
+						{{vcalendar-agenda-item vcomponent=this small="true"}}
 					{{/each}}
 				</div>
 			{{/view}}
@@ -89,7 +91,7 @@
 				<div class="agenda-day-legend">{{fifthDayWeekName}}</div>
 				<div class="agenda-day-events">
 					{{#each fifthDayWeekEvents}}
-						{{vcalendar-agenda-item vcomponent=this}}
+						{{vcalendar-agenda-item vcomponent=this small="true"}}
 					{{/each}}
 				</div>
 			{{/view}}
@@ -101,7 +103,7 @@
 						<div class="agenda-day-legend">{{sixthDayWeekName}}</div>
 						<div class="agenda-day-events">
 							{{#each sixthDayWeekEvents}}
-								{{vcalendar-agenda-item vcomponent=this}}
+								{{vcalendar-agenda-item vcomponent=this small="true"}}
 							{{/each}}
 						</div>
 					{{/view}}
@@ -111,7 +113,7 @@
 						<div class="agenda-day-legend">{{seventhDayWeekName}}</div>
 						<div class="agenda-day-events">
 							{{#each seventhDayWeekEvents}}
-								{{vcalendar-agenda-item vcomponent=this}}
+								{{vcalendar-agenda-item vcomponent=this small="true"}}
 							{{/each}}
 						</div>
 					{{/view}}
@@ -136,4 +138,6 @@
 		</div>
 		--}}
 	</div>
+{{!--
 </div>
+--}}

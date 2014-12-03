@@ -1,15 +1,16 @@
+import Ember from 'ember';
 import Resolver from 'ember/resolver';
 import loadInitializers from 'ember/load-initializers';
-import Locale from 'appkit/utils/locale';
+import config from './config/environment';
 
-//@ToDo: Use initializers for EmberDC
-var App = Ember.Application.extend(EmberDC, {
-  modulePrefix: 'appkit', // TODO: loaded via config
-  Resolver: Resolver,
-  locale: Locale
+Ember.MODEL_FACTORY_INJECTIONS = true;
+
+var App = Ember.Application.extend({
+  modulePrefix: config.modulePrefix,
+  podModulePrefix: config.podModulePrefix,
+  Resolver: Resolver
 });
 
-Locale.set(App, 'en'); //ca
-loadInitializers(App, 'appkit');
+loadInitializers(App, config.modulePrefix);
 
 export default App;

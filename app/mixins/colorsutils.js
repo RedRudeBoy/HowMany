@@ -1,4 +1,6 @@
-export default Em.Mixin.create({
+import Ember from 'ember';
+
+export default Ember.Mixin.create({
 	//http://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
 	shadeColorHex: function(color, percent) {
 		var num = parseInt(color.slice(1),16), amt = Math.round(2.55 * percent), R = (num >> 16) + amt, G = (num >> 8 & 0x00FF) + amt, B = (num & 0x0000FF) + amt;
